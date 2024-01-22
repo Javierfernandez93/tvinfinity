@@ -1,0 +1,9 @@
+# Regla 1
+User-agent: Googlebot
+Disallow: /apps/admin
+
+# Regla 2
+User-agent: *
+Allow: /
+
+Sitemap: https://moneytv.site/sitemap.xml

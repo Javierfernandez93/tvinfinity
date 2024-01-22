@@ -1,0 +1,1 @@
+const MAIN_PATH = 'http://localhost:8888/funnels7/'

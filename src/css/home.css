@@ -1,0 +1,71 @@
+.section-1 {
+    background-image: url(../../src/img/bg-home.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 900px;
+}
+.section-2 {
+    background-image: url(../../src/img/entrepreneurs.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+.section-1 .container {
+    z-index: 10;
+}
+.number {
+    height: 50px;
+    width: 50px;
+    font-size: 2rem;
+}
+.icon {
+    height: 80px;
+    width: 80px;
+}
+.icon,
+.number {
+    text-align: center;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mt-sn6 {
+    margin-top: -5.68rem !important;
+}
+.card-img-top {
+    height: 260px;
+    object-fit: cover;
+}
+
+.modal-header {
+    display: none;
+}
+
+.navbar-brand {
+    width: 18rem;
+}
+
+
+@media (max-width: 600px) {
+    .section-1,
+    .section-2
+    {
+        background: none;
+    }
+}
+.modal-content {
+    overflow: hidden;
+}
+.btn-floating {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-dark {
+    background-color: #211D1D !important;
+}

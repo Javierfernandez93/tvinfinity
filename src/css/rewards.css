@@ -1,0 +1,8 @@
+.card-reward {
+    height: 200px;
+}
+.card-reward-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
