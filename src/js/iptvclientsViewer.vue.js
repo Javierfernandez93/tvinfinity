@@ -121,7 +121,7 @@ const IptvclientsViewer = {
             })
         },
         sendCredentialsForWhatsApp(client) {
-            window.open(client.whatsapp.sendWhatsApp(encodeURIComponent(`*¡Hola!* te enviamos tus datos de acceso a *MoneyTV*: \n\n Usuario : *${client.user_name}* \n Contraseña : *${client.client_password}*\n\nSi necesitas ayuda para el correcto funcionamiento de las apps por favor da clic en: https://zuum.link/AyudaMoneyTv`)))
+            window.open(client.whatsapp.sendWhatsApp(encodeURIComponent(`*¡Hola!* te enviamos tus datos de acceso a *Infinity*: \n\n Usuario : *${client.user_name}* \n Contraseña : *${client.client_password}*\n\nSi necesitas ayuda para el correcto funcionamiento de las apps por favor da clic en: https://zuum.link/AyudaInfinity`)))
         },
         enableAutoRenew(client) {
             client.busy = true

@@ -4,7 +4,7 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -16,7 +16,7 @@ if($UserSupport->_loaded === true)
             {
                 $data['user_support_id'] = $UserSupport->getId();
                 
-                if(MoneyTv\ItemPerTicket::saveItem($data))
+                if(Infinity\ItemPerTicket::saveItem($data))
                 {
                     $data['s'] = 1;
                     $data['r'] = 'DATA_OK';

@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -12,7 +12,7 @@ if($UserLogin->logged === true)
     {
         if($data['route'])
         {
-            $LandingPerUser = new MoneyTv\LandingPerUser;
+            $LandingPerUser = new Infinity\LandingPerUser;
             
             if(!$LandingPerUser->existRoute($UserLogin->company_id,$data['catalog_landing_id'],$data['route']))
             {

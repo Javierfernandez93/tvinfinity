@@ -4,15 +4,15 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {	
     if($data['client_id'])
     {
-        if(MoneyTv\ServicePerClient::setUpService($data))
+        if(Infinity\ServicePerClient::setUpService($data))
         {
-            $data['status'] = MoneyTv\ServicePerClient::IN_USE;
+            $data['status'] = Infinity\ServicePerClient::IN_USE;
             $data['active_date'] = time();
             $data['r'] = 'DATA_OK';
             $data['s'] = 1;

@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
     if($data['invoice_id'])
     {
-        $BuyPerUser = new MoneyTv\BuyPerUser;
+        $BuyPerUser = new Infinity\BuyPerUser;
 
 		if($BuyPerUser->loadWhere('invoice_id = ?',$data['invoice_id']))
 		{
@@ -29,7 +29,7 @@ if($UserLogin->logged === true)
                             'user' => HCStudio\Util::USERNAME,
                             'password' => HCStudio\Util::PASSWORD,
                             'invoice_id' => $data['invoice_id'],
-                            'catalog_validation_method_id' => MoneyTv\CatalogValidationMethod::EWALLET,
+                            'catalog_validation_method_id' => Infinity\CatalogValidationMethod::EWALLET,
                             'ipn_data' => json_encode($data),
                         ]);
 
@@ -37,7 +37,7 @@ if($UserLogin->logged === true)
                         //     'user' => HCStudio\Util::USERNAME,
                         //     'password' => HCStudio\Util::PASSWORD,
                         //     'invoice_id' => $data['invoice_id'],
-                        //     'catalog_validation_method_id' => MoneyTv\CatalogValidationMethod::EWALLET,
+                        //     'catalog_validation_method_id' => Infinity\CatalogValidationMethod::EWALLET,
                         //     'ipn_data' => json_encode($data),
                         // ]));
 

@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -14,9 +14,9 @@ if($UserSupport->_loaded === true)
         {
             if($data['video'])
             {
-                if(!(new MoneyTv\Landing)->existPath($data['path']))
+                if(!(new Infinity\Landing)->existPath($data['path']))
                 {
-                    if(MoneyTv\Landing::add($data))
+                    if(Infinity\Landing::add($data))
                     {
                         $data["s"] = 1;
                         $data["r"] = "DATA_OK";

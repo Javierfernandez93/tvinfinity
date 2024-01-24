@@ -4,18 +4,18 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     $data['today'] = date("Y-m-d");
     $data['day'] = $data['day'] ? date("Y-m-d",strtotime($data['day'])) : $data['today'];
 
-    $Broker = new MoneyTv\Broker;
+    $Broker = new Infinity\Broker;
 
     if($brokers = $Broker->getAll())
     {   
-        $data["operation_open"] = (new MoneyTv\TradingPerformance)->isOperationOpen($data['day']);
+        $data["operation_open"] = (new Infinity\TradingPerformance)->isOperationOpen($data['day']);
         $data["data"] = filterData($brokers,$data['day']);
         $data["s"] = 1;
         $data["r"] = "DATA_OK";
@@ -30,8 +30,8 @@ if($UserSupport->_loaded === true)
 
 function filterData(array $brokers = null,string $day = null)
 {
-    $CapitalPerBroker = new MoneyTv\CapitalPerBroker;
-    $GainPerBroker = new MoneyTv\GainPerBroker;
+    $CapitalPerBroker = new Infinity\CapitalPerBroker;
+    $GainPerBroker = new Infinity\GainPerBroker;
 
     foreach ($brokers as $key => $broker)
     {

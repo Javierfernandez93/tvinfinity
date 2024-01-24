@@ -4,11 +4,11 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    if($invoices = (new MoneyTv\BuyPerUser)->getAll($UserLogin->company_id))
+    if($invoices = (new Infinity\BuyPerUser)->getAll($UserLogin->company_id))
     {
         $data['invoices'] = format($invoices);
         $data['s'] = 1;
@@ -25,7 +25,7 @@ if($UserLogin->logged === true)
 function format(array $invoices = null) : array 
 {    
     return array_map(function($invoice) {
-        $invoice = MoneyTv\BuyPerUser::_unformatData($invoice);
+        $invoice = Infinity\BuyPerUser::_unformatData($invoice);
 
         return $invoice;
     },$invoices);

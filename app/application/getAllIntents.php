@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-	if($intents = (new MoneyTv\IntentChat)->getAllGroup($UserLogin->company_id))
+	if($intents = (new Infinity\IntentChat)->getAllGroup($UserLogin->company_id))
 	{
 		$data['intents'] = format($intents);
 		$data['r'] = 'DATA_OK';
@@ -24,8 +24,8 @@ if($UserLogin->logged === true)
 
 function format(array $intents = null) : array
 {
-	$IntentChat = new MoneyTv\IntentChat;
-	$ReplyPerCatalogTagIntentChat = new MoneyTv\ReplyPerCatalogTagIntentChat;
+	$IntentChat = new Infinity\IntentChat;
+	$ReplyPerCatalogTagIntentChat = new Infinity\ReplyPerCatalogTagIntentChat;
 
 	return array_map(function($intent) use($IntentChat,$ReplyPerCatalogTagIntentChat) {
 		$intent['words'] = $IntentChat->getAllWords($intent['catalog_tag_intent_chat_id']);

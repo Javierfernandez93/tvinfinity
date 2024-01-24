@@ -75,7 +75,7 @@
     <section class="row py-5 text-white text-center bg-dark" id="target">
         <div class="col-12">
             <div class="section">
-                <h1 class="text-white display-5 fw-sembold">¿PARA QUIÉN ESTÁ DIRIGIDO <span class="text-warning border-bottom border-5 border-warning">MoneyTv?</span></h1>
+                <h1 class="text-white display-5 fw-sembold">¿PARA QUIÉN ESTÁ DIRIGIDO <span class="text-warning border-bottom border-5 border-warning">Infinity?</span></h1>
             </div>
         </div>
     </section>

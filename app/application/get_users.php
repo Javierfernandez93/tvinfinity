@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -27,11 +27,11 @@ if($UserSupport->_loaded === true)
 function format(array $users = null) : array 
 {
     $Country = new World\Country;
-    $LicencePerUser = new MoneyTv\LicencePerUser;
+    $LicencePerUser = new Infinity\LicencePerUser;
     
     return array_map(function($user) use($Country,$LicencePerUser){
         $user['licences'] = $LicencePerUser->getLicencesSoldCount($user['company_id']);
-        $user['active'] = MoneyTv\UserLogin::_isActive($user['company_id']);
+        $user['active'] = Infinity\UserLogin::_isActive($user['company_id']);
         $user['countryData'] = $Country->getCountryNameAndPhoneArea($user['country_id']);
 
         return $user;

@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $TransactionRequirementPerUser = new MoneyTv\TransactionRequirementPerUser;
+    $TransactionRequirementPerUser = new Infinity\TransactionRequirementPerUser;
 
-    if(in_array($data['status'],[MoneyTv\TransactionRequirementPerUser::PENDING,MoneyTv\TransactionRequirementPerUser::EXPIRED,MoneyTv\TransactionRequirementPerUser::VALIDATED,MoneyTv\TransactionRequirementPerUser::DELETED]))
+    if(in_array($data['status'],[Infinity\TransactionRequirementPerUser::PENDING,Infinity\TransactionRequirementPerUser::EXPIRED,Infinity\TransactionRequirementPerUser::VALIDATED,Infinity\TransactionRequirementPerUser::DELETED]))
     {
         $data['filter'] = " WHERE transaction_requirement_per_user.status = '".$data['status']."'";
     }

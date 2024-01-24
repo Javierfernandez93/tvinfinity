@@ -2,12 +2,12 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 $route = JFStudio\Router::StoreCredit;
 
 if($UserLogin->logged === false) {
-	MoneyTv\UserLogin::redirectTo(JFStudio\Router::getName($route));
+	Infinity\UserLogin::redirectTo(JFStudio\Router::getName($route));
 }
 
 $UserLogin->checkRedirection();

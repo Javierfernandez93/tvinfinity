@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if(true)
 {	
-    if($campaigns = (new MoneyTv\WhatsappCampaign)->getAll())
+    if($campaigns = (new Infinity\WhatsappCampaign)->getAll())
     {
         $data['campaigns'] = $campaigns;
         $data['r'] = 'DATA_OK';

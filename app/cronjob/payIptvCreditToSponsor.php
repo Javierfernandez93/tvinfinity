@@ -4,14 +4,14 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getVarFromPGS();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 $data['PHP_AUTH_USER'] = $data['PHP_AUTH_USER'] ?? null;
 $data['PHP_AUTH_PW'] = $data['PHP_AUTH_PW'] ?? null;
 
 if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 {
-    $BuyPerUser = new MoneyTv\BuyPerUser;
+    $BuyPerUser = new Infinity\BuyPerUser;
     
     $activations = $BuyPerUser->getPackageBuysByDate(1); // activations
     $suscriptions = $BuyPerUser->getPackageBuysByDate(5); // monthly subscriptions
@@ -20,8 +20,8 @@ if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] ==
 
     if($buys)
     {
-        $UserReferral = new MoneyTv\UserReferral;
-        $ServicePerClient = new MoneyTv\ServicePerClient;
+        $UserReferral = new Infinity\UserReferral;
+        $ServicePerClient = new Infinity\ServicePerClient;
         
         foreach($buys as $buy)
         {
@@ -41,18 +41,18 @@ if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] ==
 
                         foreach($services as $service)
                         {
-                            $referralName = (new MoneyTv\UserData)->getName($user_login_id);
+                            $referralName = (new Infinity\UserData)->getName($user_login_id);
 
-                            sendPush($buy['user_login_id'],"Hemos dispersado $0.5 USD por la activación de servicio de tu referido {$referralName}",MoneyTv\CatalogNotification::GAINS);
+                            sendPush($buy['user_login_id'],"Hemos dispersado $0.5 USD por la activación de servicio de tu referido {$referralName}",Infinity\CatalogNotification::GAINS);
 
-                            MoneyTv\CommissionPerUser::addCreditCommission([
+                            Infinity\CommissionPerUser::addCreditCommission([
                                 'user_login_id' => $buy['user_login_id'],
                                 'buy_per_user_id' => $buy['buy_per_user_id'],
-                                'catalog_commission_type_id' => MoneyTv\CatalogCommissionType::NETWORK_TYPE_ID,
+                                'catalog_commission_type_id' => Infinity\CatalogCommissionType::NETWORK_TYPE_ID,
                                 'service_per_client_id' => $service['service_per_client_id'],
                                 'user_login_id_from' => $user_login_id,
                                 'amount' => 0.5,
-                                'catalog_currency_id' => MoneyTv\CatalogCurrency::USD,
+                                'catalog_currency_id' => Infinity\CatalogCurrency::USD,
                                 'package_id' => 0,
                             ]);
                         }
@@ -76,7 +76,7 @@ if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] ==
 
 function sendPush(string $user_login_id = null,string $message = null,int $catalog_notification_id = null) : bool
 {
-    return MoneyTv\NotificationPerUser::push($user_login_id,$message,$catalog_notification_id,"");
+    return Infinity\NotificationPerUser::push($user_login_id,$message,$catalog_notification_id,"");
 }
 
 echo json_encode(HCStudio\Util::compressDataForPhone($data)); 

@@ -4,11 +4,11 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    if($apiCredential = (new MoneyTv\ApiCredential)->generateApis($data['user_login_id']))
+    if($apiCredential = (new Infinity\ApiCredential)->generateApis($data['user_login_id']))
     {
         $data['s'] = 1;
         $data['r'] = 'DATA_OK';

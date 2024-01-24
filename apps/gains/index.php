@@ -2,17 +2,17 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === false) {
 	HCStudio\Util::redirectTo(TO_ROOT."/apps/login/");
 }
-// $UserWallet = new MoneyTv\UserWallet;
+// $UserWallet = new Infinity\UserWallet;
 // $UserWallet->getSafeWallet($UserLogin->company_id);
 
-// $ammount = $UserWallet->getBalance(" AND transaction_per_wallet.transaction_id IN ('".MoneyTv\Transaction::INVESTMENT."','".MoneyTv\Transaction::REFERRAL_INVESTMENT."')");
+// $ammount = $UserWallet->getBalance(" AND transaction_per_wallet.transaction_id IN ('".Infinity\Transaction::INVESTMENT."','".Infinity\Transaction::REFERRAL_INVESTMENT."')");
 // $UserWallet->depositGains($ammount);
-// // echo $UserWallet->getBalance(" AND transaction_per_wallet.transaction_id IN ('".MoneyTv\Transaction::INVESTMENT."','".MoneyTv\Transaction::REFERRAL_INVESTMENT."')");
+// // echo $UserWallet->getBalance(" AND transaction_per_wallet.transaction_id IN ('".Infinity\Transaction::INVESTMENT."','".Infinity\Transaction::REFERRAL_INVESTMENT."')");
 // die;
 $UserLogin->checkRedirection();
 

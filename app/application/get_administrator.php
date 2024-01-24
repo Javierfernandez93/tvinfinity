@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -25,9 +25,9 @@ if($UserSupport->_loaded === true)
 
 function getPermissions(int $user_support_id = null)
 {
-    $catalog_permissions = (new MoneyTv\CatalogPermission)->getAll();
+    $catalog_permissions = (new Infinity\CatalogPermission)->getAll();
     
-    if($permissions = (new MoneyTv\PermissionPerUserSupport)->getPermissions($user_support_id))
+    if($permissions = (new Infinity\PermissionPerUserSupport)->getPermissions($user_support_id))
     {
         foreach ($catalog_permissions as $key => $catalog_permission) 
         {

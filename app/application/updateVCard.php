@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['vcard_per_user_id'])
     {
-        $VCardPerUser = new MoneyTv\VCardPerUser;
+        $VCardPerUser = new Infinity\VCardPerUser;
         
         if($VCardPerUser->loadWhere('vcard_per_user_id = ?',$data['vcard_per_user_id']))
         {
@@ -52,7 +52,7 @@ if($UserLogin->logged === true)
 
 function saveTagPerVCard(array $catalog_tag_template = null,int $vcard_per_user_id = null) : bool
 {
-    $TagPerVCard = new MoneyTv\TagPerVCard;
+    $TagPerVCard = new Infinity\TagPerVCard;
     
     if(!$TagPerVCard->loadWhere('vcard_per_user_id = ? AND catalog_tag_template_id = ?',[$vcard_per_user_id,$catalog_tag_template['catalog_tag_template_id']]))
     {
@@ -61,7 +61,7 @@ function saveTagPerVCard(array $catalog_tag_template = null,int $vcard_per_user_
         $TagPerVCard->create_date = time();
     }
 
-    $TagPerVCard->value = $catalog_tag_template['value'] ? MoneyTv\TagPerVCard::formatValue($catalog_tag_template) : '';
+    $TagPerVCard->value = $catalog_tag_template['value'] ? Infinity\TagPerVCard::formatValue($catalog_tag_template) : '';
     
     return $TagPerVCard->save();
 }

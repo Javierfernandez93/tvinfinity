@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
@@ -12,7 +12,7 @@ if($UserLogin->logged === true)
     {
         $data['ewallet'] = $Wallet->attr();
         $data['ewallet']['amount'] = $Wallet->getBalance();
-        $data['ewallet']['link'] = (new MoneyTv\ShortUrl)->getLink($Wallet);
+        $data['ewallet']['link'] = (new Infinity\ShortUrl)->getLink($Wallet);
         $data['ewallet']['holder'] = $UserLogin->getNames();
         $data['ewallet']['addressLenght'] = BlockChain\Wallet::ADDRESS_LENGTH;
 

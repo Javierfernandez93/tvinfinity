@@ -4,13 +4,13 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    if((new MoneyTv\CatalogTagIntentChat)->isUnique($UserLogin->company_id,$data['tag']))
+    if((new Infinity\CatalogTagIntentChat)->isUnique($UserLogin->company_id,$data['tag']))
     {
-        if((new MoneyTv\IntentChat)->add($data,$UserLogin->company_id))
+        if((new Infinity\IntentChat)->add($data,$UserLogin->company_id))
         {
             $data['s'] = 1;
             $data['r'] = 'DATA_OK';

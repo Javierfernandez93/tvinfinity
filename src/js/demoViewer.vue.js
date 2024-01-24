@@ -105,7 +105,7 @@ const DemoViewer = {
         <div v-if="visitorInfo" class="card">
             <div class="card-header  text-center">
                 <h3>Solicita tu demo</h3>
-                <h4>MoneyTv te invita a probar una demo</h4>
+                <h4>Infinity te invita a probar una demo</h4>
                 <p>Ingresa tu WhatsApp (10 dígitos) y después da clic en Solicitar demo</p>
             </div>
             <div class="card-body w-100">

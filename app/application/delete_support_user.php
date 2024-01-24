@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['user_support_id'])
     {
-        $UserSupportUpdate = new MoneyTv\UserSupport;
+        $UserSupportUpdate = new Infinity\UserSupport;
 
         if($UserSupportUpdate->cargarDonde("user_support_id = ?",$data['user_support_id'])) 
         {

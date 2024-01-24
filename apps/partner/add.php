@@ -10,7 +10,7 @@ $Layout->init("Aprendiendo en curso","learning","backoffice","",TO_ROOT."/");
 $Layout->setScriptPath(TO_ROOT . '/src/');
 $Layout->setScript(['courses.*','view-courses.css','courses-style.css']);
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 $SessionPerCourse = new OwnBoss\SessionPerCourse;
 $Course = new OwnBoss\Course;
 

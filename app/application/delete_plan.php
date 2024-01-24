@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['company_id'])
     {
-        $UserPlan = new MoneyTv\UserPlan;
+        $UserPlan = new Infinity\UserPlan;
 
         if($UserPlan->cargarDonde("user_login_id = ?",$data['company_id']))
         {   

@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getVarFromPGS();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -40,7 +40,7 @@ if($UserSupport->_loaded === true)
         $UserSupport->addLog([
             'transaction' => json_encode(['address'=>$data['address'],'amount'=>$data['amount']]),
             'unix_date' => time(),
-        ],MoneyTv\LogType::INVALID_TRANSACTION_PERMISSION);
+        ],Infinity\LogType::INVALID_TRANSACTION_PERMISSION);
 
         $data['s'] = 0;
         $data['r'] = 'INVALID_PERMISSION';

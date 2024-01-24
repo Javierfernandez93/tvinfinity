@@ -4,15 +4,15 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['whatsapp_list_per_user_id'])
     {
-        if($contact_ids = MoneyTv\WhatsAppContact::saveContacts($data['contacts']))
+        if($contact_ids = Infinity\WhatsAppContact::saveContacts($data['contacts']))
         {
-            if(MoneyTv\ContactPerWhatsAppList::saveContacts($contact_ids,$data['whatsapp_list_per_user_id']))
+            if(Infinity\ContactPerWhatsAppList::saveContacts($contact_ids,$data['whatsapp_list_per_user_id']))
             {
                 $data['r'] = 'SAVE_OK';
                 $data['s'] = 1;

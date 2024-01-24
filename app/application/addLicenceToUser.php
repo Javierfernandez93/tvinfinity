@@ -4,11 +4,11 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    if(MoneyTv\LicencePerUser::makeLicences($data['company_id'],$data['amount']))
+    if(Infinity\LicencePerUser::makeLicences($data['company_id'],$data['amount']))
     {
         $data['s'] = 1;
         $data['r'] = 'DATA_OK';

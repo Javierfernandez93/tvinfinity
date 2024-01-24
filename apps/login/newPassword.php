@@ -2,7 +2,7 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true) {
     HCStudio\Util::redirectTo(TO_ROOT."/apps/backoffice/");

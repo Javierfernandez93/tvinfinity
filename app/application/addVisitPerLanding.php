@@ -6,9 +6,9 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 if($data['utm'])
 {
-    if($data['landing_per_user_id'] = (new MoneyTv\LandingPerUser)->getLandingIdByRoute($data['utm'],$data['catalog_landing_id']))
+    if($data['landing_per_user_id'] = (new Infinity\LandingPerUser)->getLandingIdByRoute($data['utm'],$data['catalog_landing_id']))
     {
-        if(MoneyTv\VisitPerLanding::addVisit($data['landing_per_user_id'],HCStudio\Util::getIP(),$data['catalog_landing_id']))
+        if(Infinity\VisitPerLanding::addVisit($data['landing_per_user_id'],HCStudio\Util::getIP(),$data['catalog_landing_id']))
         {
             $data["s"] = 1;
             $data["r"] = "DATA_OK";

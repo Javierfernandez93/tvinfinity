@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true) 
 {	
     if($data['sessionName'])
     {
-        if(MoneyTv\WhatsAppSessionPerUser::setSavesession($UserLogin->company_id,$data['sessionName']))
+        if(Infinity\WhatsAppSessionPerUser::setSavesession($UserLogin->company_id,$data['sessionName']))
         {
             $data['r'] = 'DATA_OK';
             $data['s'] = 1;

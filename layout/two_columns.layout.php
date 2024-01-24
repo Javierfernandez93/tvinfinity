@@ -33,7 +33,7 @@
         {{js_scripts}}
 
         <footer class="fixed-bottom d-none w-100 text-center py-3 fw-semibold">
-            © <script> document.write(new Date().getFullYear()) </script>, made with <i class="fa fa-heart"></i> by <a href="https://moneytv.site/" class="font-weight-bold" target="_blank">Funnels7</a> for a better web.
+            © <script> document.write(new Date().getFullYear()) </script>, made with <i class="fa fa-heart"></i> by <a href="https://Infinity.site/" class="font-weight-bold" target="_blank">Funnels7</a> for a better web.
         </footer>
     </body>
 </html>

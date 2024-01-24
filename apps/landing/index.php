@@ -6,9 +6,9 @@ $landing = HCStudio\Util::getVarFromPGS('landing');
 
 if($landing)
 {
-	if($user_login_id = (new MoneyTv\UserAccount)->getIdByLanding($landing))
+	if($user_login_id = (new Infinity\UserAccount)->getIdByLanding($landing))
 	{
-		HCStudio\Util::redirectTo(MoneyTv\UserLogin::_getLanding($user_login_id));
+		HCStudio\Util::redirectTo(Infinity\UserLogin::_getLanding($user_login_id));
 	}
 
 	d($landing);

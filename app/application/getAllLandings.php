@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getVarFromPGS();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($UserSupport->hasPermission('add_ewallet_transaction') === true)
     {
-        if($landings = (new MoneyTv\Landing)->getAll()) {
+        if($landings = (new Infinity\Landing)->getAll()) {
             $data['landings'] = $landings;
             $data['s'] = 1;
             $data['r'] = "DATA_OK";

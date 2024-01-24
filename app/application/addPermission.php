@@ -4,11 +4,11 @@ require_once TO_ROOT. '/system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $CatalogPermission = new MoneyTv\CatalogPermission;
+    $CatalogPermission = new Infinity\CatalogPermission;
     
     if(!$CatalogPermission->exist($data['permission']))
     {

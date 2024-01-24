@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    if($campaigns = (new MoneyTv\CampaignBannerPerUser)->getAll($UserLogin->company_id))
+    if($campaigns = (new Infinity\CampaignBannerPerUser)->getAll($UserLogin->company_id))
     {
         $data['campaigns'] = format($campaigns);
         $data['r'] = 'DATA_OK';
@@ -24,9 +24,9 @@ if($UserLogin->logged === true)
 
 function format(array $campaigns = null) : array
 {
-    $ClickPerBanner = new MoneyTv\ClickPerBanner;
-    $PrintPerBanner = new MoneyTv\PrintPerBanner;
-    $BannerPerCampaign = new MoneyTv\BannerPerCampaign;
+    $ClickPerBanner = new Infinity\ClickPerBanner;
+    $PrintPerBanner = new Infinity\PrintPerBanner;
+    $BannerPerCampaign = new Infinity\BannerPerCampaign;
     
     return array_map(function (array $campaign) use($PrintPerBanner,$ClickPerBanner,$BannerPerCampaign){
         $campaign['prints'] = 0;

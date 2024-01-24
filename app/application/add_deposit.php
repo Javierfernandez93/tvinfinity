@@ -4,17 +4,17 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $UserWallet = new MoneyTv\UserWallet;
+    $UserWallet = new Infinity\UserWallet;
     
     if($UserWallet->getSafeWallet(($data['user_login_id'])))
     {
-        if($UserWallet->doTransaction($data['ammount'],MoneyTv\Transaction::DEPOSIT,null,null,false))
+        if($UserWallet->doTransaction($data['ammount'],Infinity\Transaction::DEPOSIT,null,null,false))
         {
-            $UserPlan = new MoneyTv\UserPlan;
+            $UserPlan = new Infinity\UserPlan;
 
             if($UserPlan->setPlan($data['user_login_id']))
             {

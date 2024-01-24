@@ -6,4 +6,4 @@ Disallow: /apps/admin
 User-agent: *
 Allow: /
 
-Sitemap: https://moneytv.site/sitemap.xml
+Sitemap: https://Infinity.site/sitemap.xml

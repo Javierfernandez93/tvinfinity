@@ -7,11 +7,11 @@ $data = json_decode($data,true);
 
 
 array_map(function($movie){
-    $Movie = new MoneyTv\Movie;
+    $Movie = new Infinity\Movie;
     $Movie->title = $movie['title'];
     $Movie->description = $movie['description'];
     $Movie->link = $movie['link'];
-    $Movie->image = 'https://moneytv.site/src/files/img/movie-bg.png';
+    $Movie->image = 'https://Infinity.site/src/files/img/movie-bg.png';
     $Movie->create_date = time();
     $Movie->save();
 },$data);

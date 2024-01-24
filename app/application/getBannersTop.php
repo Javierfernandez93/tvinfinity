@@ -4,16 +4,16 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($Wallet = BlockChain\Wallet::getWallet($UserLogin->company_id))
     {
-        $PrintPerBanner = new MoneyTv\PrintPerBanner;
+        $PrintPerBanner = new Infinity\PrintPerBanner;
         
-        $data['banners'][] = $PrintPerBanner->getNextBanner($UserLogin->company_id,MoneyTv\CatalogBanner::TOP_LEFT);
-        $data['banners'][] = $PrintPerBanner->getNextBanner($UserLogin->company_id,MoneyTv\CatalogBanner::TOP_RIGHT);
+        $data['banners'][] = $PrintPerBanner->getNextBanner($UserLogin->company_id,Infinity\CatalogBanner::TOP_LEFT);
+        $data['banners'][] = $PrintPerBanner->getNextBanner($UserLogin->company_id,Infinity\CatalogBanner::TOP_RIGHT);
 
         $data['r'] = 'DATA_OK';
         $data['s'] = 1;

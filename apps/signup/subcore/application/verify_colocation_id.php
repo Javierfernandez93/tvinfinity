@@ -6,7 +6,7 @@ $data = HCStudio\Util::getHeadersForWebService();
 if($data["sponsor_id"] || $data["colocation_id"]){
 
 	// primero verifico que exista en su red 
-	$UserAccount = new MoneyTv\UserAccount();
+	$UserAccount = new Infinity\UserAccount();
 	$sponsor_id = $data['sponsor_id'];
 	$sponsor = $data['colocation_id'];
 	$niveles=1;

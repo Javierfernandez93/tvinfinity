@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
@@ -12,7 +12,7 @@ if($UserLogin->logged === true)
     {
         if($data['description'])
         {
-            $CampaignBannerPerUser = new MoneyTv\CampaignBannerPerUser;
+            $CampaignBannerPerUser = new Infinity\CampaignBannerPerUser;
             $CampaignBannerPerUser->user_login_id = $UserLogin->company_id;
             $CampaignBannerPerUser->name = $data['name'];
             $CampaignBannerPerUser->country_ids = format($data['countries']);

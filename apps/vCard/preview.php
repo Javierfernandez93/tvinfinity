@@ -8,7 +8,7 @@ if($vcard_per_user_id === false) {
 	HCStudio\Util::redirectTo(TO_ROOT."/apps/home/not_found");
 }
 
-$VCardPerUser = new MoneyTv\VCardPerUser;
+$VCardPerUser = new Infinity\VCardPerUser;
 
 if($VCardPerUser->loadWhere("vcard_per_user_id = ?",$vcard_per_user_id) == false)
 {
@@ -17,16 +17,16 @@ if($VCardPerUser->loadWhere("vcard_per_user_id = ?",$vcard_per_user_id) == false
 
 $Layout = JFStudio\Layout::getInstance();
 
-$Layout->init("VCard",MoneyTv\VCardPerUser::getViewPathFile($vcard_per_user_id),"blank-preview","",TO_ROOT."/",TO_ROOT."/".MoneyTv\VCardPerUser::getViewPath($VCardPerUser->getId()));
+$Layout->init("VCard",Infinity\VCardPerUser::getViewPathFile($vcard_per_user_id),"blank-preview","",TO_ROOT."/",TO_ROOT."/".Infinity\VCardPerUser::getViewPath($VCardPerUser->getId()));
 
 $Layout->setScriptPath(TO_ROOT . '/src/');
 $Layout->setScript(
-	array_merge(['vcarduser.vue.js'],(new MoneyTv\Template)->getScripts($VCardPerUser->template_id))
+	array_merge(['vcarduser.vue.js'],(new Infinity\Template)->getScripts($VCardPerUser->template_id))
 );
 
-MoneyTv\VisitPerVCard::addVisit($VCardPerUser->getId());
+Infinity\VisitPerVCard::addVisit($VCardPerUser->getId());
 
-$TagPerVCard = new MoneyTv\TagPerVCard;
+$TagPerVCard = new Infinity\TagPerVCard;
 
 if($tags = $TagPerVCard->getAll($VCardPerUser->getId()))
 {
@@ -34,7 +34,7 @@ if($tags = $TagPerVCard->getAll($VCardPerUser->getId()))
 }
 
 $Layout->setVar([
-	'MetaPerSheet' => new MoneyTv\MetaPerSheet,
+	'MetaPerSheet' => new Infinity\MetaPerSheet,
 	'vcard_per_user_id' => $vcard_per_user_id,
 ]);
 $Layout();

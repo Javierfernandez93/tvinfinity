@@ -4,13 +4,13 @@ require_once TO_ROOT. '/system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['user']['email'])
     {
-        $UserLogin = new MoneyTv\UserLogin;
+        $UserLogin = new Infinity\UserLogin;
 
         if($UserLogin->isUniqueMail($data['user']['email']))
         {
@@ -57,24 +57,24 @@ if($UserSupport->_loaded === true)
 
 function sendPush(string $user_login_id = null,string $message = null,int $catalog_notification_id = null) : bool
 {
-    return MoneyTv\NotificationPerUser::push($user_login_id,$message,$catalog_notification_id,"");
+    return Infinity\NotificationPerUser::push($user_login_id,$message,$catalog_notification_id,"");
 }
 
 function sendPushUser(string $user_login_id = null,string $names = null) : bool
 {
-    return sendPush($user_login_id,"Bienvenido a bordo {$names}, estamos felices de que te hayas registrado en Funnels7",MoneyTv\CatalogNotification::ACCOUNT);
+    return sendPush($user_login_id,"Bienvenido a bordo {$names}, estamos felices de que te hayas registrado en Funnels7",Infinity\CatalogNotification::ACCOUNT);
 }
 
 function sendPushSponsor(string $user_login_id = null,string $names = null) : bool
 {
-    return sendPush($user_login_id,"Felicitaciones, {$names} se unió a tu grupo de referidos",MoneyTv\CatalogNotification::REFERRAL);
+    return sendPush($user_login_id,"Felicitaciones, {$names} se unió a tu grupo de referidos",Infinity\CatalogNotification::REFERRAL);
 }
 
 function sendEmailSponsor(string $user_login_id = null,string $names = null) : bool
 {
     if(isset($user_login_id,$names) === true)
     {
-        $UserLogin = new MoneyTv\UserLogin;
+        $UserLogin = new Infinity\UserLogin;
 
         if($email = $UserLogin->getEmail($user_login_id))
         {
@@ -112,7 +112,7 @@ function sendEmail(string $email = null,string $names = null,string $subject = n
             $Layout->setScriptPath(TO_ROOT . '/apps/admin/src/');
     		$Layout->setScript(['']);
 
-            $CatalogMailController = MoneyTv\CatalogMailController::init(1);
+            $CatalogMailController = Infinity\CatalogMailController::init(1);
 
             $Layout->setVar([
                 "email" => $email,

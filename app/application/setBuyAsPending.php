@@ -4,13 +4,13 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if(($data['user'] == HCStudio\Util::USERNAME && $data['password'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 {
     if($data['invoice_id'])
 	{
-        $BuyPerUser = new MoneyTv\BuyPerUser;
+        $BuyPerUser = new Infinity\BuyPerUser;
         
         if($BuyPerUser->isInvoiceDeletedOrExpired($data['invoice_id']))
         {

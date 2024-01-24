@@ -166,7 +166,7 @@ const Landing4Viewer = {
                     <div class="col-12">
                         <div class="fs-1" style="font-family font-size: 27px; font-weight: 800;">CURSO DE MARKETING AUTOMATIZADO</div>
                         <div class="row justify-content-center">
-                            <div class="col-10 col-xl-4"> <img src="https://www.moneytv.site/src/img/logo-horizontal-white.svg" class="img-fluid"> </div>
+                            <div class="col-10 col-xl-4"> <img src="https://www.Infinity.site/src/img/logo-horizontal-white.svg" class="img-fluid"> </div>
                         </div>
                     </div>
                 </div>

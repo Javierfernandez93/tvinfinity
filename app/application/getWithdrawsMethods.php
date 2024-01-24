@@ -8,12 +8,12 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
     $data['fee'] = BlockChain\Transaction::WITHDRAW_FEE;
-    $data['withdrawMethods'] = format((new MoneyTv\WithdrawMethodPerUser)->getAll($UserLogin->company_id));
+    $data['withdrawMethods'] = format((new Infinity\WithdrawMethodPerUser)->getAll($UserLogin->company_id));
     $data["s"] = 1;
     $data["r"] = "LOGGED_OK";
 } else {
@@ -22,7 +22,7 @@ if($UserLogin->logged === true)
 }
 
 function format(array $withdrawMethods = null) : array {
-    $CatalogCurrency = new MoneyTv\CatalogCurrency;
+    $CatalogCurrency = new Infinity\CatalogCurrency;
 
     return array_map(function($withdrawMethod) use ($CatalogCurrency) {
         $withdrawMethod['catalog_currency'] = $CatalogCurrency->getFullCurrency($withdrawMethod['catalog_currency_id']);

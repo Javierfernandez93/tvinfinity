@@ -4,36 +4,36 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
     if($data['invoice_id'])
 	{
-        if((new MoneyTv\LicencePerUser)->hasAviableLicences($UserLogin->company_id))
+        if((new Infinity\LicencePerUser)->hasAviableLicences($UserLogin->company_id))
         {
-            $BuyPerUser = new MoneyTv\BuyPerUser;
+            $BuyPerUser = new Infinity\BuyPerUser;
             
             if($BuyPerUser->isInvoicePending($data['invoice_id']))
             {
                 if($BuyPerUser->loadWhere('invoice_id = ?',$data['invoice_id']))
                 {	
-                    if(MoneyTv\BuyPerUser::processPayment($BuyPerUser->getId()))
+                    if(Infinity\BuyPerUser::processPayment($BuyPerUser->getId()))
                     {
-                        $BuyPerUser->catalog_validation_method_id = MoneyTv\CatalogValidationMethod::INTERNAL_USER;
+                        $BuyPerUser->catalog_validation_method_id = Infinity\CatalogValidationMethod::INTERNAL_USER;
                         // $BuyPerUser->ipn_data = $data['ipn_data'] ? $data['ipn_data'] : '';
                         $BuyPerUser->approved_date = time();
                         $BuyPerUser->user_support_id = $data['user_support_id'] ? $data['user_support_id'] : $BuyPerUser->user_support_id;
-                        $BuyPerUser->status = MoneyTv\BuyPerUser::VALIDATED;
+                        $BuyPerUser->status = Infinity\BuyPerUser::VALIDATED;
     
                         if($BuyPerUser->save())
                         {
-                            if(MoneyTv\LicencePerUser::assignLicence($UserLogin->company_id,$BuyPerUser->user_login_id))
+                            if(Infinity\LicencePerUser::assignLicence($UserLogin->company_id,$BuyPerUser->user_login_id))
                             {
                                 $data['licenceReleased'] = true;
                             }
 
-                            // if(sendEmail((new MoneyTv\UserLogin)->getEmail($BuyPerUser->user_login_id),$BuyPerUser->invoice_id))
+                            // if(sendEmail((new Infinity\UserLogin)->getEmail($BuyPerUser->user_login_id),$BuyPerUser->invoice_id))
                             // {
                             //     $data['mail_sent'] = true;
                             // }
@@ -85,7 +85,7 @@ function sendEmail(string $email = null,string $invoice_id = null) : bool
             $Layout->setScriptPath(TO_ROOT . '/apps/admin/src/');
     		$Layout->setScript(['']);
 
-            $CatalogMailController = MoneyTv\CatalogMailController::init(1);
+            $CatalogMailController = Infinity\CatalogMailController::init(1);
 
             $Layout->setVar([
                 "invoice_id" => $invoice_id,
@@ -109,7 +109,7 @@ function sendEmail(string $email = null,string $invoice_id = null) : bool
             //Content
             $mail->isHTML(true);                                  
             $mail->CharSet = 'UTF-8';
-            $mail->Subject = 'Bienvenido a MoneyTV';
+            $mail->Subject = 'Bienvenido a Infinity';
             $mail->Body = $Layout->getHtml();
             $mail->AltBody = strip_tags($Layout->getHtml());
 

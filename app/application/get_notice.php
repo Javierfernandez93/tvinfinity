@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['notice_id'])
     {
-        $Notice = new MoneyTv\Notice;
+        $Notice = new Infinity\Notice;
         
         if($notice = $Notice->getNotice($data['notice_id']))
         {

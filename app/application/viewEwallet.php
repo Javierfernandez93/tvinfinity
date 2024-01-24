@@ -4,7 +4,7 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -14,7 +14,7 @@ if($UserSupport->_loaded === true)
         {
             $data['ewallet'] = $Wallet->attr();
             $data['ewallet']['amount'] = $Wallet->getBalance();
-            $data['ewallet']['link'] = (new MoneyTv\ShortUrl)->getLink($Wallet);
+            $data['ewallet']['link'] = (new Infinity\ShortUrl)->getLink($Wallet);
 
             $data['r'] = 'DATA_OK';
             $data['s'] = 1;

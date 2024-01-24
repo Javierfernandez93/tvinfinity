@@ -4,11 +4,11 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-	$StoragePerUser = new MoneyTv\StoragePerUser;
+	$StoragePerUser = new Infinity\StoragePerUser;
 
 	if($data['path'] = $StoragePerUser->getStoragePerUserId($UserLogin->company_id))
 	{
@@ -18,7 +18,7 @@ if($UserLogin->logged === true)
 		}
 
 
-		$data['max_size'] = HCStudio\Util::formatSizeUnits(MoneyTv\StoragePerUser::DEFAULT_DISK_SIZE);
+		$data['max_size'] = HCStudio\Util::formatSizeUnits(Infinity\StoragePerUser::DEFAULT_DISK_SIZE);
 		$data['size'] = HCStudio\Util::formatSizeUnits($StoragePerUser->getDiskUsed($data['full_path']));
         $data['percentaje'] = $StoragePerUser->getPercentajeDiskUsed($data['full_path']);
 		$data['r'] = 'DATA_OK';

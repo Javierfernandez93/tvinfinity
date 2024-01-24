@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true) 
 {	
-    if($lists = (new MoneyTv\WhatsAppListPerUser)->getAll($UserLogin->company_id))
+    if($lists = (new Infinity\WhatsAppListPerUser)->getAll($UserLogin->company_id))
     {
         $data['lists'] = format($lists);
         $data['r'] = 'DATA_OK';
@@ -23,7 +23,7 @@ if($UserLogin->logged === true)
 }
 
 function format(array $lists = null) : array {
-    $ContactPerWhatsAppList = new MoneyTv\ContactPerWhatsAppList;
+    $ContactPerWhatsAppList = new Infinity\ContactPerWhatsAppList;
 
     return array_map(function($list) use($ContactPerWhatsAppList) {
         $list['contact'] = $ContactPerWhatsAppList->getCount($list['whatsapp_list_per_user_id']);

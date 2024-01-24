@@ -7,7 +7,7 @@ use M3uParser\M3uParser;
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 // if($UserLogin->logged === true)
 if(true)
@@ -16,11 +16,11 @@ if(true)
 
     if($data['list_per_user_id'])
     {
-        $ListPerUser = new MoneyTv\ListPerUser;
+        $ListPerUser = new Infinity\ListPerUser;
         
         if($ListPerUser->loadWhere("list_per_user_id = ?",[$data['list_per_user_id']]))
         {
-            if($url = MoneyTv\ListPerUser::concatListUrl($ListPerUser->url))
+            if($url = Infinity\ListPerUser::concatListUrl($ListPerUser->url))
             {
                 if($groups = loadDataFromURL($url,$ListPerUser->has_group))
                 {

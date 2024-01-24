@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
@@ -12,7 +12,7 @@ if($UserLogin->logged === true)
     {
         if($data['description'])
         {
-            if($whatsapp_message_schedule_id = MoneyTv\WhatsAppMessageSchedule::saveSchedule($data))
+            if($whatsapp_message_schedule_id = Infinity\WhatsAppMessageSchedule::saveSchedule($data))
             {
                 $data['whatsapp_message_schedule_id'] = $whatsapp_message_schedule_id;
                 $data['r'] = 'DATA_OK';

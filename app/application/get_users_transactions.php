@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $WithdrawPerUser = new MoneyTv\WithdrawPerUser;
+    $WithdrawPerUser = new Infinity\WithdrawPerUser;
     
     $filter = " WHERE withdraw_per_user.status = '1'";
     
@@ -28,7 +28,7 @@ if($UserSupport->_loaded === true)
 
 // function formatData($UserSupport = null, array $transactions = null) : array
 // {
-//     $WithdrawMethodPerUser = new MoneyTv\WithdrawMethodPerUser;
+//     $WithdrawMethodPerUser = new Infinity\WithdrawMethodPerUser;
 
 //     foreach ($transactions as $key => $transaction)
 //     {

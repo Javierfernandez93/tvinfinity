@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
@@ -12,7 +12,7 @@ if($UserLogin->logged === true)
     {
         if($data['title'])
         {
-            $WhatsAppMessagePerCampaign = new MoneyTv\WhatsAppMessagePerCampaign;
+            $WhatsAppMessagePerCampaign = new Infinity\WhatsAppMessagePerCampaign;
             
             if($data['whatsapp_message_per_campaign_id'])
             {

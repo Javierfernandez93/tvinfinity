@@ -2,12 +2,12 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$LicencePerUser = new MoneyTv\LicencePerUser;
+$LicencePerUser = new Infinity\LicencePerUser;
 
 // if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 if(true)
 {
-    if($licences = $LicencePerUser->getAllLicences(MoneyTv\LicencePerUser::USED))
+    if($licences = $LicencePerUser->getAllLicences(Infinity\LicencePerUser::USED))
     {
         array_map(function($licence) use($LicencePerUser) {
             $leftDays = $LicencePerUser->calculateLeftDays($licence['active_date']);
@@ -18,7 +18,7 @@ if(true)
             {
                 echo " - Expiró ";
 
-                if(MoneyTv\LicencePerUser::expire($licence['licence_per_user_id']))
+                if(Infinity\LicencePerUser::expire($licence['licence_per_user_id']))
                 {
                     echo " Correctamente ";
                 }

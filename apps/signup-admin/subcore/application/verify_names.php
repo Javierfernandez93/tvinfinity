@@ -8,7 +8,7 @@ if($data["names"])
 {
 	if($data["last_name"])
 	{
-		$UserData = new MoneyTv\UserData;
+		$UserData = new Infinity\UserData;
 
 		$sql = "SELECT user_login_id FROM user_data WHERE MATCH (names) AGAINST ('+".$data["names"]."+' IN BOOLEAN MODE)";
 		$name_filter = $UserData->connection()->rows($sql);

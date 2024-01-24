@@ -8,14 +8,14 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {   
-    if($landings = (new MoneyTv\Landing)->getAll())
+    if($landings = (new Infinity\Landing)->getAll())
     {
         $data['hasLandingConfigurated'] = $UserLogin->_data['user_account']['landing'] ? true : false;
-        $data['userLanding'] = (new MoneyTv\UserAccount)->getLandingById($UserLogin->company_id);
+        $data['userLanding'] = (new Infinity\UserAccount)->getLandingById($UserLogin->company_id);
         $data['landings'] = $landings;
         $data["s"] = 1;
         $data["r"] = "DATA_OK";

@@ -4,11 +4,11 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-	$StoragePerUser = new MoneyTv\StoragePerUser;
+	$StoragePerUser = new Infinity\StoragePerUser;
 
 	if($data['path'] = $StoragePerUser->getStoragePerUserId($UserLogin->company_id))
 	{

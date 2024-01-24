@@ -160,7 +160,7 @@ const Landing3Viewer = {
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                         <span class="fs-4">
-                            <img src="https://www.moneytv.site/src/img/logo-horizontal-white.svg" width="202" alt="logo">
+                            <img src="https://www.Infinity.site/src/img/logo-horizontal-white.svg" width="202" alt="logo">
                         </span>
                     </a>
 
@@ -227,7 +227,7 @@ const Landing3Viewer = {
                     <div class="row align-items-center justify-content-center" data-entrance="from-right">
                         <div class="col-9 col-xl-10">
                             <div class="pb-3 mb-3">
-                                <img src="https://www.moneytv.site/src/img/landing2/macebook.png" alt="pc" class="img-fluid">
+                                <img src="https://www.Infinity.site/src/img/landing2/macebook.png" alt="pc" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -308,7 +308,7 @@ const Landing3Viewer = {
                         <div class="col-xl-7">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-xl-10">
-                                    <img src="https://www.moneytv.site/src/img/landing2/phones.png" class="img-fluid">
+                                    <img src="https://www.Infinity.site/src/img/landing2/phones.png" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -330,7 +330,7 @@ const Landing3Viewer = {
                         <div class="col-xl-7" data-entrance="from-right">
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <img src="https://www.moneytv.site/src/img/landing2/computer.png" class="w-100">
+                                    <img src="https://www.Infinity.site/src/img/landing2/computer.png" class="w-100">
                                 </div>
                             </div>
                         </div>
@@ -363,7 +363,7 @@ const Landing3Viewer = {
                         <div class="col-xl-5">
                             <div class="row justify-content-center">
                                 <div class="col-5 col-xl-9">
-                                    <img src="https://www.moneytv.site/src/img/landing2/phone-telegram.png" class="img-fluid">
+                                    <img src="https://www.Infinity.site/src/img/landing2/phone-telegram.png" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -492,7 +492,7 @@ const Landing3Viewer = {
                         <div class="card-body" v-if="showing">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-xl-8">
-                                    <img src="https://moneytv.site/src/img/logo-horizontal-white-letters.png" alt="logo" class="img-fluid">
+                                    <img src="https://Infinity.site/src/img/logo-horizontal-white-letters.png" alt="logo" class="img-fluid">
                                 </div>
                             </div>
                             <div style="padding:56.3% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/756991672?h=0aa70af3e0&autoplay=1&color=ffffff&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>

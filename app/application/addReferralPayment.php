@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -12,7 +12,7 @@ if($UserLogin->logged === true)
 	{
         if($data['image'])
         {
-            $BuyPerUser = new MoneyTv\BuyPerUser;
+            $BuyPerUser = new Infinity\BuyPerUser;
             
             if($BuyPerUser->isInvoicePending($data['invoice_id']))
             {
@@ -54,7 +54,7 @@ if($UserLogin->logged === true)
 
 function saveBuy(array $Cart = null,$UserLogin = null)
 {
-	$BuyPerUser = new MoneyTv\BuyPerUser;
+	$BuyPerUser = new Infinity\BuyPerUser;
 	$BuyPerUser->user_login_id = $UserLogin->company_id;
 	$BuyPerUser->fee = $Cart->getVar('fee');
 	$BuyPerUser->item = $Cart->getFormatedItems();
@@ -63,7 +63,7 @@ function saveBuy(array $Cart = null,$UserLogin = null)
 	$BuyPerUser->invoice_id = $Cart->_instance_id;
 	$BuyPerUser->shipping = 0;
 	$BuyPerUser->catalog_payment_method_id = $Cart->getVar('catalog_payment_method_id');
-	$BuyPerUser->catalog_currency_id = $Cart->getVar('catalog_currency_id') ? $Cart->getVar('catalog_currency_id') : MoneyTv\CatalogCurrency::USD;
+	$BuyPerUser->catalog_currency_id = $Cart->getVar('catalog_currency_id') ? $Cart->getVar('catalog_currency_id') : Infinity\CatalogCurrency::USD;
 	$BuyPerUser->amount = $Cart->getTotalAmount(null,null,['fee'=>false]);
 	$BuyPerUser->create_date = time();
 

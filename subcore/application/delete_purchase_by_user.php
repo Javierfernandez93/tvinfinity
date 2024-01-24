@@ -9,12 +9,12 @@ $returnData = Array();
 
 
 $returnData['buy_per_user_login'] = HCStudio\Util::getVarFromPGS('buy_per_user_login');
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
 	if($returnData["buy_per_user_login"]){
-		$BuyPerUser = new MoneyTv\BuyPerUser();
+		$BuyPerUser = new Infinity\BuyPerUser();
 
 		$BuyPerUser->setId($returnData["buy_per_user_login"]);
 

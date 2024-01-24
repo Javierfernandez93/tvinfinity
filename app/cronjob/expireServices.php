@@ -2,12 +2,12 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$ServicePerClient = new MoneyTv\ServicePerClient;
+$ServicePerClient = new Infinity\ServicePerClient;
 
 // if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 if(true)
 {
-    if($services = $ServicePerClient->getAllServices(MoneyTv\ServicePerClient::IN_USE))
+    if($services = $ServicePerClient->getAllServices(Infinity\ServicePerClient::IN_USE))
     {
         array_map(function($service) use($ServicePerClient) {
             $leftDays = $ServicePerClient->calculateLeftDays($service['active_date'],$service['day']);
@@ -18,13 +18,13 @@ if(true)
             {
                 echo " - Expiró ";
                 
-                if(MoneyTv\ServicePerClient::expireService($service['service_per_client_id']))
+                if(Infinity\ServicePerClient::expireService($service['service_per_client_id']))
                 {
                     echo " Correctamente ";
               
                     if($service['autorenew'])
                     {
-                        if(MoneyTv\ServicePerClient::requestRenovation($service['client_id'],$service['user_login_id']))
+                        if(Infinity\ServicePerClient::requestRenovation($service['client_id'],$service['user_login_id']))
                         {
                             echo " RENOVADO ";
                         }   

@@ -25,11 +25,11 @@ const AccountactivationViewer = {
     template : `
         <div v-if="active" class="alert alert-success text-white text-center">
             <strong>Felicidades</strong>
-            Estas activo en MoneyTv
+            Estas activo en Infinity
         </div>
         <div v-else-if="active == false" class="alert alert-danger text-center text-white">
             <strong>Importante</strong>
-            No estas activo, debes de activar para poder continuar con el acceso a MoneyTv
+            No estas activo, debes de activar para poder continuar con el acceso a Infinity
 
             <div class="mt-3">
                 <a href="../../apps/store/package" class="btn btn-outline-light">Activarme ahora mismo</a>

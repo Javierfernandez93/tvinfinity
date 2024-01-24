@@ -6,7 +6,7 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 $data = $data["data"];
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($data["use_login"]["email"])
 {
@@ -29,14 +29,14 @@ if($data["use_login"]["email"])
 
 				if($UserLogin->save())
 				{
-					$UserData = new MoneyTv\UserData;
+					$UserData = new Infinity\UserData;
 					$UserData->cargarArray($data["use_data"]);
 					$UserData->user_login_id=$user_login_id;
 					$UserLogin->fillFields($UserData);
 
 					if($UserData->save())
 					{
-						$UserAddrees = new MoneyTv\UserAddress;
+						$UserAddrees = new Infinity\UserAddress;
 						
 						$Country = new World\Country;
 						
@@ -47,14 +47,14 @@ if($data["use_login"]["email"])
 
 						if($UserAddrees->save())
 						{
-							$UserContact = new MoneyTv\UserContact;
+							$UserContact = new Infinity\UserContact;
 							$UserContact->cargarArray($data["user_contact"]);
 							$UserContact->user_login_id = $user_login_id;		
 							$UserLogin->fillFields($UserContact);			
 
 							if($UserContact->save())
 							{
-								$UserAccount = new MoneyTv\UserAccount;									
+								$UserAccount = new Infinity\UserAccount;									
 								
 								if($data['user_account']["sponsor_id"])
 								{
@@ -74,13 +74,13 @@ if($data["use_login"]["email"])
 								
 								if($UserAccount->save())
 								{
-									$UserBank = new MoneyTv\UserBank();
+									$UserBank = new Infinity\UserBank();
 									$UserBank->user_login_id = $user_login_id;	
 									$UserLogin->fillFields($UserBank);							
 									
 									if($UserBank->save())
 									{
-										$UserSetting = new MoneyTv\UserSetting();
+										$UserSetting = new Infinity\UserSetting();
 										$UserSetting->user_login_id = $user_login_id;	
 										$UserLogin->fillFields($UserSetting);							
 										
@@ -193,7 +193,7 @@ function saveNotification($message = null,$company_id = null)
 {
 	if(isset($message,$company_id) === true)
 	{
-		$NotificationPerUser = new MoneyTv\NotificationPerUser;
+		$NotificationPerUser = new Infinity\NotificationPerUser;
 		$NotificationPerUser->company_id = $company_id;
 		$NotificationPerUser->catalog_notification_id = 2;
 		$NotificationPerUser->message = $message;

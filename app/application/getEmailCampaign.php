@@ -4,13 +4,13 @@ require_once TO_ROOT. '/system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['campaign_email_id'])
     {
-        $CampaignEmail = new MoneyTv\CampaignEmail;
+        $CampaignEmail = new Infinity\CampaignEmail;
         $CampaignEmail->connection()->stmtQuery("SET NAMES utf8mb4");
         
         if($campaign = $CampaignEmail->get($data['campaign_email_id']))

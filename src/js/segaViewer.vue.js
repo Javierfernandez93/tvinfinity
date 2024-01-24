@@ -130,7 +130,7 @@ const SegaViewer = {
                     </div>
                     <div class="col">
                         <h4>Tutorial como instalar el paquete de 700 Juegos</h4>
-                        <p>De la Consola Nes de MoneyTv</p>
+                        <p>De la Consola Nes de Infinity</p>
                     </div>
                     <div class="col-auto">
                         <div class="d-grid"> 

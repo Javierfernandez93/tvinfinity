@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getVarFromPGS();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 // $data['PHP_AUTH_USER'] = $data['PHP_AUTH_USER'] ?? false;
 // $data['PHP_AUTH_PW'] = $data['PHP_AUTH_PW'] ?? false;
@@ -12,7 +12,7 @@ $UserSupport = new MoneyTv\UserSupport;
 // if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 if(true)
 {
-    if($users = MoneyTv\ServicePerClient::getServicesForSoonExpiration())
+    if($users = Infinity\ServicePerClient::getServicesForSoonExpiration())
     {
         foreach($users as $user)
         {
@@ -38,7 +38,7 @@ if(true)
                     
                     $message .= "\nSi necesitas renovarlos, contáctanos cuánto antes 🕣";
 
-                    MoneyTv\Client::sendWhatsAppForExpiration([
+                    Infinity\Client::sendWhatsAppForExpiration([
                         'whatsApp' => $user['whatsApp'],
                         'name' => $user['name'],
                         'message' => $message

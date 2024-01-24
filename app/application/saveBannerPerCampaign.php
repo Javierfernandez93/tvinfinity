@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
@@ -16,7 +16,7 @@ if($UserLogin->logged === true)
             {
                 if($data['link'])
                 {
-                    $BannerPerCampaign = new MoneyTv\BannerPerCampaign;
+                    $BannerPerCampaign = new Infinity\BannerPerCampaign;
                     
                     if(!$BannerPerCampaign->loadWhere("catalog_banner_id = ? AND campaign_banner_per_user_id = ?",[$data['catalog_banner_id'],$data['campaign_banner_per_user_id']]))
                     {

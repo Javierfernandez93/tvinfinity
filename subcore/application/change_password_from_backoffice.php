@@ -10,7 +10,7 @@ $returnData['current_password'] = HCStudio\Util::getVarFromPGS('current_password
 $returnData['password'] = HCStudio\Util::getVarFromPGS('password');
 $returnData['confirm_password'] = HCStudio\Util::getVarFromPGS('confirm_password');
 
-$UserLogin = new MoneyTv\UserLogin(true);
+$UserLogin = new Infinity\UserLogin(true);
 
 if($UserLogin->logged === true)
 {

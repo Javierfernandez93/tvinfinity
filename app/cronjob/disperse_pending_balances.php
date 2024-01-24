@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getVarFromPGS();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 {
-    $CommissionPerUser = new MoneyTv\CommissionPerUser;
+    $CommissionPerUser = new Infinity\CommissionPerUser;
     
     if($commissions = $CommissionPerUser->getPendingCommissions())
     {
@@ -20,7 +20,7 @@ if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] ==
             {
                 $CommissionPerUser::setCommissionAsDispersed($commission['commission_per_user_id'],$transaction_per_wallet_id);
 
-                sendPush($commission['user_login_id'],"Hemos dispersado $ ".number_format($commission['amount'],2)." USD a tu eWallet.",MoneyTv\CatalogNotification::GAINS);
+                sendPush($commission['user_login_id'],"Hemos dispersado $ ".number_format($commission['amount'],2)." USD a tu eWallet.",Infinity\CatalogNotification::GAINS);
             }
         }
     }
@@ -31,7 +31,7 @@ if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] ==
 
 function sendPush(string $user_login_id = null,string $message = null,int $catalog_notification_id = null) : bool
 {
-    return MoneyTv\NotificationPerUser::push($user_login_id,$message,$catalog_notification_id,"");
+    return Infinity\NotificationPerUser::push($user_login_id,$message,$catalog_notification_id,"");
 }
 
 function send(int $user_login_id = null,float $amountToSend = null,string $message = null)

@@ -4,25 +4,25 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['transaction_per_wallet_id'])
     {
-        $TransactionPerWallet = new MoneyTv\TransactionPerWallet;
+        $TransactionPerWallet = new Infinity\TransactionPerWallet;
         
         if($TransactionPerWallet->cargarDonde('transaction_per_wallet_id = ?',$data['transaction_per_wallet_id']))
         {
-            $TransactionPerWallet->status = MoneyTv\TransactionPerWallet::DELETED;
+            $TransactionPerWallet->status = Infinity\TransactionPerWallet::DELETED;
 
             if($TransactionPerWallet->save())
             {
-                $UserWallet = new MoneyTv\UserWallet;
+                $UserWallet = new Infinity\UserWallet;
 
                 if($user_login_id = $UserWallet->getCompanyId($TransactionPerWallet->user_wallet_id))
                 {
-                    $UserPlan = new MoneyTv\UserPlan;
+                    $UserPlan = new Infinity\UserPlan;
 
                     if($UserPlan->setPlan($user_login_id))
                     {

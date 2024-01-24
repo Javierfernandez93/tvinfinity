@@ -1,7 +1,7 @@
 <?php
 
 use BlockChain\Wallet;
-use MoneyTv\UserData;
+use Infinity\UserData;
 
  define("TO_ROOT", "../../");
 
@@ -9,7 +9,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -68,7 +68,7 @@ function getTransactionData($lastTransaction = null,string $public_key) : array
     if($user_login_id = (new BlockChain\Wallet)->getUserIdByPublicKey($output->address))
     {
 
-        $names = (new MoneyTv\UserData)->getNames($user_login_id);
+        $names = (new Infinity\UserData)->getNames($user_login_id);
     }
 
     return [

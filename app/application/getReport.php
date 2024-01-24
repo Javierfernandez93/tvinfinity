@@ -4,12 +4,12 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $ProfitPerUser = new MoneyTv\ProfitPerUser;
-    $TransactionPerWallet = new MoneyTv\TransactionPerWallet;
+    $ProfitPerUser = new Infinity\ProfitPerUser;
+    $TransactionPerWallet = new Infinity\TransactionPerWallet;
 
     $data['first_day'] = strtotime("2022-06-10 00:00:00");
     
@@ -42,7 +42,7 @@ if($UserSupport->_loaded === true)
 function format(array $deposits = null) : array 
 {
     $sum = 0;
-    $ProfitPerUser = new MoneyTv\ProfitPerUser;
+    $ProfitPerUser = new Infinity\ProfitPerUser;
 
     foreach($deposits as $key => $deposit) 
     {

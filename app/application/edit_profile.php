@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -53,7 +53,7 @@ if($UserLogin->logged === true)
 
 function updateUserData($data = null,$company_id = null)
 {
-    $UserData = new MoneyTv\UserData;   
+    $UserData = new Infinity\UserData;   
         
     if($UserData->cargarDonde("user_login_id = ?",$company_id))
     {
@@ -67,7 +67,7 @@ function updateUserData($data = null,$company_id = null)
 
 function updateUserContact($data = null,$company_id = null)
 {
-    $UserContact = new MoneyTv\UserContact;   
+    $UserContact = new Infinity\UserContact;   
         
     if($UserContact->cargarDonde("user_login_id = ?",$company_id))
     {
@@ -80,7 +80,7 @@ function updateUserContact($data = null,$company_id = null)
 
 function updateUserAccount($data = null,$company_id = null)
 {
-    $UserAccount = new MoneyTv\UserAccount;   
+    $UserAccount = new Infinity\UserAccount;   
         
     if($UserAccount->cargarDonde("user_login_id = ?",$company_id))
     {
@@ -102,7 +102,7 @@ function updateUserAccount($data = null,$company_id = null)
 
 function updateUserAddress($data = null,$company_id = null)
 {
-    $UserAddress = new MoneyTv\UserAddress;   
+    $UserAddress = new Infinity\UserAddress;   
         
     if($UserAddress->cargarDonde("user_login_id = ?",$company_id))
     {
@@ -116,7 +116,7 @@ function updateUserAddress($data = null,$company_id = null)
 
 function updatePaymentMethodPerUser($data = null,$company_id = null)
 {
-    $PaymentMethodPerUser = new MoneyTv\PaymentMethodPerUser;   
+    $PaymentMethodPerUser = new Infinity\PaymentMethodPerUser;   
         
     if(!$PaymentMethodPerUser->cargarDonde("user_login_id = ?",$company_id))
     {

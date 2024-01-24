@@ -280,7 +280,7 @@ const ProfileViewer = {
                                         <label>Landing personalizada</label>
                                         <input type="text" v-model="user.landing" @keydown.space.prevent style="padding-left:7rem" type="text"  class="form-control d-inline" placeholder="Landing personalizada"/>
 
-                                        <span class="position-absolute start-0 bottom-0 px-3 mb-3 pb-1">moneytv.site/</span>
+                                        <span class="position-absolute start-0 bottom-0 px-3 mb-3 pb-1">Infinity.site/</span>
                                     </li>
                                     <li class="list-group-item border-0 ps-0 text-sm">
                                         <label>Correo electrónico</label>

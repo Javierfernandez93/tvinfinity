@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -53,7 +53,7 @@ if($UserSupport->_loaded === true)
 
 function updateUserData($data = null) : bool
 {
-    $UserData = new MoneyTv\UserData;   
+    $UserData = new Infinity\UserData;   
         
     if($UserData->cargarDonde("user_login_id = ?",$data['user_login_id']))
     {
@@ -67,7 +67,7 @@ function updateUserData($data = null) : bool
 
 function updateUserContact($data = null) : bool
 {
-    $UserContact = new MoneyTv\UserContact;   
+    $UserContact = new Infinity\UserContact;   
         
     if($UserContact->cargarDonde("user_login_id = ?",$data['user_login_id']))
     {
@@ -82,7 +82,7 @@ function updateUserContact($data = null) : bool
 
 function updateUserAccount($data = null) : bool
 {
-    $UserAccount = new MoneyTv\UserAccount;   
+    $UserAccount = new Infinity\UserAccount;   
         
     if($UserAccount->cargarDonde("user_login_id = ?",$data['user_login_id']))
     {
@@ -98,7 +98,7 @@ function updateUserAccount($data = null) : bool
 
 function updateUserAddress($data = null) : bool
 {
-    $UserAddress = new MoneyTv\UserAddress;   
+    $UserAddress = new Infinity\UserAddress;   
         
     if($UserAddress->cargarDonde("user_login_id = ?",$data['user_login_id']))
     {
@@ -112,7 +112,7 @@ function updateUserAddress($data = null) : bool
 
 function updateUserLogin($data = null) : bool
 {
-    $UserLogin = new MoneyTv\UserLogin(false,false);   
+    $UserLogin = new Infinity\UserLogin(false,false);   
         
     if($UserLogin->cargarDonde("user_login_id = ?",$data['user_login_id']))
     {
@@ -128,7 +128,7 @@ function updateUserLogin($data = null) : bool
 
 function updateUserReferral($data = null) : bool
 {
-    $UserReferral = new MoneyTv\UserReferral;   
+    $UserReferral = new Infinity\UserReferral;   
         
     if($UserReferral->cargarDonde("user_login_id = ?",$data['user_login_id']))
     {

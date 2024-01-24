@@ -40,7 +40,7 @@ class Connection {
 	const protocol = 'http';
 	// const $proyect_url = '192.168.100.237:8888/mizuum';
 	const proyect_url = 'localhost:8888/infinity';
-	// const proyect_url = '192.168.1.11:8888/moneytv';
+	// const proyect_url = '192.168.1.11:8888/Infinity';
 	const proyect_name = 'Infinity';
 
 	public function getConnectioName()

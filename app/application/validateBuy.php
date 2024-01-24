@@ -4,29 +4,29 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if(($data['user'] == HCStudio\Util::USERNAME && $data['password'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 {
     if($data['invoice_id'])
 	{
-        $BuyPerUser = new MoneyTv\BuyPerUser;
+        $BuyPerUser = new Infinity\BuyPerUser;
         
         if($BuyPerUser->isInvoicePending($data['invoice_id']))
         {
             if($BuyPerUser->loadWhere('invoice_id = ?',$data['invoice_id']))
             {	
-                if(MoneyTv\BuyPerUser::processPayment($BuyPerUser->getId()))
+                if(Infinity\BuyPerUser::processPayment($BuyPerUser->getId()))
                 {
                     $BuyPerUser->catalog_validation_method_id = $data['catalog_validation_method_id'];
                     $BuyPerUser->ipn_data = isset($data['ipn_data']) ? $data['ipn_data'] : '';
                     $BuyPerUser->approved_date = time();
                     $BuyPerUser->user_support_id = $data['user_support_id'] ? $data['user_support_id'] : $BuyPerUser->user_support_id;
-                    $BuyPerUser->status = MoneyTv\BuyPerUser::VALIDATED;
+                    $BuyPerUser->status = Infinity\BuyPerUser::VALIDATED;
 
                     if($BuyPerUser->save())
                     {   
-                        // if(sendEmail((new MoneyTv\UserLogin)->getEmail($BuyPerUser->user_login_id),$BuyPerUser->invoice_id))
+                        // if(sendEmail((new Infinity\UserLogin)->getEmail($BuyPerUser->user_login_id),$BuyPerUser->invoice_id))
                         // {
                         //     $data['mail_sent'] = true;
                         // }
@@ -74,7 +74,7 @@ function sendEmail(string $email = null,string $invoice_id = null) : bool
             $Layout->setScriptPath(TO_ROOT . '/apps/admin/src/');
     		$Layout->setScript(['']);
 
-            $CatalogMailController = MoneyTv\CatalogMailController::init(1);
+            $CatalogMailController = Infinity\CatalogMailController::init(1);
 
             $Layout->setVar([
                 "invoice_id" => $invoice_id,

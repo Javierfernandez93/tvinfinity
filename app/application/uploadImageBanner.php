@@ -4,7 +4,7 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -41,7 +41,7 @@ if($UserLogin->logged === true)
 
 function uploadUserImage(int $company_id = null,string $image = null) : bool 
 {
-	$UserAccount = new MoneyTv\UserAccount;
+	$UserAccount = new Infinity\UserAccount;
 	
 	if($UserAccount->cargarDonde("user_login_id = ?",$company_id))
 	{

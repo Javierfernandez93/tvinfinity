@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    $NotificationPerUser = new MoneyTv\NotificationPerUser;
+    $NotificationPerUser = new Infinity\NotificationPerUser;
     
     if($notifications = $NotificationPerUser->getNotifications($UserLogin->company_id))
     {

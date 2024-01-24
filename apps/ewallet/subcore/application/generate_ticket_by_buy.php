@@ -5,22 +5,22 @@ require_once TO_ROOT . "/system/core.php";
 $data = HCStudio\Util::getHeadersForWebService();
 
 $Token = new HCStudio\Token;
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($Token->checkToken(['token'=>$data['token'],'key'=>$data['key']]) || $UserLogin->logged === true)
 {
 	if($UserLogin->logged === false)
 	{
-		$UserLoginTemp = new MoneyTv\UserLogin;
+		$UserLoginTemp = new Infinity\UserLogin;
 		$UserLoginTemp->_setPid(['token'=>$data['token'],'key'=>$data['key']]);
-		$UserLogin = new MoneyTv\UserLogin;
+		$UserLogin = new Infinity\UserLogin;
 	}
 
 	if($UserLogin->logged === true)
 	{
 		if($data['buy_per_user_login_id'])
 		{
-			$BuyPerUser = new MoneyTv\BuyPerUser;
+			$BuyPerUser = new Infinity\BuyPerUser;
 
 			if($BuyPerUser->loadWhere('buy_per_user_login_id = ?',[$data['buy_per_user_login_id']]))
 			{
@@ -127,8 +127,8 @@ function getCapitalika($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -155,8 +155,8 @@ function getLocalBitcoin($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -183,8 +183,8 @@ function getBisto($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -210,8 +210,8 @@ function getAirTm($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -240,9 +240,9 @@ function getPayPalForm($UserLogin = null,$data = null,$BuyPerUser = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
-		$data['total_amount'] = MoneyTv\Currency::getAmountOnUSD($data['total_amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
+		$data['total_amount'] = Infinity\Currency::getAmountOnUSD($data['total_amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -345,7 +345,7 @@ function getOxxo($UserLogin = null,$data = null)
 	);
 
 	$oxxo_data = [
-	    'code_id' => (new MoneyTv\Oxxo(46,1))->createCodeId($oxxo_data),
+	    'code_id' => (new Infinity\Oxxo(46,1))->createCodeId($oxxo_data),
 	    'email' => $UserLogin->mail,
 		'file_name' => 'Bill_From_'.$UserLogin->company_id,
 		'buy_date' => $data['date_create'],
@@ -377,8 +377,8 @@ function getPayU($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -404,8 +404,8 @@ function getEwallet($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}
@@ -432,8 +432,8 @@ function getStripe($UserLogin = null,$data = null)
 		// @todo change for catalog_currency_id value
 		$currency_code = "MXN";
 	} else {
-		$data['shipping'] = MoneyTv\Currency::getAmountOnUSD($data['shipping']);
-		$data['amount'] = MoneyTv\Currency::getAmountOnUSD($data['amount']);
+		$data['shipping'] = Infinity\Currency::getAmountOnUSD($data['shipping']);
+		$data['amount'] = Infinity\Currency::getAmountOnUSD($data['amount']);
 		// @todo change for catalog_currency_id value
 		$currency_code = "USD";
 	}

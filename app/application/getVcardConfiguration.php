@@ -4,15 +4,15 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
 	if($data['vcard_per_user_id'])
 	{
-        if($template_id = (new MoneyTv\VCardPerUser)->getTemplateId($data['vcard_per_user_id']))
+        if($template_id = (new Infinity\VCardPerUser)->getTemplateId($data['vcard_per_user_id']))
         {
-            if($catalog_tags_template = (new MoneyTv\CatalogTagTemplate)->getAll($template_id))
+            if($catalog_tags_template = (new Infinity\CatalogTagTemplate)->getAll($template_id))
             {
                 $data['catalog_tags_template'] = format($catalog_tags_template,$data['vcard_per_user_id'],$UserLogin->getCountryId());
                 $data['r'] = 'DATA_OK';
@@ -36,7 +36,7 @@ if($UserLogin->logged === true)
 
 function format(array $catalog_tags_template = null,int $vcard_per_user_id = null,int $country_id = null) : array
 {
-    $TagPerSheet = new MoneyTv\TagPerVCard;
+    $TagPerSheet = new Infinity\TagPerVCard;
 
     return array_map(function($catalog_tag_template) use($TagPerSheet,$vcard_per_user_id,$country_id) {
         $catalog_tag_template['value'] = '';
@@ -46,7 +46,7 @@ function format(array $catalog_tags_template = null,int $vcard_per_user_id = nul
             $catalog_tag_template['value'] = $value;
         }
 
-        $catalog_tag_template['value'] = MoneyTv\TagPerVCard::unFormatValue($catalog_tag_template);
+        $catalog_tag_template['value'] = Infinity\TagPerVCard::unFormatValue($catalog_tag_template);
         
         return $catalog_tag_template;
     },$catalog_tags_template);

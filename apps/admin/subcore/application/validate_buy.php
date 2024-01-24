@@ -4,7 +4,7 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$SupportUser = new MoneyTv\SupportUser;	
+$SupportUser = new Infinity\SupportUser;	
 
 if(($SupportUser->_loaded === true) || (HCStudio\Util::checkCurlAuthHeaders($data['PHP_AUTH_USER'],$data['PHP_AUTH_PW'])))
 {

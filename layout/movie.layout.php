@@ -33,7 +33,7 @@
 <body class="g-sidenav-show bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark shadow-none bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">MoneyTv Cinema</a>
+            <a class="navbar-brand text-white" href="#">Infinity Cinema</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,14 +71,14 @@
                             document.write(new Date().getFullYear())
                         </script>,
                         made with <i class="fa fa-heart"></i> by
-                        <a href="https://moneytv.site/" class="font-weight-bold" target="_blank"><img src="../../src/img/logo-horizontal-dark-letters.svg" style="width:5rem;"></a>
+                        <a href="https://Infinity.site/" class="font-weight-bold" target="_blank"><img src="../../src/img/logo-horizontal-dark-letters.svg" style="width:5rem;"></a>
                         for a better web.
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-white" target="_blank">MoneyTv</a>
+                            <a href="" class="nav-link text-white" target="_blank">Infinity</a>
                         </li>
                     </ul>
                 </div>

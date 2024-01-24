@@ -2,16 +2,16 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$ServicePerClient = new MoneyTv\ServicePerClient;
+$ServicePerClient = new Infinity\ServicePerClient;
 
 // if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 if(true)
 {
-    $users = (new MoneyTv\BuyPerUser)->getAllUsersWithBuy();
+    $users = (new Infinity\BuyPerUser)->getAllUsersWithBuy();
 
     if(isset($users) && is_array($users))
     {
-        $UserLogin = new MoneyTv\UserLogin(false,false);
+        $UserLogin = new Infinity\UserLogin(false,false);
 
         foreach($users as $user)
         {

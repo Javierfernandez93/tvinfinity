@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['course_id'])
     {
-        $Course = new MoneyTv\Course;
+        $Course = new Infinity\Course;
         $Course->connection()->stmtQuery("SET NAMES utf8mb4");
 
         if($course = $Course->get($data['course_id']))

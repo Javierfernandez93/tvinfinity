@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if(isset($data['status']) && !empty($data['status']))
     {
-        $data['status'] = isset($data['status']) ? $data['status'] : MoneyTv\BuyPerUser::PENDING;
+        $data['status'] = isset($data['status']) ? $data['status'] : Infinity\BuyPerUser::PENDING;
         
         $filter = " WHERE buy_per_user.status = '{$data['status']}'";
     }

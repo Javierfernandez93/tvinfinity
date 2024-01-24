@@ -8,12 +8,12 @@ sendWhatsApp(1);
 
 function sendWhatsApp(int $user_login_id = null) 
 {
-    return MoneyTv\ApiWhatsApp::sendWhatsAppMessage([
-        'message' => MoneyTv\ApiWhatsAppMessages::getWelcomeMessage(),
+    return Infinity\ApiWhatsApp::sendWhatsAppMessage([
+        'message' => Infinity\ApiWhatsAppMessages::getWelcomeMessage(),
         'image' => null,
         'contact' => [
-            "phone" => (new MoneyTv\UserContact)->getWhatsApp($user_login_id),
-            "name" => (new MoneyTv\UserData)->getName($user_login_id)
+            "phone" => (new Infinity\UserContact)->getWhatsApp($user_login_id),
+            "name" => (new Infinity\UserData)->getName($user_login_id)
         ]
     ]);
 }

@@ -8,7 +8,7 @@ if(true)
 {	
     if($data['vcard_per_user_id'])
     {
-        if($vcard = (new MoneyTv\VCardPerUser)->getVcardById($data['vcard_per_user_id']))
+        if($vcard = (new Infinity\VCardPerUser)->getVcardById($data['vcard_per_user_id']))
         {
             $data['vcard'] = $vcard;
             $data['r'] = 'DATA_OK';

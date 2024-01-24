@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['whatsapp_campaign_id'])
     {
-        if($campaign = (new MoneyTv\WhatsAppCampaign)->get($data['whatsapp_campaign_id']))
+        if($campaign = (new Infinity\WhatsAppCampaign)->get($data['whatsapp_campaign_id']))
         {
             $data['campaign'] = format($campaign,$UserLogin->company_id);
             $data['r'] = 'DATA_OK';
@@ -30,8 +30,8 @@ if($UserLogin->logged === true)
 
 function format(array $campaign = null,int $user_login_id = null) : array
 {
-    $ContactPerWhatsAppList = new MoneyTv\ContactPerWhatsAppList;
-    $WhatsAppListPerUser = new MoneyTv\WhatsAppListPerUser;
+    $ContactPerWhatsAppList = new Infinity\ContactPerWhatsAppList;
+    $WhatsAppListPerUser = new Infinity\WhatsAppListPerUser;
 
     if($lists = $WhatsAppListPerUser->getAll($user_login_id))
     {

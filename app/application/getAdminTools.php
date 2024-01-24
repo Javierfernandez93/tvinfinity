@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    if($tools = (new MoneyTv\Tool)->getAllFullInfo())
+    if($tools = (new Infinity\Tool)->getAllFullInfo())
     {
         $data['tools'] = $tools;
         $data["s"] = 1;

@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    if($notices = format((new MoneyTv\Notice)->getAllPublished(),$UserLogin->isActive()))
+    if($notices = format((new Infinity\Notice)->getAllPublished(),$UserLogin->isActive()))
     {   
         $data["notices"] = $notices;
         $data["s"] = 1;
@@ -24,7 +24,7 @@ if($UserLogin->logged === true)
 
 function isAviable(array $notice = null,bool $active = null) : bool
 {
-    $targetSelected = $notice['target'] != MoneyTv\Notice::ALL ? $notice['target'] == $active : true;
+    $targetSelected = $notice['target'] != Infinity\Notice::ALL ? $notice['target'] == $active : true;
 
     if($targetSelected)
     {

@@ -6,7 +6,7 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 if($data["email"])
 {
-    $UserLogin = new MoneyTv\UserLogin;
+    $UserLogin = new Infinity\UserLogin;
 
     if($UserLogin->isUniqueMail($data['email']) === false)
     {
@@ -59,7 +59,7 @@ function sendEmail(string $email = null,string $token = null) : bool
             $Layout->setScriptPath(TO_ROOT . '/apps/admin/src/');
     		$Layout->setScript(['']);
 
-            $CatalogMailController = MoneyTv\CatalogMailController::init(1);        
+            $CatalogMailController = Infinity\CatalogMailController::init(1);        
 
             $Layout->setVar([
                 "email" => $email,

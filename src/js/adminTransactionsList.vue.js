@@ -115,7 +115,7 @@ Vue.createApp({
             });
         },
         deleteDeposit: function (transaction_requirement_per_user_id) {
-            moneytv.site = alertCtrl.create({
+            Infinity.site = alertCtrl.create({
                 title: "Aviso",
                 subTitle: "¿Estás seguro de eliminar éste depósito?",
                 buttons: [
@@ -144,7 +144,7 @@ Vue.createApp({
            
         },
         reactiveDeposit: function (transaction_requirement_per_user_id) {
-            moneytv.site = alertCtrl.create({
+            Infinity.site = alertCtrl.create({
                 title: "Aviso",
                 subTitle: "¿Estás seguro de reactivar éste depósito?",
                 buttons: [

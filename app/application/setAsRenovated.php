@@ -1,6 +1,6 @@
 <?php
 
-use MoneyTv\ServicePerClient;
+use Infinity\ServicePerClient;
 
  define("TO_ROOT", "../../");
 
@@ -8,7 +8,7 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {	
@@ -40,8 +40,8 @@ if($UserSupport->_loaded === true)
 
 function sendWhatsApp(array $data = null) 
 {
-    return MoneyTv\ApiWhatsApp::sendWhatsAppMessage([
-        'message' => MoneyTv\ApiWhatsAppMessages::getIptvRenovationMessage(),
+    return Infinity\ApiWhatsApp::sendWhatsAppMessage([
+        'message' => Infinity\ApiWhatsAppMessages::getIptvRenovationMessage(),
         'image' => null,
         'contact' => [
             "phone" => $data['whatsapp'],

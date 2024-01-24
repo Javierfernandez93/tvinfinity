@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^([a-zA-Z0-9]+)$ apps/landing/?landing=$1
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ apps/landing/dispatcher?path=$1&landing=$2
+
+Options -Indexes

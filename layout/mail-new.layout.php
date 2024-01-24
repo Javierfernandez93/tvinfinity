@@ -508,7 +508,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="logo" style="text-align: left;">
-                                            <h1><a href="">MoneyTv</a></h1>
+                                            <h1><a href="">Infinity</a></h1>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -561,7 +561,7 @@
                                                         <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
                                                             <h3 class="heading">Información de contacto</h3>
                                                             <ul>
-                                                                <li><span class="text">contacto@moneytv.site</span></li>
+                                                                <li><span class="text">contacto@Infinity.site</span></li>
                                                                 <li><span class="text">+521 33 1736 1196</span></li>
                                                             </ul>
                                                         </td>
@@ -576,10 +576,10 @@
                                                         <td style="text-align: left; padding-left: 10px;">
                                                             <h3 class="heading">Links</h3>
                                                             <ul>
-                                                                <li><a href="https://www.moneytv.site/">Inicio</a></li>
-                                                                <li><a href="https://www.moneytv.site/apps/login/">Ingresar a tu cuenta</a></li>
-                                                                <li><a href="https://www.moneytv.site/apps/signup/">Registro</a></li>
-                                                                <li><a href="https://www.moneytv.site/apps/login/forgotPassword">Recuperar contraseña</a></li>
+                                                                <li><a href="https://www.Infinity.site/">Inicio</a></li>
+                                                                <li><a href="https://www.Infinity.site/apps/login/">Ingresar a tu cuenta</a></li>
+                                                                <li><a href="https://www.Infinity.site/apps/signup/">Registro</a></li>
+                                                                <li><a href="https://www.Infinity.site/apps/login/forgotPassword">Recuperar contraseña</a></li>
                                                             </ul>
                                                         </td>
                                                     </tr>

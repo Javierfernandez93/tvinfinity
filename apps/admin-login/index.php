@@ -2,7 +2,7 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true) {
 	HCStudio\Util::redirectTo('../../apps/admin/');
@@ -19,8 +19,8 @@ $Layout->setScript([
 	'loginSupport.vue.js'
 ]);
 
-// MoneyTv\WhatsAppSessionPerUser::generateApiKeys(2);
-// MoneyTv\WhatsAppSessionPerUser::loadByAPIKeys([
+// Infinity\WhatsAppSessionPerUser::generateApiKeys(2);
+// Infinity\WhatsAppSessionPerUser::loadByAPIKeys([
 // 	'client_id' => 'PtnoVFTI8WrcisXS',
 // 	'client_secret' => 'VeFkw6fBjlux+flvjcXdFSr4zJ/pPf/yOMV+qPbOyfGKypxdzdcXZNqkJZihOTM2erTZ1vTZf7usbRiW5ybzLkyEQD6otbKvRLVSQesjGYjLgbVJo5abTUdixzEbW8QwYFByxb1xG2lXCEKIIc9xFBW0qRvjZyNk5pXNZpkLWQFba+qZ5hYtVi6N18CJtSOM:VEFMRU5UT1VNQlJFTExBMg==',
 // ]);

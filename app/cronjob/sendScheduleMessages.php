@@ -4,12 +4,12 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getVarFromPGS();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 // if(($data['PHP_AUTH_USER'] == HCStudio\Util::USERNAME && $data['PHP_AUTH_PW'] == HCStudio\Util::PASSWORD) || $UserSupport->_loaded === true)
 if(true)
 {
-    $WhatsAppMessageSchedule = new MoneyTv\WhatsAppMessageSchedule;
+    $WhatsAppMessageSchedule = new Infinity\WhatsAppMessageSchedule;
     
     if($schedules = $WhatsAppMessageSchedule->getAllPending())
     {
@@ -24,8 +24,8 @@ if(true)
                     ]
                 );
     
-                MoneyTv\WhatsAppMessageSendPerContact::setMessagesAsSent($schedule['contacts']);
-                MoneyTv\WhatsAppMessageSchedule::setScheduleAsSent($schedule['whatsapp_message_schedule_id']);
+                Infinity\WhatsAppMessageSendPerContact::setMessagesAsSent($schedule['contacts']);
+                Infinity\WhatsAppMessageSchedule::setScheduleAsSent($schedule['whatsapp_message_schedule_id']);
             } catch (Exception $e) {
                 echo 'Caught exception: ',  $e->getMessage(), "\n";
             }

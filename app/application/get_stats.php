@@ -4,20 +4,20 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     $data['day'] = date("Y-m-d");
 
-    $GainPerBroker = new MoneyTv\GainPerBroker;
-    $ProfitPerUser = new MoneyTv\ProfitPerUser;
-    $CapitalPerBroker = new MoneyTv\CapitalPerBroker;
+    $GainPerBroker = new Infinity\GainPerBroker;
+    $ProfitPerUser = new Infinity\ProfitPerUser;
+    $CapitalPerBroker = new Infinity\CapitalPerBroker;
     
     getBrokersChartData($data,$CapitalPerBroker);
     
-    $TransactionPerWallet = new MoneyTv\TransactionPerWallet;
-    $WithdrawPerUser = new MoneyTv\WithdrawPerUser;
+    $TransactionPerWallet = new Infinity\TransactionPerWallet;
+    $WithdrawPerUser = new Infinity\WithdrawPerUser;
 
     $pendingWithdraws = $WithdrawPerUser->getCountPending();
 
@@ -49,10 +49,10 @@ if($UserSupport->_loaded === true)
 	$data["r"] = "NOT_FIELD_SESSION_DATA";
 }
 
-function getBrokersChartData(array &$data = null,MoneyTv\CapitalPerBroker $CapitalPerBroker = null)
+function getBrokersChartData(array &$data = null,Infinity\CapitalPerBroker $CapitalPerBroker = null)
 {
-    $Broker = new MoneyTv\Broker;
-    $GainPerBroker = new MoneyTv\GainPerBroker;
+    $Broker = new Infinity\Broker;
+    $GainPerBroker = new Infinity\GainPerBroker;
     
     if($data['brokers'] = $Broker->getActive())
     {

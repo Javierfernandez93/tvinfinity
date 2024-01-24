@@ -4,11 +4,11 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    if($paymentMethod = (new MoneyTv\PaymentMethodPerUser)->_get($UserLogin->getReferralId()))
+    if($paymentMethod = (new Infinity\PaymentMethodPerUser)->_get($UserLogin->getReferralId()))
     {
         $data['paymentMethod'] = $paymentMethod;
         $data['s'] = 1;

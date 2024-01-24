@@ -108,7 +108,7 @@ const PanelViewer = {
         },
         init() {
             this.getApiCredentials().then(()=>{
-                this.getProyectInfo('moneyTv').then(proyect => {
+                this.getProyectInfo('Infinity').then(proyect => {
                     this.proyect = proyect
                     this.initCharts()
                 })
@@ -147,7 +147,7 @@ const PanelViewer = {
         configureService() {
             return new Promise((resolve) => {
                 this.getApiCredentials().then(()=>{
-                    this.Api.getPackagesList({apiFilter:{name:'moneytv'}},(response)=>{
+                    this.Api.getPackagesList({apiFilter:{name:'Infinity'}},(response)=>{
 
                         if(response.s == 1)
                         {

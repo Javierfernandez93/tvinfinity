@@ -6,7 +6,7 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 $data=$data["data"];
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 $Cart = Jcart\Cart::getInstance($UserLogin->company_id); // @todo change for 
 
 error_reporting(1);

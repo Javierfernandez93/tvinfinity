@@ -4,13 +4,13 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
     if($data['buy_per_user_id'])
 	{
-        $BuyPerUser = new MoneyTv\BuyPerUser;
+        $BuyPerUser = new Infinity\BuyPerUser;
 
 		if($BuyPerUser->loadWhere('buy_per_user_id = ?',$data['buy_per_user_id']))
 		{

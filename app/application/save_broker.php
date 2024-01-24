@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $Broker = new MoneyTv\Broker;
+    $Broker = new Infinity\Broker;
     $Broker->name = $data['name'];
     $Broker->fee = $data['fee'];
     $Broker->create_date = time();
@@ -17,7 +17,7 @@ if($UserSupport->_loaded === true)
     {
         if($data['capital'])
         {
-            if(MoneyTv\CapitalPerBroker::addCapital($Broker->getId(),$data['capital']))
+            if(Infinity\CapitalPerBroker::addCapital($Broker->getId(),$data['capital']))
             {
                 $data['capital_saved'] = true;
             }
@@ -25,7 +25,7 @@ if($UserSupport->_loaded === true)
 
         if($data['gain'])
         {
-            if(MoneyTv\GainPerBroker::addGain($Broker->getId(),$data['gain']))
+            if(Infinity\GainPerBroker::addGain($Broker->getId(),$data['gain']))
             {
                 $data['gain_saved'] = true;
             }

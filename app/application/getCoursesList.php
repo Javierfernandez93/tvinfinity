@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    $Course = new MoneyTv\Course;
+    $Course = new Infinity\Course;
     $Course->connection()->stmtQuery("SET NAMES utf8mb4");
 
     if($courses = $Course->getList())
@@ -27,12 +27,12 @@ if($UserLogin->logged === true)
 
 function filter(array $courses = null,int $user_login_id = null) : array
 {
-    $BuyPerUser = new MoneyTv\BuyPerUser;
+    $BuyPerUser = new Infinity\BuyPerUser;
 
     return array_filter($courses,function($course) use($BuyPerUser,$user_login_id) {
         $aviable = true;
         
-        if($course['target'] != MoneyTv\Course::ALL)
+        if($course['target'] != Infinity\Course::ALL)
         {    
             $aviable = $BuyPerUser->hasPackageBuy($user_login_id,$course['target']);
         }
@@ -43,8 +43,8 @@ function filter(array $courses = null,int $user_login_id = null) : array
 
 function format(array $courses = null,int $user_login_id = null) : array
 {	
-    $SessionTakeByUserPerCourse = new MoneyTv\SessionTakeByUserPerCourse;
-    $UserEnrolledInCourse = new MoneyTv\UserEnrolledInCourse;
+    $SessionTakeByUserPerCourse = new Infinity\SessionTakeByUserPerCourse;
+    $UserEnrolledInCourse = new Infinity\UserEnrolledInCourse;
     
 	return array_map(function ($course) use($SessionTakeByUserPerCourse,$UserEnrolledInCourse,$user_login_id) {
         $course['isEnrolled'] = $UserEnrolledInCourse->isEnrolled($course['course_id'],$user_login_id);

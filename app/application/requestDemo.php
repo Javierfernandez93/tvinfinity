@@ -6,11 +6,11 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 if(true)
 {	
-    $data = array_merge($data,MoneyTv\Client::requestRandomData());
+    $data = array_merge($data,Infinity\Client::requestRandomData());
     $data['whatsapp'] = $data['phoneCode'].$data['whatsapp'];
     $data['name'] = 'usuario';
 
-    if(MoneyTv\Client::add(array_merge($data,['user_login_id'=> 1])))
+    if(Infinity\Client::add(array_merge($data,['user_login_id'=> 1])))
     {
         $data['r'] = 'DATA_OK';
         $data['s'] = 1;

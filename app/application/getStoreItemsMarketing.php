@@ -4,15 +4,15 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-	if($catalog_package_type_id = (new MoneyTv\CatalogPackageType)->getIdbyPackageType($data['package_type']))
+	if($catalog_package_type_id = (new Infinity\CatalogPackageType)->getIdbyPackageType($data['package_type']))
 	{
         $filter = "AND package.catalog_package_type_id = '{$catalog_package_type_id}'";
 
-        if($items = (new MoneyTv\Package)->getAll($filter))
+        if($items = (new Infinity\Package)->getAll($filter))
         {
             $data['items'] = format($items);
             $data['s'] = 1;
@@ -36,7 +36,7 @@ function format(array $items = null) : array
 
         $item['product_ids'] = json_decode($item['product_ids'],true);
     
-        $item['products'] = MoneyTv\Product::unformatProducts($item['product_ids']);
+        $item['products'] = Infinity\Product::unformatProducts($item['product_ids']);
 
         $item['aviable'] = true;
         return $item;

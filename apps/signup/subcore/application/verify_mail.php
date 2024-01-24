@@ -6,7 +6,7 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 if($data["mail"]){
 
-	$UserLogin = new MoneyTv\UserLogin;
+	$UserLogin = new Infinity\UserLogin;
 
 	if($UserLogin->isUniqueMail($data["mail"]))
 	{

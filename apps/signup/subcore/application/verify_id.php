@@ -6,7 +6,7 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 if($data["sponsor_id"])
 {	
-	$UserData = new MoneyTv\UserData;
+	$UserData = new Infinity\UserData;
 
 	if(is_numeric($data["sponsor_id"]))
 	{

@@ -28,7 +28,7 @@ const LandingsViewer = {
         {
             if(landing.catalog_landing_action_id == this.ACTIONS.WHATSAPP)
             {
-                window.open(this.userData.whatsApp.getWhatsAppFromText(`¡Hola *${this.userData.names.trim()}* me interesa tu video *${landing.title}* de *MoneyTv*. ¿Puedes darme más información?`))
+                window.open(this.userData.whatsApp.getWhatsAppFromText(`¡Hola *${this.userData.names.trim()}* me interesa tu video *${landing.title}* de *Infinity*. ¿Puedes darme más información?`))
             } else if(landing.catalog_landing_action_id == this.ACTIONS.LINK) {
                 window.open(landing.action)
             } else if(landing.catalog_landing_action_id == this.ACTIONS.SIGNUP) {
@@ -97,7 +97,7 @@ const LandingsViewer = {
                         </div>
                     </div>
                 </div>
-                <div class="text-center text-white">MoneyTv ® All rights reserved 2023</div>
+                <div class="text-center text-white">Infinity ® All rights reserved 2023</div>
             </div> 
         </div>
     `,

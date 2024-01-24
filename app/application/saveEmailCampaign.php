@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -12,7 +12,7 @@ if($UserSupport->_loaded === true)
     {
         if($data['content'])
         {
-            $CampaignEmail = new MoneyTv\CampaignEmail;
+            $CampaignEmail = new Infinity\CampaignEmail;
             $CampaignEmail->title = $data['title'];
             $CampaignEmail->content = $data['content'];
             $CampaignEmail->create_date = time();

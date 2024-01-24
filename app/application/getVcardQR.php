@@ -8,7 +8,7 @@ if(true)
 {	
     if($data['vcard_per_user_id'])
     {
-        $data['route'] = (new MoneyTv\VCardPerUser)->getRoute($data['vcard_per_user_id']);
+        $data['route'] = (new Infinity\VCardPerUser)->getRoute($data['vcard_per_user_id']);
         $data['r'] = 'DATA_OK';
         $data['s'] = 1;
     } else {

@@ -4,13 +4,13 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['catalog_reward_id'])
     {
-        if(MoneyTv\RewardPerUser::claim($UserLogin->company_id,$data['catalog_reward_id']))
+        if(Infinity\RewardPerUser::claim($UserLogin->company_id,$data['catalog_reward_id']))
         {
             $data['r'] = 'DATA_OK';
             $data['s'] = 1;

@@ -4,7 +4,7 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -55,23 +55,23 @@ if($UserLogin->logged === true)
 	$data['r'] = 'INVALID_CREDENTIALS';
 }
 
-function createTransaction(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\UserLogin $UserLogin = null)
+function createTransaction(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
-	if($BuyPerUser->catalog_payment_method_id == MoneyTv\CatalogPaymentMethod::COINPAYMENTS)
+	if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::COINPAYMENTS)
 	{
 		return createTransactionFromCoinPayments($BuyPerUser,$UserLogin);
-	} else if($BuyPerUser->catalog_payment_method_id == MoneyTv\CatalogPaymentMethod::EWALLET) {
+	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::EWALLET) {
 		return createTransactionFromEwallet($BuyPerUser,$UserLogin);
-	} else if($BuyPerUser->catalog_payment_method_id == MoneyTv\CatalogPaymentMethod::PAYPAL) {
+	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::PAYPAL) {
 		return createTransactionPayPal($BuyPerUser,$UserLogin);
-	} else if($BuyPerUser->catalog_payment_method_id == MoneyTv\CatalogPaymentMethod::AIRTM) {
+	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::AIRTM) {
 		return createTransactionAirtm($BuyPerUser,$UserLogin);
-	} else if($BuyPerUser->catalog_payment_method_id == MoneyTv\CatalogPaymentMethod::FRANCHISE) {
+	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::FRANCHISE) {
 		return createTransactionFranchise($BuyPerUser,$UserLogin);
 	}
 }
 
-function createTransactionAirtm(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\UserLogin $UserLogin = null)
+function createTransactionAirtm(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
 	return [
 		'amount' => $BuyPerUser->amount,
@@ -79,11 +79,11 @@ function createTransactionAirtm(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\Us
 		'email' => JFStudio\Airtm::CUSTOMER_EMAIL,
 		'unix_time' => time(),
 		// 'checkout_url' => "http://localhost:8888/funnels7/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
-		'checkout_url' => "https://www.moneytv.io/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
+		'checkout_url' => "https://www.Infinity.io/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
 	];
 }
 
-function createTransactionFranchise(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\UserLogin $UserLogin = null)
+function createTransactionFranchise(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
 	return [
 		'amount' => $BuyPerUser->amount,
@@ -91,7 +91,7 @@ function createTransactionFranchise(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyT
 	];
 }
 
-function createTransactionFromEwallet(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\UserLogin $UserLogin = null)
+function createTransactionFromEwallet(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
 	return [
 		'amount' => $BuyPerUser->amount,
@@ -101,7 +101,7 @@ function createTransactionFromEwallet(MoneyTv\BuyPerUser $BuyPerUser = null,Mone
 	];
 }
 
-function createTransactionFromCoinPayments(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\UserLogin $UserLogin = null)
+function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
 	try {
 		require_once TO_ROOT .'/vendor2/autoload.php';
@@ -118,7 +118,7 @@ function createTransactionFromCoinPayments(MoneyTv\BuyPerUser $BuyPerUser = null
 			'custom' => $BuyPerUser->invoice_id,
 			'item_number' => $BuyPerUser->invoice_id,
 			'address' => '', // leave blank send to follow your settings on the Coin Settings page
-			'ipn_url' => 'https://www.moneytv.io/app/cronjob/ipn_coinpayments.php',
+			'ipn_url' => 'https://www.Infinity.io/app/cronjob/ipn_coinpayments.php',
 		];
 						
 		$result = $CoinpaymentsAPI->CreateCustomTransaction($req);
@@ -135,7 +135,7 @@ function createTransactionFromCoinPayments(MoneyTv\BuyPerUser $BuyPerUser = null
 	}	
 }
 
-function createTransactionPayPal(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\UserLogin $UserLogin = null)
+function createTransactionPayPal(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
 	require_once TO_ROOT . "/system/vendor/autoload.php";
 
@@ -191,7 +191,7 @@ function createTransactionPayPal(MoneyTv\BuyPerUser $BuyPerUser = null,MoneyTv\U
 
 function saveBuy($Cart = null,$UserLogin = null)
 {
-	$BuyPerUser = new MoneyTv\BuyPerUser;
+	$BuyPerUser = new Infinity\BuyPerUser;
 	$BuyPerUser->user_login_id = $UserLogin->company_id;
 	$BuyPerUser->fee = $Cart->getVar('fee');
 	$BuyPerUser->item = $Cart->getFormatedItems();
@@ -200,7 +200,7 @@ function saveBuy($Cart = null,$UserLogin = null)
 	$BuyPerUser->invoice_id = $Cart->_instance_id;
 	$BuyPerUser->shipping = 0;
 	$BuyPerUser->catalog_payment_method_id = $Cart->getVar('catalog_payment_method_id');
-	$BuyPerUser->catalog_currency_id = $Cart->getVar('catalog_currency_id') ? $Cart->getVar('catalog_currency_id') : MoneyTv\CatalogCurrency::USD;
+	$BuyPerUser->catalog_currency_id = $Cart->getVar('catalog_currency_id') ? $Cart->getVar('catalog_currency_id') : Infinity\CatalogCurrency::USD;
 	$BuyPerUser->amount = $Cart->getTotalAmount(null,null,['fee'=>false]);
 	$BuyPerUser->create_date = time();
 

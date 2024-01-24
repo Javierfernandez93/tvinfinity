@@ -14,7 +14,7 @@ if($data["email"])
 {
 	if($data["password"])
 	{		
-		$UserSupport = new MoneyTv\UserSupport;
+		$UserSupport = new Infinity\UserSupport;
 
 		if($UserSupport->_loaded === true)
 		{

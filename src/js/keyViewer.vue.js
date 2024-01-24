@@ -56,7 +56,7 @@ const KeyViewer = {
         },
         sendWhatsapp(name,whatsapp,phone_code) {
             whatsapp = phone_code + whatsapp
-            window.open(whatsapp.sendWhatsApp(`*Hola ${name}*, te recuerdo que está próxima a vencer tu licencia en *MoneyTv*. *Renuévala* cuanto antes para que *no pierdas* tus *beneficios*`))
+            window.open(whatsapp.sendWhatsApp(`*Hola ${name}*, te recuerdo que está próxima a vencer tu licencia en *Infinity*. *Renuévala* cuanto antes para que *no pierdas* tus *beneficios*`))
         },
         filterDataByStatus() {
             this.licences = this.licencesAux

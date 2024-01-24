@@ -63,7 +63,7 @@ Vue.createApp({
             })
         },
         deleteTransaction: function (transaction_per_wallet_id) {
-            moneytv.site = alertCtrl.create({
+            Infinity.site = alertCtrl.create({
                 title: "Aviso",
                 subTitle: "¿Estás seguro de eliminar éste fondeo?. Se recalculará el plan del usuario",
                 buttons: [

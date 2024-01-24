@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -25,16 +25,16 @@ if($UserLogin->logged === true)
         'referral' => $UserLogin->getReferral(),
     ];
 
-    if($paymentMethod = (new MoneyTv\PaymentMethodPerUser)->_get($UserLogin->company_id))
+    if($paymentMethod = (new Infinity\PaymentMethodPerUser)->_get($UserLogin->company_id))
     {
-        $data['user'] = array_merge($data['user'], (new MoneyTv\PaymentMethodPerUser)->_get($UserLogin->company_id));
+        $data['user'] = array_merge($data['user'], (new Infinity\PaymentMethodPerUser)->_get($UserLogin->company_id));
     }
 
     $Country = new World\Country;
 
     if($data['include_witdraw_methods'] ?? true)
     {
-        $data['withdraw_methods'] = (new MoneyTv\WithdrawMethodPerUser)->getAll($UserLogin->company_id);
+        $data['withdraw_methods'] = (new Infinity\WithdrawMethodPerUser)->getAll($UserLogin->company_id);
     }
 
     if($data['include_countries'] ?? true)

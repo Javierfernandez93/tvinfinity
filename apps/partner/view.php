@@ -10,7 +10,7 @@ $Layout->init("Cursos","view","backoffice","",TO_ROOT."/");
 $Layout->setScriptPath(TO_ROOT . '/src/');
 $Layout->setScript(['courses.*','view-courses.css']);
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 $Course = new OwnBoss\Course;
 
 $Course->cargarDonde("course_id = ?",HCStudio\Util::getVarFromPGS("cid"));

@@ -4,17 +4,17 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['company_id'])
     {
-        $UserLogin = new MoneyTv\UserLogin;
+        $UserLogin = new Infinity\UserLogin;
 
         if($UserLogin->cargarDonde("company_id = ?",$data['company_id'])) 
         {
-            $UserLogin->status = MoneyTv\UserLogin::DELETED;
+            $UserLogin->status = Infinity\UserLogin::DELETED;
 
             if($UserLogin->save())
             {

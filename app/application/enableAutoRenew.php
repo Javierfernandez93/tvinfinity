@@ -4,13 +4,13 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
     if($data['client_id'])
     {
-        if(MoneyTv\ServicePerClient::enableAutoRenew($data['client_id']))
+        if(Infinity\ServicePerClient::enableAutoRenew($data['client_id']))
         {
             $data["s"] = 1;
             $data["r"] = "DATA_OK";

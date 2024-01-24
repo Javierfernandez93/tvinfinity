@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-	$WhatsAppMessagePerCampaign = new MoneyTv\WhatsAppMessagePerCampaign;
+	$WhatsAppMessagePerCampaign = new Infinity\WhatsAppMessagePerCampaign;
 	$WhatsAppMessagePerCampaign->connection()->stmtQuery("SET NAMES utf8mb4");
 
 	if($messages = $WhatsAppMessagePerCampaign->getAll($UserLogin->company_id))

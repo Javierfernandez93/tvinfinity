@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="MoneyTv | Entretenimiento digital" name="author" />
+    <meta content="Infinity | Entretenimiento digital" name="author" />
     <meta content="Entretenimiento digital" name="description" />
 
     <meta name="theme-color" content="#2D2250">   
@@ -12,17 +12,17 @@
     <meta name="keywords" content="marketing digital, Entretenimiento digital, herramientas, potenciar negocio, realidad, whatsappsender">
     <meta name="robots" value="index, follow">
 
-    <meta property="og:site_name" content="MoneyTv | Entretenimiento digital">
-    <meta property="og:title" content="MoneyTv | Entretenimiento digital" />
+    <meta property="og:site_name" content="Infinity | Entretenimiento digital">
+    <meta property="og:title" content="Infinity | Entretenimiento digital" />
     <meta property="og:description" content="Entretenimiento digital" />
-    <meta property="og:image" itemprop="image" content="https://www.moneytv.site/src/img/feed.png">
+    <meta property="og:image" itemprop="image" content="https://www.Infinity.site/src/img/feed.png">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
 
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1664070388" />
-    <meta property="og:url" content="http://www.moneytv.site">
+    <meta property="og:url" content="http://www.Infinity.site">
 
     <!-- Size of image. Any size up to 300. Anything above 300px will not work in WhatsApp -->
 

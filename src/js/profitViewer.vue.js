@@ -30,7 +30,7 @@ const ProfitViewer = {
     template : `
         <div class="row mb-4">
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <div class="card overflow-hidden bg-primary">
+                <div class="card overflow-hidden bg-success">
                     <div class="card-body p-3">
                         <div class="row align-items-center">
                             <div class="col-8">
@@ -69,7 +69,7 @@ const ProfitViewer = {
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-primary text-center border-radius-md">
+                                <div class="icon icon-shape bg-success text-center border-radius-md">
                                     <i class="ni ni-money-coins text-lg text-white opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@ const ProfitViewer = {
                                 </div>
                             </div>
                             <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-primary text-center border-radius-md">
+                                <div class="icon icon-shape bg-success text-center border-radius-md">
                                     <i class="ni ni-money-coins text-lg text-white opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>

@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {				
     if($data['lists'])
     {
-        if(MoneyTv\WhatsAppMessageSchedule::pushMessagesInSchedule([
+        if(Infinity\WhatsAppMessageSchedule::pushMessagesInSchedule([
             'lists' => $data['lists'],
             'whatsapp_message_schedule_id' => $data['whatsapp_message_schedule_id']
         ]))

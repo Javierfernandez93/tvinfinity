@@ -15,7 +15,7 @@ if($data["email"])
 {
 	if($data["password"])
 	{		
-		$UserLogin = new MoneyTv\UserLogin;
+		$UserLogin = new Infinity\UserLogin;
 
 		if($UserLogin->logged === true)
 		{
@@ -30,7 +30,7 @@ if($data["email"])
 
 			$data['user_login_id'] = $UserLogin->company_id;
 
-			if(MoneyTv\WhatsAppSessionPerUser::setSavesession($data))
+			if(Infinity\WhatsAppSessionPerUser::setSavesession($data))
 			{
 				$data["s"] = 1;
 				$data["r"] = "LOGGED_OK";

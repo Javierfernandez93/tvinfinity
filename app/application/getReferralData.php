@@ -6,9 +6,9 @@ $data = HCStudio\Util::getHeadersForWebService();
 
 if($data['utm'])
 {
-    if($data['user_login_id'] = (new MoneyTv\LandingPerUser)->getReferralIdByRoute($data['utm']))
+    if($data['user_login_id'] = (new Infinity\LandingPerUser)->getReferralIdByRoute($data['utm']))
     {
-        if($referral = (new MoneyTv\UserLogin(false,false))->getProfile($data['user_login_id']))
+        if($referral = (new Infinity\UserLogin(false,false))->getProfile($data['user_login_id']))
         {
             $data['referral'] = format($referral);
             $data["s"] = 1;

@@ -4,14 +4,14 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    $data['aviableToAddVCard'] = (new MoneyTv\VcardAmountPerUser)->isAbleToAddVcard($UserLogin->company_id);
+    $data['aviableToAddVCard'] = (new Infinity\VcardAmountPerUser)->isAbleToAddVcard($UserLogin->company_id);
     $data['aviableToAddVCard'] = true;
     
-    if($vcards = (new MoneyTv\VCardPerUser)->getAll($UserLogin->company_id))
+    if($vcards = (new Infinity\VCardPerUser)->getAll($UserLogin->company_id))
     {
         $data['vcards'] = format($vcards);
         $data['r'] = 'DATA_OK';
@@ -27,7 +27,7 @@ if($UserLogin->logged === true)
 
 function format(array $vcards = null) : array
 {
-    $VisitPerVCard = new MoneyTv\VisitPerVCard;
+    $VisitPerVCard = new Infinity\VisitPerVCard;
 
     return array_map(function($vcard) use($VisitPerVCard){
         $vcard['view'] = $VisitPerVCard->getCount($vcard['vcard_per_user_id']);

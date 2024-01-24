@@ -4,15 +4,15 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    $UserWallet = new MoneyTv\UserWallet;
+    $UserWallet = new Infinity\UserWallet;
     
     if($UserWallet->getSafeWallet($UserLogin->company_id))
     {
-        $WithdrawMethodPerUser = new MoneyTv\WithdrawMethodPerUser;
+        $WithdrawMethodPerUser = new Infinity\WithdrawMethodPerUser;
         
         if(!$WithdrawMethodPerUser->cargarDonde("catalog_withdraw_method_id = ? AND user_login_id = ?",[$data['catalog_withdraw_method_id'],$UserLogin->company_id]))
         {

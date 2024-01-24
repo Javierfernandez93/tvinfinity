@@ -4,7 +4,7 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if(true)
 {	
@@ -23,8 +23,8 @@ if(true)
     shuffle($advices);
 
     $advices[] = [
-        'transactions' => (new MoneyTv\TransactionPerWallet('blockchain'))->getCount(),
-        'advice_type' => MoneyTv\AdviceType::TRANSACTIONS,
+        'transactions' => (new Infinity\TransactionPerWallet('blockchain'))->getCount(),
+        'advice_type' => Infinity\AdviceType::TRANSACTIONS,
         'showed' => false
     ];
     

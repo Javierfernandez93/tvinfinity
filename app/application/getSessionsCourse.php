@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['course_id'])
     {
-        $SessionPerCourse = new MoneyTv\SessionPerCourse;
+        $SessionPerCourse = new Infinity\SessionPerCourse;
         
         if($sessions = $SessionPerCourse->getList($data['course_id']))
         {
@@ -32,7 +32,7 @@ if($UserLogin->logged === true)
 
 function format(array $sessions = null,int $user_login_id = null) : array
 {	
-    $SessionTakeByUserPerCourse = new MoneyTv\SessionTakeByUserPerCourse;
+    $SessionTakeByUserPerCourse = new Infinity\SessionTakeByUserPerCourse;
     
 	return array_map(function ($session) use($SessionTakeByUserPerCourse,$user_login_id) {
         $session['sessionTaked'] = $SessionTakeByUserPerCourse->getSessionInfo($session['session_per_course_id'],$user_login_id);

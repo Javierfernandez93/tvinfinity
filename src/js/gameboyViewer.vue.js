@@ -130,7 +130,7 @@ const GameboyViewer = {
                     </div>
                     <div class="col">
                         <h4>Tutorial como jugar estos juegos</h4>
-                        <p>De la Consola N64 de MoneyTv</p>
+                        <p>De la Consola N64 de Infinity</p>
                     </div>
                     <div class="col-auto">
                         <div class="d-grid"> 

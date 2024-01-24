@@ -151,7 +151,7 @@ const AdminaddlandingViewer = {
                             <div class="col-12 col-xl">
                                 <div class="form-floating">
                                     <input ref="path" v-model="landing.path" @keydown.enter.exact="$refs.description.focus()" @keydown.space.prevent type="text" class="form-control" id="path" placeholder="Path">
-                                    <label for="path">URL (moneytv.site/{{landing.path}}/LandingUsuario)</label>
+                                    <label for="path">URL (Infinity.site/{{landing.path}}/LandingUsuario)</label>
                                 </div>
                             </div>
                         </div>

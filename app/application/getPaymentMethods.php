@@ -4,7 +4,7 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -12,10 +12,10 @@ if($UserLogin->logged === true)
 	
 	if(isset($data['filter_wallet']))
 	{
-		$filter = " AND catalog_payment_method.catalog_payment_method_id != '".MoneyTv\CatalogPaymentMethod::EWALLET."'";
+		$filter = " AND catalog_payment_method.catalog_payment_method_id != '".Infinity\CatalogPaymentMethod::EWALLET."'";
 	}
 
-	if($catalogPaymentMethods = (new MoneyTv\CatalogPaymentMethod)->getAll($filter))
+	if($catalogPaymentMethods = (new Infinity\CatalogPaymentMethod)->getAll($filter))
 	{
         $data['catalogPaymentMethods'] = format($catalogPaymentMethods);
         $data['s'] = 1;
@@ -31,7 +31,7 @@ if($UserLogin->logged === true)
 
 function format(array $catalogPaymentMethods = null) : array 
 {
-	$CatalogCurrency = new MoneyTv\CatalogCurrency;
+	$CatalogCurrency = new Infinity\CatalogCurrency;
 
 	return array_map(function($catalogPaymentMethod) use($CatalogCurrency) {
 		if($catalogPaymentMethod['catalog_currency_ids'])

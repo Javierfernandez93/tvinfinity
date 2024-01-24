@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $data['response'] = MoneyTv\Lattv::call('user_info',[]);
+    $data['response'] = Infinity\Lattv::call('user_info',[]);
     $data["s"] = 1;
     $data["r"] = "DATA_OK";
 } else {

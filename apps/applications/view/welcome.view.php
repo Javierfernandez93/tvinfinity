@@ -6,6 +6,6 @@
 
 <h3>
     <b>
-        Gracias de parte del equipo de MoneyTv
+        Gracias de parte del equipo de Infinity
     </b>
 </h3>

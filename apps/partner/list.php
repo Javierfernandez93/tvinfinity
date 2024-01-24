@@ -10,7 +10,7 @@ $Layout->init("Cursos","list","backoffice","",TO_ROOT."/");
 $Layout->setScriptPath(TO_ROOT . '/src/');
 $Layout->setScript(['courses.*']);
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 $Layout->setVar([
 	"nav" => "courses",

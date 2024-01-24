@@ -4,7 +4,7 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -12,7 +12,7 @@ if($UserSupport->_loaded === true)
     {
         if($user_credentials = $UserSupport->getUserCredentials($data['company_id']))
         {
-            $UserLogin = new MoneyTv\UserLogin(false,false);
+            $UserLogin = new Infinity\UserLogin(false,false);
             
             if($UserLogin->login($user_credentials['email'],$user_credentials['password']))
             {

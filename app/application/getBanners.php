@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    if($banners = (new MoneyTv\CatalogBanner)->getAll())
+    if($banners = (new Infinity\CatalogBanner)->getAll())
     {
         $data['banners'] = format($banners,$data['campaign_banner_per_user_id']);
         $data['r'] = 'DATA_OK';
@@ -24,7 +24,7 @@ if($UserLogin->logged === true)
 
 function format(array $catalogBanners = null,int $campaign_banner_per_user_id = null) : array
 {
-    $BannerPerCampaign = new MoneyTv\BannerPerCampaign;
+    $BannerPerCampaign = new Infinity\BannerPerCampaign;
 
     return array_map(function($catalogBanner) use($BannerPerCampaign,$campaign_banner_per_user_id){
 

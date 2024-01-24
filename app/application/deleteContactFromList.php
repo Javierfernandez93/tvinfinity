@@ -4,13 +4,13 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['contact_per_whatsapp_list_id'])
     {
-        $ContactPerWhatsAppList = new MoneyTv\ContactPerWhatsAppList;
+        $ContactPerWhatsAppList = new Infinity\ContactPerWhatsAppList;
 
         if($ContactPerWhatsAppList->loadWhere('contact_per_whatsapp_list_id = ?',$data['contact_per_whatsapp_list_id']))
         {

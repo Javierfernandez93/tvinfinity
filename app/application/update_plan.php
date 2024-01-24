@@ -4,15 +4,15 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $CatalogPlan = new MoneyTv\CatalogPlan;
+    $CatalogPlan = new Infinity\CatalogPlan;
     
     if($CatalogPlan->isAviableProfit($data['catalog_plan_id'],$data['additional_profit'],$data['sponsor_profit']))
     {
-        $UserWallet = new MoneyTv\UserWallet;
+        $UserWallet = new Infinity\UserWallet;
                 
         if($UserWallet->getSafeWallet($data['user_login_id']))
         {   
@@ -20,13 +20,13 @@ if($UserSupport->_loaded === true)
 
             if($data['deposit'] > 0)
             {
-                if($UserWallet->doTransaction($data['deposit'],MoneyTv\Transaction::DEPOSIT,null,null,false))
+                if($UserWallet->doTransaction($data['deposit'],Infinity\Transaction::DEPOSIT,null,null,false))
                 {
                     $data["transaction_done"] = true;
                 }
             }
 
-            $UserPlan = new MoneyTv\UserPlan;
+            $UserPlan = new Infinity\UserPlan;
 
             if($UserPlan->setPlan($UserWallet->user_login_id,$data['additional_profit'],$data['sponsor_profit']))
             {   
@@ -41,7 +41,7 @@ if($UserSupport->_loaded === true)
             $data['s'] = 0;
         }
     } else {
-        $data['MAX_PROFIT'] = MoneyTv\CatalogPlan::MAX_PROFIT;
+        $data['MAX_PROFIT'] = Infinity\CatalogPlan::MAX_PROFIT;
         $data['r'] = "PROFIT_EXCEDS_MAX_LIMIT";
         $data['s'] = 0;
     }

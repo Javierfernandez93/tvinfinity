@@ -2,21 +2,21 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === false) {
 	HCStudio\Util::redirectTo(TO_ROOT."/apps/login/");
 }
 
-// $s = MoneyTv\Lattv::call("user_info", [
+// $s = Infinity\Lattv::call("user_info", [
 // 	"username" => "javier",
 // 	"password" => "1234"
 // ]);
 
 // d($s);
 
-// $response = MoneyTv\ApiWhatsApp::sendWhatsAppMessage([
-// 	'message' => MoneyTv\ApiWhatsAppMessages::getIptvSetUpDemoMessage(),
+// $response = Infinity\ApiWhatsApp::sendWhatsAppMessage([
+// 	'message' => Infinity\ApiWhatsAppMessages::getIptvSetUpDemoMessage(),
 // 	'image' => null,
 // 	'contact' => [
 // 		"phone" => '5213317361196',

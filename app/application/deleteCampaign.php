@@ -4,17 +4,17 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['campaign_banner_per_user_id'])
     {
-        $CampaignBannerPerUser = new MoneyTv\CampaignBannerPerUser;
+        $CampaignBannerPerUser = new Infinity\CampaignBannerPerUser;
         
         if($CampaignBannerPerUser->loadWhere('campaign_banner_per_user_id = ?',$data['campaign_banner_per_user_id']))
         { 
-            $data['status'] = MoneyTv\CampaignBannerPerUser::DELETED;
+            $data['status'] = Infinity\CampaignBannerPerUser::DELETED;
 
             $CampaignBannerPerUser->status = $data['status'];
             

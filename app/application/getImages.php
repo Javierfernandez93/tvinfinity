@@ -4,11 +4,11 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    if($images = (new MoneyTv\Image)->getAll())
+    if($images = (new Infinity\Image)->getAll())
     {
         $data['images'] = format($images);
         $data['r'] = 'DATA_OK';

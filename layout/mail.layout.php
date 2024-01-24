@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="MoneyTv | entretenimiento digital" name="description" />
-    <meta name="author" content="MoneyTv all rights reserved 2022">
+    <meta content="Infinity | entretenimiento digital" name="description" />
+    <meta name="author" content="Infinity all rights reserved 2022">
     <meta name="HandheldFriendly" content="True" />
     <meta name="theme-color" content="#2D2250">   
     

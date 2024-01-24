@@ -4,9 +4,9 @@ namespace Jcart;
 
 use HCStudio\Session;
 
-use MoneyTv\Package;
-use MoneyTv\Product;
-use MoneyTv\CatalogPaymentMethod;
+use Infinity\Package;
+use Infinity\Product;
+use Infinity\CatalogPaymentMethod;
 
 use HCStudio\Util;
 use HCStudio\Token;

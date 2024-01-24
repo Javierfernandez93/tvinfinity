@@ -4,17 +4,17 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['notice_id'])
     {
-        $Notice = new MoneyTv\Notice;
+        $Notice = new Infinity\Notice;
         
         if($Notice->cargarDonde("notice_id = ?",$data['notice_id']))
         {
-            $Notice->status = MoneyTv\Notice::UNPUBLISHED;
+            $Notice->status = Infinity\Notice::UNPUBLISHED;
             
             if($Notice->save())
             {

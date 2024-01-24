@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    if($licences = (new MoneyTv\LicencePerUser)->_getAll($UserLogin->company_id))
+    if($licences = (new Infinity\LicencePerUser)->_getAll($UserLogin->company_id))
     {
         $data['licences'] = formatData($licences);
         $data['r'] = 'DATA_OK';
@@ -23,8 +23,8 @@ if($UserLogin->logged === true)
 }
 
 function formatData(array $licences = null) : array {
-    $UserAddress = new MoneyTv\UserAddress;
-    $UserContact = new MoneyTv\UserContact;
+    $UserAddress = new Infinity\UserAddress;
+    $UserContact = new Infinity\UserContact;
     $Country = new World\Country;
     
     return array_map(function($licence) use($Country,$UserAddress,$UserContact) {

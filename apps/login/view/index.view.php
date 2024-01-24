@@ -13,7 +13,7 @@
             <div class="">
                 <div class="row justify-content-center">
                     <div class="col-4 col-xl-6">
-                        <img src="../../src/img/logo-horizontal-dark-letters.svg" class="img-fluid"/>
+                        <img src="../../src/img/logo-horizontal-dark.svg" class="img-fluid"/>
                     </div>
                 </div>
             </div>

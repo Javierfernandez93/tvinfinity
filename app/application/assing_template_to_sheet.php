@@ -4,7 +4,7 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
@@ -12,11 +12,11 @@ if($UserLogin->logged === true)
 	{
 		if($data['template_id'])
 		{
-			$Template = new MoneyTv\Template;
+			$Template = new Infinity\Template;
 
 			if($Template->loadWhere("template_id = ?",$data['template_id']))
 			{
-				$VCardPerUser = new MoneyTv\VCardPerUser;
+				$VCardPerUser = new Infinity\VCardPerUser;
 
 				if($VCardPerUser->loadWhere("vcard_per_user_id = ?",$data['vcard_per_user_id']))
 				{	
@@ -24,7 +24,7 @@ if($UserLogin->logged === true)
 
 					if($VCardPerUser->save())
 					{
-						$path = TO_ROOT.MoneyTv\VCardPerUser::PROYECTS_URL."/".$VCardPerUser->getId()."/view/";
+						$path = TO_ROOT.Infinity\VCardPerUser::PROYECTS_URL."/".$VCardPerUser->getId()."/view/";
 
 						if(file_exists($path) == false)
 						{
@@ -39,7 +39,7 @@ if($UserLogin->logged === true)
 					
 						$File = JFStudio\File::getInstance();
 
-						$File->setFileName(MoneyTv\VCardPerUser::TEMPLATE_NAME."-".$VCardPerUser->getId());
+						$File->setFileName(Infinity\VCardPerUser::TEMPLATE_NAME."-".$VCardPerUser->getId());
 						$File->setPath($path);
 						$File->setContent(getHtml($Template->view));
 

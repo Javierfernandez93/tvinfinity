@@ -55,7 +55,7 @@ Vue.createApp({
             window.location.href = '../../apps/admin-administrators/edit?usid='+company_id
         },
         addPermission : function() {
-            moneytv.site = alertCtrl.create({
+            Infinity.site = alertCtrl.create({
                 title: 'Añadir permiso',
                 subTitle: 'Ingresa los datos',
                 size: 'modal-md',

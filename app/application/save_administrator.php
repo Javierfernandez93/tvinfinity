@@ -4,7 +4,7 @@ require_once TO_ROOT. '/system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
@@ -15,7 +15,7 @@ if($UserSupport->_loaded === true)
 
     if($UserSupport->isUniqueMail($data['administrator']['email']))
     {
-        $UserSupportNew = new MoneyTv\UserSupport(false,false);
+        $UserSupportNew = new Infinity\UserSupport(false,false);
         $UserSupportNew->names = ucwords(strtolower($data['administrator']['names']));
         $UserSupportNew->email = strtolower($data['administrator']['email']);
         $UserSupportNew->password = sha1($data['administrator']['password']);
@@ -48,7 +48,7 @@ function savePermissions(int $user_support_id = null,array $permissions = null) 
 {
     foreach ($permissions as $permission)
     {
-        $PermissionPerUserSupport = new MoneyTv\PermissionPerUserSupport;
+        $PermissionPerUserSupport = new Infinity\PermissionPerUserSupport;
         $PermissionPerUserSupport->cargarDonde("user_support_id = ? AND catalog_permission_id = ?",[$user_support_id,$permission['catalog_permission_id']]);
         $PermissionPerUserSupport->user_support_id = $user_support_id;
         $PermissionPerUserSupport->catalog_permission_id = $permission['catalog_permission_id'];

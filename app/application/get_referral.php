@@ -4,14 +4,14 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
-$UserSupport = new MoneyTv\UserSupport;
+$UserLogin = new Infinity\UserLogin;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserLogin->logged === false || $UserSupport->_loaded === true)
 {
     if($data['user_login_id'])
     {
-        $UserData = new MoneyTv\UserData;
+        $UserData = new Infinity\UserData;
         
         if($referral = $UserLogin->getProfile($data['user_login_id']))
         {

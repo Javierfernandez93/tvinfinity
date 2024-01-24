@@ -4,17 +4,17 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['withdraw_per_user_id'])
     {
-        $WithdrawPerUser = new MoneyTv\WithdrawPerUser;
+        $WithdrawPerUser = new Infinity\WithdrawPerUser;
         
         if($WithdrawPerUser->loadWhere('withdraw_per_user_id = ?',$data['withdraw_per_user_id']))
         {
-            $data['status'] = MoneyTv\WithdrawPerUser::DEPOSITED;
+            $data['status'] = Infinity\WithdrawPerUser::DEPOSITED;
             $WithdrawPerUser->status = $data['status'];
         
             if($WithdrawPerUser->save())

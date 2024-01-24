@@ -50,7 +50,7 @@ function processIPN(array $data = null)
 
 function saveIPN(array $data = null)
 {
-    $Ipn = new MoneyTv\Ipn;
+    $Ipn = new Infinity\Ipn;
     $Ipn->data = json_encode($data);
     $Ipn->create_date = time();
     $Ipn->status = 1;
@@ -66,7 +66,7 @@ function validateBuy(array $data = null)
         'user' => HCStudio\Util::USERNAME,
         'password' => HCStudio\Util::PASSWORD,
         'invoice_id' => $data['item_number'],
-        'catalog_validation_method_id' => MoneyTv\CatalogValidationMethod::COINPAYMENTS_IPN,
+        'catalog_validation_method_id' => Infinity\CatalogValidationMethod::COINPAYMENTS_IPN,
         'ipn_data' => json_encode($data),
     ]);
 
@@ -82,8 +82,8 @@ function deleteBuy(array $data = null)
         'user' => HCStudio\Util::USERNAME,
         'password' => HCStudio\Util::PASSWORD,
         'invoice_id' => $data['item_number'],
-        'status' => MoneyTv\BuyPerUser::EXPIRED,
-        'catalog_validation_method_id' => MoneyTv\CatalogValidationMethod::COINPAYMENTS_IPN,
+        'status' => Infinity\BuyPerUser::EXPIRED,
+        'catalog_validation_method_id' => Infinity\CatalogValidationMethod::COINPAYMENTS_IPN,
         'ipn_data' => json_encode($data),
     ]);
 

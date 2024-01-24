@@ -4,7 +4,7 @@ require_once TO_ROOT . "/system/core.php";
 
 $Layout = JFStudio\Layout::getInstance();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === false) {
 	HCStudio\Util::redirectTo(TO_ROOT."/apps/login/");

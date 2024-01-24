@@ -4,20 +4,20 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['ticket_per_user_id'])
 	{
-        $TicketPerUser = new MoneyTv\TicketPerUser;
+        $TicketPerUser = new Infinity\TicketPerUser;
 
         if($TicketPerUser->loadWhere('ticket_per_user_id = ?',$data['ticket_per_user_id']))
         {
-            if($data['status'] == MoneyTv\TicketPerUser::SUPPORTING)
+            if($data['status'] == Infinity\TicketPerUser::SUPPORTING)
             {
                 $TicketPerUser->user_support_id = $UserSupport->getId();
-            } else if($data['status'] == MoneyTv\TicketPerUser::FINISHED) {
+            } else if($data['status'] == Infinity\TicketPerUser::FINISHED) {
                 sendWhatsApp($TicketPerUser->user_login_id,$TicketPerUser->unique_id);
             }
 
@@ -46,12 +46,12 @@ if($UserSupport->_loaded === true)
 
 function sendWhatsApp(int $user_login_id = null,string $unique_id = null) 
 {
-    return MoneyTv\ApiWhatsApp::sendWhatsAppMessage([
-        'message' => MoneyTv\ApiWhatsAppMessages::getTicketDoneMessage(),
+    return Infinity\ApiWhatsApp::sendWhatsAppMessage([
+        'message' => Infinity\ApiWhatsAppMessages::getTicketDoneMessage(),
         'image' => null,
         'contact' => [
-            "phone" => (new MoneyTv\UserContact)->getWhatsApp($user_login_id),
-            "name" => (new MoneyTv\UserData)->getName($user_login_id),
+            "phone" => (new Infinity\UserContact)->getWhatsApp($user_login_id),
+            "name" => (new Infinity\UserData)->getName($user_login_id),
             "extra" => $unique_id
         ]
     ]);

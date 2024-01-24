@@ -4,13 +4,13 @@ require_once TO_ROOT. '/system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
     if($data['campaign_email_id'])
     {
-        if($emails = (new MoneyTv\EmailPerCampaign)->getAll($data['campaign_email_id']))
+        if($emails = (new Infinity\EmailPerCampaign)->getAll($data['campaign_email_id']))
         {
             $data['emails'] = $emails;
             $data['s'] = 1;

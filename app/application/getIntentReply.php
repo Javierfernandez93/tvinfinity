@@ -17,9 +17,9 @@ if($data['sessionName'])
 {
 	if($data['message'])
 	{	
-		$data['user_login_id'] = (new MoneyTv\WhatsAppSessionPerUser)->getUserBySessionName($data['sessionName']);
+		$data['user_login_id'] = (new Infinity\WhatsAppSessionPerUser)->getUserBySessionName($data['sessionName']);
 
-		$IntentChat = new MoneyTv\IntentChat;
+		$IntentChat = new Infinity\IntentChat;
 
 		if($temp_intents = $IntentChat->getAllLike($data['user_login_id'],$data['message']))
 		{
@@ -32,10 +32,10 @@ if($data['sessionName'])
 		{
 			if($tag = predict($intents,$data['message']))
 			{
-				$data = array_merge($data,(new MoneyTv\WhatsAppSessionPerUser)->getVars($data['user_login_id']));
-				$reply = MoneyTv\Parser::doParser(getReply($tag['tag']),$data);
+				$data = array_merge($data,(new Infinity\WhatsAppSessionPerUser)->getVars($data['user_login_id']));
+				$reply = Infinity\Parser::doParser(getReply($tag['tag']),$data);
 				
-				if(saveMessage($data['user_login_id'],$message,MoneyTv\ChatSender::$ROBOT))
+				if(saveMessage($data['user_login_id'],$message,Infinity\ChatSender::$ROBOT))
 				{
 					$data['s'] = 1;
 					$data['reply'] = $reply;
@@ -66,7 +66,7 @@ function saveMessage($chat_per_sheet_id = null,$message = null,$send_from = null
 
 	if(isset($chat_per_sheet_id,$message,$send_from) === true)
 	{
-		$ConversationPerChat = new MoneyTv\ConversationPerChat;
+		$ConversationPerChat = new Infinity\ConversationPerChat;
 		$ConversationPerChat->chat_per_sheet_id = $chat_per_sheet_id;
 		$ConversationPerChat->create_date = time();
 		$ConversationPerChat->message = $message;
@@ -91,7 +91,7 @@ function analitycs(array $data = null,string $room_id = null)
 	{
 		if($data['tag'] == "support")
 		{
-			$Room = new MoneyTv\Room;
+			$Room = new Infinity\Room;
 			if($Room->loadWhere("room_id = ?",$room_id))
 			{
 				$Room->need_attend = "1";
@@ -168,14 +168,14 @@ function predict(array $data = null, string $sentence = null)
 
 function getReply(string $tag = null) : string
 {
-	$CatalogTagIntentChat = new MoneyTv\CatalogTagIntentChat;
+	$CatalogTagIntentChat = new Infinity\CatalogTagIntentChat;
 
 	if($CatalogTagIntentChat->loadWhere("tag = ?",$tag))
 	{
-		return (new MoneyTv\ReplyPerCatalogTagIntentChat)->getReplyRandom($CatalogTagIntentChat->getId());
+		return (new Infinity\ReplyPerCatalogTagIntentChat)->getReplyRandom($CatalogTagIntentChat->getId());
 	}
 
-	return MoneyTv\ReplyPerCatalogTagIntentChat::getDefaultReply();
+	return Infinity\ReplyPerCatalogTagIntentChat::getDefaultReply();
 }
 
 function removeKey(array $data = null) : array

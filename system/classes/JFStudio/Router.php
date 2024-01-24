@@ -257,7 +257,7 @@ class Router {
             case self::StoreCredit:
                 return 'Créditos';
             case self::Movies:
-                return 'MoneyTv +';
+                return 'Infinity +';
             case self::AdminIPTV:
                 return 'IPTV';
             case self::Game:

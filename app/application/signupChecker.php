@@ -4,11 +4,11 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-    if(MoneyTv\ExternalLogin::signupChecker($UserLogin->email,MoneyTv\ExternalLoginRouter::ZUUM_SIGNUP_CHECKER))
+    if(Infinity\ExternalLogin::signupChecker($UserLogin->email,Infinity\ExternalLoginRouter::ZUUM_SIGNUP_CHECKER))
     {
         $data['r'] = 'DATA_OK';
         $data['s'] = 1;

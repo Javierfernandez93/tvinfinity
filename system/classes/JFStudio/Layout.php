@@ -30,7 +30,7 @@ class Layout
 	
 	# const vars
 	const VERSION = 1.3;
-	const PROYECT_NAME = 'MoneyTv';
+	const PROYECT_NAME = 'TV INFINITY';
 	const JOIN = ' - ';
 	const ROOT = "../";
 	const DISABLE_CACHE = true;

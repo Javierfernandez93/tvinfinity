@@ -2,13 +2,13 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === false) {
 	HCStudio\Util::redirectTo(TO_ROOT."/apps/login/");
 }
 
-if(!(new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,11)) 
+if(!(new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,11)) 
 {
 	HCStudio\Util::redirectTo(TO_ROOT."/apps/backoffice/");
 }

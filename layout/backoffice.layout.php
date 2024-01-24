@@ -27,11 +27,11 @@
 </head>
 
 <body class="g-sidenav-show bg-light">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs fixed-start" id="sidenav-main">
-        <div class="bg-dark pb-5">
+    <aside class="sidenav navbar navbar-vertical m-2 navbar-expand-xs fixed-start" id="sidenav-main">
+        <div class="bg-dark rounded pb-5">
             <div class="sidenav-header">
                 <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-                <a class="navbar-brand m-0" href=" https://moneytv.site " target="_blank">
+                <a class="navbar-brand m-0" href=" https://Infinity.site " target="_blank">
                     <img src="../../src/img/logo-horizontal-white.svg" class="w-100" alt="main_logo">
                 </a>
             </div>
@@ -41,7 +41,7 @@
                         <div class="row py-3 px-4">
                             <div class="col-auto">
                                 <div class="avatar rounded-circle">
-                                    <img src="http://localhost:8888/moneytv/src/img/logo-2.png" class="avatar bg-white rounded-circle ">
+                                    <img src="http://localhost:8888/Infinity/src/img/logo-2.png" class="avatar bg-white rounded-circle ">
                                 </div>
                             </div>
                             <div class="col">
@@ -169,7 +169,7 @@
                                         <span class="sidenav-normal"> Comprar juegos</span>
                                     </a>
                                 </li>
-                                <?php if((new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,6)) { ?>
+                                <?php if((new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,6)) { ?>
                                     <li class="nav-item ">
                                         <a class="nav-link " href="../../apps/game/snes">
                                             <span class="sidenav-mini-icon"> P </span>
@@ -183,7 +183,7 @@
                                         </a>
                                     </li>
                                 <?php } ?>
-                                <?php if((new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,7)) { ?>
+                                <?php if((new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,7)) { ?>
                                     <li class="nav-item ">
                                         <a class="nav-link " href="../../apps/game/n64">
                                             <span class="sidenav-mini-icon"> P </span>
@@ -191,7 +191,7 @@
                                         </a>
                                     </li>
                                 <?php } ?>
-                                <?php if((new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,8)) { ?>
+                                <?php if((new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,8)) { ?>
                                     <li class="nav-item ">
                                         <a class="nav-link " href="../../apps/game/turbografx">
                                             <span class="sidenav-mini-icon"> P </span>
@@ -199,7 +199,7 @@
                                         </a>
                                     </li>
                                 <?php } ?>
-                                <?php if((new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,9)) { ?>
+                                <?php if((new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,9)) { ?>
                                     <li class="nav-item ">
                                         <a class="nav-link " href="../../apps/game/gameboy">
                                             <span class="sidenav-mini-icon"> P </span>
@@ -207,7 +207,7 @@
                                         </a>
                                     </li>
                                 <?php } ?>
-                                <?php if((new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,10)) { ?>
+                                <?php if((new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,10)) { ?>
                                     <li class="nav-item ">
                                         <a class="nav-link " href="../../apps/game/atari">
                                             <span class="sidenav-mini-icon"> P </span>
@@ -215,7 +215,7 @@
                                         </a>
                                     </li>
                                 <?php } ?>
-                                <?php if((new MoneyTv\BuyPerUser)->hasPackageBuy($UserLogin->company_id,11)) { ?>
+                                <?php if((new Infinity\BuyPerUser)->hasPackageBuy($UserLogin->company_id,11)) { ?>
                                     <li class="nav-item ">
                                         <a class="nav-link " href="../../apps/game/sega">
                                             <span class="sidenav-mini-icon"> P </span>
@@ -236,7 +236,7 @@
                     </li>
 
                     <?php if($UserLogin->isActiveOnPackage(1)) { ?>
-                        <li class="nav-item">
+                        <li class="nav-item d-none">
                             <a class="nav-link <?php if (in_array($route,[JFStudio\Router::Landing])) { ?>active<?php } ?>" href="../../apps/backoffice/landings">
                                 <i class="bi bi-card-image"></i>
                                 <span class="nav-link-text ms-1"><?php echo JFStudio\Router::getName(JFStudio\Router::Landing); ?></span>
@@ -316,15 +316,9 @@
                             <li class="nav-item pe-3 align-items-center">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <?php if($UserLogin->_data['user_account']['image']) { ?>
-                                            <div class="avatar rounded-circle">
-                                                <img src="<?php echo $UserLogin->_data['user_account']['image']; ?>" alt="referido" class="bg-light rounded-circle">
-                                            </div>
-                                        <?php } else { ?>
-                                            <div class="avatar bg-dark">
-                                                <?php echo $UserLogin->getFirsNameLetter();?>
-                                            </div>
-                                        <?php } ?>
+                                        <div class="avatar bg-dark">
+                                            <?php echo $UserLogin->getFirsNameLetter();?>
+                                        </div>
                                     </div>
 
                                     <div class="col">
@@ -363,14 +357,14 @@
                                 document.write(new Date().getFullYear())
                             </script>,
                             made with <i class="fa fa-heart"></i> by
-                            <a href="https://moneytv.site/" class="font-weight-bold" target="_blank"><img src="../../src/img/logo-horizontal-dark-letters.svg" style="width:5rem;"></a>
+                            <a href="https://Infinity.site/" class="font-weight-bold" target="_blank"><img src="../../src/img/logo-horizontal-dark-letters.svg" style="width:5rem;"></a>
                             for a better web.
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
-                                <a href="" class="nav-link text-muted" target="_blank">MoneyTv</a>
+                                <a href="" class="nav-link text-muted" target="_blank">Infinity</a>
                             </li>
                         </ul>
                     </div>

@@ -14,7 +14,7 @@ if($data["email"])
 {
 	if($data["password"])
 	{		
-		$UserLogin = new MoneyTv\UserLogin;
+		$UserLogin = new Infinity\UserLogin;
 
 		if($UserLogin->logged === true)
 		{

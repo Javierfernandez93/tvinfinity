@@ -44,7 +44,7 @@ const ReferralsViewer = {
                     ¡Echa un vistazo a tus referidos a dos niveles! 
                 </div>
                 <div class="h4 text-white">
-                    ¡Descubre la red que estás construyendo en MoneyTv!
+                    ¡Descubre la red que estás construyendo en Infinity!
                 </div>
             </div>
             <div v-if="network">
@@ -110,7 +110,7 @@ const ReferralsViewer = {
             <div v-else-if="network == false">
                 <div class="alert alert-info text-center text-white">
                     <div>Aún no tienes tu unilevel activo</div>
-                    <div class="h4 text-white">Comienza invitando personas a MoneyTv</div>
+                    <div class="h4 text-white">Comienza invitando personas a Infinity</div>
 
                     <a href="../../apps/backoffice" class="btn mt-3 btn-outline-light">Ir a mi dashboard</a>
                 </div>

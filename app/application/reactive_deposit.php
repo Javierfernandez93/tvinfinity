@@ -4,21 +4,21 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserSupport = new MoneyTv\UserSupport;
+$UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $CatalogPlan = new MoneyTv\CatalogPlan;
+    $CatalogPlan = new Infinity\CatalogPlan;
 
     if($data['transaction_requirement_per_user_id'])
     {
-        $TransactionRequirementPerUser = new MoneyTv\TransactionRequirementPerUser;
+        $TransactionRequirementPerUser = new Infinity\TransactionRequirementPerUser;
         
         if($TransactionRequirementPerUser->isAviableToReactive($data['transaction_requirement_per_user_id']))
         {
             if($TransactionRequirementPerUser->cargarDonde('transaction_requirement_per_user_id = ?',$data['transaction_requirement_per_user_id']))
             {
-                $TransactionRequirementPerUser->status = MoneyTv\TransactionRequirementPerUser::PENDING;
+                $TransactionRequirementPerUser->status = Infinity\TransactionRequirementPerUser::PENDING;
 
                 if($TransactionRequirementPerUser->save())
                 {

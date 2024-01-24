@@ -4,11 +4,11 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    $Client = new MoneyTv\Client;
+    $Client = new Infinity\Client;
 
     $data['stats'] = [
         "active_accounts" => $Client->getActiveCounts($UserLogin->company_id),

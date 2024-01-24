@@ -39,7 +39,7 @@
         <button 
           :disabled="!userComplete" 
           @click="doLogin"
-          class="btn btn-dark w-100 btn-block btn-lg badge-pill mb-0" type="button">Ingresar moneytv.site</button>
+          class="btn btn-dark w-100 btn-block btn-lg badge-pill mb-0" type="button">Ingresar Infinity.site</button>
       </div>
     </div>        
   </div>

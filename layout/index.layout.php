@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Funnels7 | Marketing profesional">
     <meta property="og:title" content="Funnels7 | Marketing profesional" />
     <meta property="og:description" content="Herramientas de Marketing profesional" />
-    <meta property="og:image" itemprop="image" content="https://www.moneytv.site/src/img/logo.png">
+    <meta property="og:image" itemprop="image" content="https://www.Infinity.site/src/img/logo.png">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
 
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1664070388" />
-    <meta property="og:url" content="http://www.moneytv.site">
+    <meta property="og:url" content="http://www.Infinity.site">
 
 
     <!-- App favicon -->

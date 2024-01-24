@@ -8,17 +8,17 @@ if($data['path'])
 {
     if($data['landing'])
     {
-        if($landing = (new MoneyTv\Landing)->getLandingByPath($data['path']))
+        if($landing = (new Infinity\Landing)->getLandingByPath($data['path']))
         {
-            if($user_login_id = (new MoneyTv\UserAccount)->getIdByLanding($data['landing']))
+            if($user_login_id = (new Infinity\UserAccount)->getIdByLanding($data['landing']))
             {
                 $data['userData'] = [
                     'landing' => $data['landing'],
-                    'whatsApp' => (new MoneyTv\UserContact)->getWhatsApp($user_login_id),
-                    'names' => (new MoneyTv\UserData)->getNames($user_login_id),
+                    'whatsApp' => (new Infinity\UserContact)->getWhatsApp($user_login_id),
+                    'names' => (new Infinity\UserData)->getNames($user_login_id),
                 ];
                 
-                $landing['content'] = MoneyTv\Parser::doParser($landing['content'],$data['userData']);
+                $landing['content'] = Infinity\Parser::doParser($landing['content'],$data['userData']);
             }
 
             $data['landing'] = $landing;

@@ -4,21 +4,21 @@ require_once TO_ROOT. "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
     if($data['invoice_id'])
 	{
-        $BuyPerUser = new MoneyTv\BuyPerUser;
+        $BuyPerUser = new Infinity\BuyPerUser;
         
         if($BuyPerUser->isInvoicePending($data['invoice_id']))
         {
             if($BuyPerUser->loadWhere('invoice_id = ?',$data['invoice_id']))
             {	
-                if(MoneyTv\BuyPerUser::deletePayment($BuyPerUser->getId()))
+                if(Infinity\BuyPerUser::deletePayment($BuyPerUser->getId()))
                 {
-                    $data['status'] = MoneyTv\BuyPerUser::DELETED;
+                    $data['status'] = Infinity\BuyPerUser::DELETED;
                     $data['s'] = 1;
                     $data['r'] = 'SAVE_OK';
                 } else {

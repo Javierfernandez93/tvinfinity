@@ -4,11 +4,11 @@ require_once TO_ROOT . "system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
-	$CatalogPaymentMethod = new MoneyTv\CatalogPaymentMethod;
+	$CatalogPaymentMethod = new Infinity\CatalogPaymentMethod;
 	
 	if($CatalogPaymentMethod->loadWhere("catalog_payment_method_id = ? AND status != ?",[$data['catalog_payment_method_id'],-1]))
 	{

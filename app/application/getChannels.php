@@ -7,7 +7,7 @@ use M3uParser\M3uParser;
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 // if($UserLogin->logged === true)
 if(true)
@@ -17,24 +17,24 @@ if(true)
 
     if($data['list_per_user_id'])
     {
-        $ListPerUser = new MoneyTv\ListPerUser;
+        $ListPerUser = new Infinity\ListPerUser;
         
         if($ListPerUser->loadWhere("list_per_user_id = ?",[$data['list_per_user_id']]))
         {
-            if($url = MoneyTv\ListPerUser::concatListUrl($ListPerUser->url))
+            if($url = Infinity\ListPerUser::concatListUrl($ListPerUser->url))
             {
                 if($channels = loadDataFromURL($url,$data['group']))
                 {
-                    // $Movie = new MoneyTv\Movie;
+                    // $Movie = new Infinity\Movie;
 
                     // array_map(function($channel) use($Movie) {
                     //     if(!$Movie->exist($channel['title']))
                     //     {
-                    //         $Movie = new MoneyTv\Movie;
+                    //         $Movie = new Infinity\Movie;
       
                     //         $Movie->title = $channel['title'];
                     //         $Movie->link = $channel['url'];
-                    //         $Movie->image = $channel['image'] ?? 'https://moneytv.site/src/files/img/movie-bg.png';
+                    //         $Movie->image = $channel['image'] ?? 'https://Infinity.site/src/files/img/movie-bg.png';
                     //         $Movie->status = 1;
                     //         $Movie->player = 1;
                     //         $Movie->create_date = time();

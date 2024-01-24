@@ -16,11 +16,11 @@ if($data["email"])
     
     if($Token->checkToken($token))
     {    
-        $UserLogin = new MoneyTv\UserLogin;
+        $UserLogin = new Infinity\UserLogin;
 
         if($UserLogin->isUniqueMail($data['email']) === false)
         {
-            $UserLogin = new MoneyTv\UserLogin;
+            $UserLogin = new Infinity\UserLogin;
 
             if($UserLogin->isUniqueMail($Token->params['email']) === false)
             {

@@ -4,11 +4,11 @@ require_once TO_ROOT . "/system/core.php";
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    if(MoneyTv\CreditPerUser::addCredits($UserLogin->company_id,$data['amount']))
+    if(Infinity\CreditPerUser::addCredits($UserLogin->company_id,$data['amount']))
     {
         $data['s'] = 1;
         $data['r'] = 'DATA_OK';

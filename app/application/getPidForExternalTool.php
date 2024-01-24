@@ -4,13 +4,13 @@ require_once TO_ROOT . 'system/core.php';
 
 $data = HCStudio\Util::getHeadersForWebService();
 
-$UserLogin = new MoneyTv\UserLogin;
+$UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {	
     if($data['link'])
     {    
-        $data['link_access'] = MoneyTv\ExternalLoginRouter::LOGIN_FOR_TOOL."?".http_build_query(array_merge([
+        $data['link_access'] = Infinity\ExternalLoginRouter::LOGIN_FOR_TOOL."?".http_build_query(array_merge([
             'link' => $data['link'],
         ],$UserLogin->getPid()));
         
