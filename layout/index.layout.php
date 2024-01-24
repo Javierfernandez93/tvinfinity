@@ -48,7 +48,7 @@
 </head>
 
 <body class="bg-dark">
-    <nav class="navbar navbar-expand-lg shadow-none navbar-dark bg-transparent position-fixed w-100 z-index-1">
+    <nav class="navbar navbar-expand-lg shadow-none navbar-dark bg-transparent position-fixed w-100 z-index-3">
         <div class="container">
             <button class="navbar-toggler border fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
@@ -62,19 +62,19 @@
                         <a class="nav-link fs-5 active fw-sembold" aria-current="page" href="../../apps/home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5 fw-sembold" aria-current="page" href="#target">¿Para quién está dirigido?</a>
+                        <a class="nav-link fs-5 fw-sembold" aria-current="page" href="#services">Nuestros servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5 fw-sembold" href="#services">¿Qué ofrecemos?</a>
+                        <a class="nav-link fs-5 fw-sembold" href="#target">¿Para quién es?</a>
                     </li>
                 </ul>
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-white fw-sembold btn btn-danger fs-5 px-3 shadow-none me-0 me-xl-2 mb-3 mb-xl-0" aria-current="page" href="../../apps/signup">Comenzar</a>
+                            <a class="nav-link active text-white fw-sembold btn btn-dark fs-5 px-3 shadow-none me-0 me-xl-2 mb-3 mb-xl-0" aria-current="page" href="../../apps/signup">Regístrate</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-danger fw-sembold  btn btn-outline-danger fs-5 px-3 shadow-none mb-0" href="../../apps/login">Iniciar sesión</a>
+                            <a class="nav-link text-dark fw-sembold  btn btn-outline-dark fs-5 px-3 shadow-none mb-0" href="../../apps/login">Ingresa a tu cuenta</a>
                         </li>
                     </ul>
                 </div>
