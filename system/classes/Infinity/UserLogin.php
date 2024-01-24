@@ -432,7 +432,7 @@ class UserLogin extends Orm {
   {
     $UserLogin = new UserLogin;
     $UserLogin->email = $data['email'];
-    $UserLogin->password = $data['encrypted'] ? $data['password'] : sha1($data['password']);
+    $UserLogin->password = isset($data['encrypted']) ? $data['password'] : sha1($data['password']);
     $UserLogin->signup_date = time();
     
     if($UserLogin->save())

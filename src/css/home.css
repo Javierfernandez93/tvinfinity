@@ -1,16 +1,9 @@
 .section-1 {
-    background-image: url(../../src/img/bg-home.png);
+    background-image: url(../../src/img/banner/banner-home.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
     height: 900px;
-}
-.section-2 {
-    background-image: url(../../src/img/entrepreneurs.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: top;
-    position: relative;
 }
 .section-1 .container {
     z-index: 10;
@@ -68,4 +61,58 @@
 }
 .bg-dark {
     background-color: #211D1D !important;
+}
+
+.section-2 .card-info {
+
+    height: 50rem;
+}
+
+.display-font {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
+}
+.banner-1 {
+    background-image: url(../../src/img/banner/1.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.banner-2 {
+    background-image: url(../../src/img/banner/2.webp);
+    background-size: cover;
+    background-position: center;
+}
+.banner-3 {
+    background-image: url(../../src/img/banner/3.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.banner-4 {
+    background-image: url(../../src/img/banner/banner-2.jpg);
+    background-size: contain;
+    background-position: center;
+}
+.mask-1 {
+    background: rgb(255,0,0);
+    background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.6180847338935574) 100%);
+}
+.mask-2 {
+    background: rgb(255,229,0);
+    background: linear-gradient(0deg, rgba(255,229,0,1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.6180847338935574) 100%);
+}
+.mask-3 {
+    background: rgb(0,157,255);
+    background: linear-gradient(0deg, rgba(0,157,255,1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.6180847338935574) 100%);
+}
+.mask-4 {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3603816526610645) 50%, rgba(0,157,255,1) 100%);
+}
+.banner-1,
+.banner-2,
+.banner-3 {
+    overflow: hidden;
 }

@@ -2,8 +2,6 @@
 
 require_once TO_ROOT . "/system/core.php";
 
-HCStudio\Util::redirectTo(TO_ROOT."/apps/login/");
-
 $UserLogin = new Infinity\UserLogin;
 
 $Layout = JFStudio\Layout::getInstance();
