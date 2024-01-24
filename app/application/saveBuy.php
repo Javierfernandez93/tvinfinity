@@ -55,6 +55,19 @@ if($UserLogin->logged === true)
 	$data['r'] = 'INVALID_CREDENTIALS';
 }
 
+function createTransactionDeposit(Infinity\BuyPerUser $BuyPerUser = null, Infinity\UserLogin $UserLogin = null)
+{
+	return [
+		'amount' => $BuyPerUser->amount,
+		'txn_id' => $BuyPerUser->invoice_id,
+		'data' => (new Infinity\CatalogPaymentMethod)->findField("catalog_payment_method_id = ?",$BuyPerUser->catalog_payment_method_id,"additional_data"),
+		'unix_time' => time(),
+		// 'checkout_url' => "http://localhost:8888/Site/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
+		'checkout_url' => "../../apps/deposit/process" . $UserLogin->getPidQuery() . "&txn_id={$BuyPerUser->invoice_id}"
+	];
+}
+
+
 function createTransaction(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserLogin $UserLogin = null)
 {
 	if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::COINPAYMENTS)
@@ -66,6 +79,8 @@ function createTransaction(Infinity\BuyPerUser $BuyPerUser = null,Infinity\UserL
 		return createTransactionPayPal($BuyPerUser,$UserLogin);
 	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::AIRTM) {
 		return createTransactionAirtm($BuyPerUser,$UserLogin);
+	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::DEPOSIT) {
+		return createTransactionDeposit($BuyPerUser,$UserLogin);
 	} else if($BuyPerUser->catalog_payment_method_id == Infinity\CatalogPaymentMethod::FRANCHISE) {
 		return createTransactionFranchise($BuyPerUser,$UserLogin);
 	}

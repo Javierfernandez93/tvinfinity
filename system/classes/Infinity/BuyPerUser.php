@@ -86,7 +86,13 @@ class BuyPerUser extends Orm {
     if(isset($data) === true)
     {
       $data['checkout_data'] = json_decode($data['checkout_data'],true);
-      $data['catalog_payment_method'] = (new CatalogPaymentMethod)->get($data['catalog_payment_method_id']);
+      $data['catalog_payment_method'] = (new CatalogPaymentMethod)->findRow("catalog_payment_method_id = ?",$data['catalog_payment_method_id']);
+
+      if(Util::isJson($data['catalog_payment_method']['additional_data']))
+      {
+        $data['catalog_payment_method']['additional_data'] = json_decode($data['catalog_payment_method']['additional_data'],true);
+      }
+  
       
       if(isset($data['ipn_data']))
       {

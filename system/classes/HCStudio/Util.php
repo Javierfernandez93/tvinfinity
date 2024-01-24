@@ -42,6 +42,13 @@ class Util
 	{
 		# Nada que hacer ...
 	}
+	public static function getNumbersWithFloat(string $string = null)
+	{
+		if (preg_match('!\d+\.*\d*!', $string, $matches)) { 
+			return $matches[0]; //returning the first match 
+		}
+	}
+
 	# Dump de variables
 	public static function getNumbers(string $phone = null)
 	{
@@ -125,12 +132,19 @@ class Util
 		foreach ($arr as $k => $v) $GLOBALS[$prefx . $k] = $v;
 	}
 	# Convertimos arreglo en objeto
-	public static function arr2obj(array $array)
+	public static function arr2obj(array $array = null)
 	{
-		$json = json_encode($array);
-		$object = json_decode($json);
-		return $object;
+		if(isset($array))
+		{
+			$json = json_encode($array);
+			$object = json_decode($json);
+
+			return $object;
+		}
+
+		return null;
 	}
+
 	# Convertimos objeto en arreglo
 	public static function obj2arr(array $array)
 	{
@@ -172,27 +186,6 @@ class Util
 		return preg_match("/^[a-z0-9\-]*$/", $str);
 	}
 
-	public static function getCountryIP(string $ip = null)
-	{
-		$ip = isset($ip) ? $ip : self::getIP();
-
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, "http://www.geoplugin.net/json.gp?ip=".$ip);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		$ip_data_in = curl_exec($ch); // string
-		curl_close($ch);
-	
-		$ip_data = json_decode($ip_data_in,true);
-		$ip_data = str_replace('&quot;', '"', $ip_data); // for PHP 5.2 see stackoverflow.com/questions/3110487/
-	
-		if($ip_data && $ip_data['geoplugin_countryName'] != null) {
-			$country = $ip_data['geoplugin_countryName'];
-		}
-	
-		return $country;
-	}
-	
 	public static function getIP()
 	{
 		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -302,6 +295,15 @@ class Util
 	{
 		return '$' . number_format($num, 2);
 	}
+	
+	public static function redirectWithParams(string $url = null)
+	{
+		$params = self::getVarFromPGS();
+		$query = isset($params) ? "?" . http_build_query($params) : '';
+		header("location: {$url}{$query}");
+		die();
+	}
+
 	public static function redirectTo(string $url, array $params = null)
 	{
 		$query = isset($params) ? "?" . http_build_query($params) : '';
@@ -753,4 +755,9 @@ class Util
 
 		return $bytes;
 	}
+
+	public static function isJson(string $string = null) : bool {
+		json_decode($string);
+		return json_last_error() === JSON_ERROR_NONE;
+	 }
 }

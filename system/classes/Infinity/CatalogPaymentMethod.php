@@ -15,6 +15,7 @@ class CatalogPaymentMethod extends Orm {
 	const PAYPAL = 4;
 	const AIRTM = 5;
 	const FRANCHISE = 6;
+	const DEPOSIT = 7;
 
 	public function __construct() {
 		parent::__construct();
