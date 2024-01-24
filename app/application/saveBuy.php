@@ -93,7 +93,7 @@ function createTransactionAirtm(Infinity\BuyPerUser $BuyPerUser = null,Infinity\
 		'txn_id' => $BuyPerUser->invoice_id,
 		'email' => JFStudio\Airtm::CUSTOMER_EMAIL,
 		'unix_time' => time(),
-		// 'checkout_url' => "http://localhost:8888/funnels7/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
+		// 'checkout_url' => "http://localhost:8888/Infinity/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
 		'checkout_url' => "https://www.Infinity.io/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
 	];
 }

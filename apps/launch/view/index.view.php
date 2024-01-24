@@ -9,11 +9,11 @@
                     <div class="col-xl-6">
                         <div class="row h-100 text-center bg-gradient-warning align-items-center py-5">
                             <div class="col-12">
-                                <div class="fw-semibold fs-3"><u>Conoce Funnels7</u></div>
+                                <div class="fw-semibold fs-3"><u>Conoce Infinity</u></div>
                                 <div class="row justify-content-center">
                                     <div class="col-10">
                                         <video width="100%" height="auto" controls="" class="py-3">
-                                            <source src="../../src/files/video/video-funnels7-launch.mp4" type="video/mp4">
+                                            <source src="../../src/files/video/video-Infinity-launch.mp4" type="video/mp4">
                                             <source src="movie.ogg" type="video/ogg"> Your browser does not support the video tag.
                                         </video>
                                     </div>

@@ -204,7 +204,7 @@ const Landing3Viewer = {
                                 <div>Nosotros te enseñamos cómo.</div>
                             </div>
                             <div class="d-flex justify-content-center mt-3 fs-3 text-center text-white fst-italic">
-                                "Funnels7 es la plataforma online que está ayudando a miles de personas a educarse en negocios, marketing y empredimiento" - RCN radio.
+                                "Infinity es la plataforma online que está ayudando a miles de personas a educarse en negocios, marketing y empredimiento" - RCN radio.
                             </div>
                             <div class="d-flex justify-content-center mt-3">
                                 <a href="#section-3"><i class="bi bi-arrow-down-short text-white display-1"></i></a>
@@ -323,7 +323,7 @@ const Landing3Viewer = {
                     <div class="row align-items-center pb-5">
                         <div class="col-xl-12 text-white text-center">
                             <div class="display-1">CIEN MIL RAZONES</div>
-                            <div class="display-3">PARA UNIRTE A <span class="text-warning">FUNNELS7</span></div>
+                            <div class="display-3">PARA UNIRTE A <span class="text-warning">Infinity</span></div>
                         </div>
                     </div>
                     <div class="row align-items-center">
@@ -341,7 +341,7 @@ const Landing3Viewer = {
 
                                     <div class="fs-5 mb-4">
                                         <div>100K DÓLARES EN FACTURACIÓN CON LO QUE APRENDEN</div>
-                                        <div>EN FUNNELS7</div>
+                                        <div>EN Infinity</div>
                                     </div>
 
                                     <button @click="openModal" class="btn btn-warning w-100 text-white btn-lg fs-5 text-uppercase">Obtén tu <b>reconocimiento</b></button>
@@ -388,7 +388,7 @@ const Landing3Viewer = {
 
         <footer class="bg-dark row text-center text-white py-3">
             <div class="col">
-                <div>Funnels7 powered by <a href="https://www.mizuum.com">Zuum</a> 2023® All rights reserved</div>
+                <div>Infinity powered by <a href="https://www.mizuum.com">Zuum</a> 2023® All rights reserved</div>
             </div>
         </footer>
      
@@ -476,7 +476,7 @@ const Landing3Viewer = {
                         </div>
                     </div>
                     <div class="modal-footer border-0">
-                        <button @click="doSignup" type="button" class="btn btn-warning text-white btn-lg w-100 fs-4" data-bs-dismiss="modal">UNIRME A FUNNELS7</button>
+                        <button @click="doSignup" type="button" class="btn btn-warning text-white btn-lg w-100 fs-4" data-bs-dismiss="modal">UNIRME A Infinity</button>
                     </div>
                 </div>
             </div>

@@ -80,7 +80,7 @@ function sendEmail(string $email = null,string $token = null) : bool
 
             //Recipients
             $mail->setFrom($CatalogMailController->mail, $CatalogMailController->sender);
-            $mail->addAddress($email, 'Funnels7 User');     
+            $mail->addAddress($email, 'Infinity User');     
 
             //Content
             $mail->isHTML(true);                                

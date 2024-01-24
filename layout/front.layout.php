@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>{{title}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Funnels7 | Marketing profesional" name="description" />
+        <meta content="Infinity | Marketing profesional" name="description" />
         <meta name="author" content="<?php echo HCStudio\Connection::proyect_name;?> all rights reserved 2022">
         <meta name="HandheldFriendly" content="True" />
         <meta name="theme-color" content="#2D2250">   
@@ -74,7 +74,7 @@
                               <a class="nav-link" href="../../apps/home/#about">¿Quiénes somos?</a>
                             </li>
                             <li class="nav-item px-1">
-                              <a class="nav-link btn-danger rounded-pill px-3 btn text-white" href="mailto:contacto@financierasanandres.com?Subject=Necesito información de Funnels7 | Marketing profesional" tabindex="-1" aria-disabled="true">Contacto</a>
+                              <a class="nav-link btn-danger rounded-pill px-3 btn text-white" href="mailto:contacto@financierasanandres.com?Subject=Necesito información de Infinity | Marketing profesional" tabindex="-1" aria-disabled="true">Contacto</a>
                             </li>
                           </ul>
                         </div>
@@ -107,7 +107,7 @@
                         <div class="col-12 col-md-4 col-xl-4">
                             <div class="mb-3">
                                 <div class="fw-bold">Contáctanos</div>
-                                <a href="mailto:contacto@financierasanandres.com?Subject=Necesito información de Funnels7 | Marketing profesional" class="text-white">contacto@financierasanandres.com</a>
+                                <a href="mailto:contacto@financierasanandres.com?Subject=Necesito información de Infinity | Marketing profesional" class="text-white">contacto@financierasanandres.com</a>
                                 <a href="../../apps/home/privacy" class="text-white">Aviso de privacidad</a>
                             </div>
                             

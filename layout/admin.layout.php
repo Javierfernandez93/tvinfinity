@@ -274,7 +274,7 @@
                                 document.write(new Date().getFullYear())
                             </script>,
                             made with <i class="fa fa-heart"></i> by
-                            <a href="https://Infinity.site/" class="font-weight-bold" target="_blank">Funnels7 - admin site</a>
+                            <a href="https://Infinity.site/" class="font-weight-bold" target="_blank">Infinity - admin site</a>
                             for a better web.
                         </div>
                     </div>

@@ -94,7 +94,7 @@ const AdviceViewer = {
                                 <img :src="advice.country_id.getCoutryImage()" class="img-fluid">
                             </div>
                             <div class="col">
-                                ¡Nuevo socio Funnels7 <strong>{{advice.names}}</strong> desde <strong>{{advice.country}}</strong> <i class="bi bi-emoji-wink-fill"></i>!
+                                ¡Nuevo socio Infinity <strong>{{advice.names}}</strong> desde <strong>{{advice.country}}</strong> <i class="bi bi-emoji-wink-fill"></i>!
                             </div>
                         </div>
                     </div>

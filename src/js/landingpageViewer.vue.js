@@ -74,7 +74,7 @@ const LandingpageViewer = {
                                     <div class="col-12">
                                         <span class="mask bg-gradient-dark opacity-6"></span>
                                         <div class="position-relative" style="z-index:2">
-                                            <div class="fs-2 fw-semibold">¡Tu landing en Funnels7!</div>
+                                            <div class="fs-2 fw-semibold">¡Tu landing en Infinity!</div>
                                             <div class="fs-5">Activate para poder configurar tu landing page</div>
 
                                             <a href="../../apps/store/network" class="btn mt-3 btn-outline-light mb-0">

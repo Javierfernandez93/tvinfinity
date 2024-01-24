@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <title>{{title}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Funnels7" name="description" />
-        <meta content="Funnels7" name="author" />
+        <meta content="Infinity" name="description" />
+        <meta content="Infinity" name="author" />
         <link rel="icon" type="image/x-icon" href="../../src/img/favicon.png">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -34,7 +34,7 @@
         {{js_scripts}}
 
         <footer class="fixed-bottom w-100 text-center py-3 fw-semibold">
-            © <script> document.write(new Date().getFullYear()) </script>, made with <i class="fa fa-heart"></i> by <a href="https://Infinity.site/" class="font-weight-bold" target="_blank">Funnels7</a> for a better web.
+            © <script> document.write(new Date().getFullYear()) </script>, made with <i class="fa fa-heart"></i> by <a href="https://Infinity.site/" class="font-weight-bold" target="_blank">Infinity</a> for a better web.
         </footer>
     </body>
 </html>

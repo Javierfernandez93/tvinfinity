@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Funnels7 | Marketing profesional" name="author" />
+    <meta content="Infinity | Marketing profesional" name="author" />
     <meta content="Herramientas de Marketing profesional" name="description" />
 
     <meta name="theme-color" content="#2D2250">
@@ -16,8 +16,8 @@
     <meta name="googlebot" content="index, follow">
     <meta name="googlebot-news" content="index, follow">
 
-    <meta property="og:site_name" content="Funnels7 | Marketing profesional">
-    <meta property="og:title" content="Funnels7 | Marketing profesional" />
+    <meta property="og:site_name" content="Infinity | Marketing profesional">
+    <meta property="og:title" content="Infinity | Marketing profesional" />
     <meta property="og:description" content="Herramientas de Marketing profesional" />
     <meta property="og:image" itemprop="image" content="https://www.Infinity.site/src/img/logo.png">
     <meta property="og:image:type" content="image/jpeg">

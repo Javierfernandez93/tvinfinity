@@ -177,7 +177,7 @@ const EwalletViewer = {
                 </div>
                 <div class="alert alert-danger border-0 text-white alert-dismissible fade show" role="alert">
                     <strong>Aviso</strong> 
-                    La dirección o llave pública preeviamente señalada es única y exclusivamente para uso interno en Funnels7. No envíes ni recibas crypto fuera de Funnels7.</strong>
+                    La dirección o llave pública preeviamente señalada es única y exclusivamente para uso interno en Infinity. No envíes ni recibas crypto fuera de Infinity.</strong>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <div class="alert alert-success border-0 text-white alert-dismissible fade show" role="alert">

@@ -77,7 +77,7 @@ function sendPush(string $user_login_id = null,string $message = null,int $catal
 
 function sendPushUser(string $user_login_id = null,string $names = null) : bool
 {
-    return sendPush($user_login_id,"Bienvenido a bordo {$names}, estamos felices de que te hayas registrado en Funnels7",Infinity\CatalogNotification::ACCOUNT);
+    return sendPush($user_login_id,"Bienvenido a bordo {$names}, estamos felices de que te hayas registrado en Infinity",Infinity\CatalogNotification::ACCOUNT);
 }
 
 function sendPushSponsor(string $user_login_id = null,string $names = null) : bool
@@ -93,7 +93,7 @@ function sendEmailSponsor(string $user_login_id = null,string $names = null) : b
 
         if($email = $UserLogin->getEmail($user_login_id))
         {
-            return sendEmail($email,$names,null,'Nuevo afiliado en Funnels7','partnerWelcome');
+            return sendEmail($email,$names,null,'Nuevo afiliado en Infinity','partnerWelcome');
         }
     }
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Funnels7 | Marketing profesional" name="description" />
+    <meta content="Infinity | Marketing profesional" name="description" />
     <meta name="author" content="<?php echo HCStudio\Connection::proyect_name;?> all rights reserved 2022">
     <meta name="HandheldFriendly" content="True" />
     <meta name="theme-color" content="#2D2250">   

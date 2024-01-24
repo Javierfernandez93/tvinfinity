@@ -21,7 +21,7 @@
                             <div class="card-body position-relative z-index-1 p-3">
                                 <i class="fas fa-wifi text-white p-2" aria-hidden="true"></i>
                                 <div class="mt-4 mb-5">
-                                    <h5 class="text-white text-uppercase pb-2">Funnels7</h5>
+                                    <h5 class="text-white text-uppercase pb-2">Infinity</h5>
                                     <h5 class="text-white text-uppercase pb-2">$ {{balance.numberFormat(2)}}</h5>
                                 </div>
                                 <div class="d-flex">

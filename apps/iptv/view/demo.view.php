@@ -33,7 +33,7 @@
                                         <span class="number border border-4 p-2 fw-sembold border-light text-white">1</span>
                                     </div>
                                     <div class="col fs-3 fw-sembold">
-                                        ¿Qué es el Funnels7?
+                                        ¿Qué es el Infinity?
                                     </div>
                                 </div>
                                 <div class="row align-items-center py-2 py-xl-3">
@@ -41,7 +41,7 @@
                                         <span class="number border border-4 p-2 fw-sembold border-light text-white">2</span>
                                     </div>
                                     <div class="col fs-3 fw-sembold">
-                                        Cómo Funciona el Funnels7
+                                        Cómo Funciona el Infinity
                                     </div>
                                 </div>
                                 <div class="row align-items-center py-2 py-xl-3">
@@ -49,7 +49,7 @@
                                         <span class="number border border-4 p-2 fw-sembold border-light text-white">3</span>
                                     </div>
                                     <div class="col fs-3 fw-sembold">
-                                        Productos Digitales del Funnels7
+                                        Productos Digitales del Infinity
                                     </div>
                                 </div>
                                 <div class="row align-items-center py-2 py-xl-3">
@@ -57,7 +57,7 @@
                                         <span class="number border border-4 p-2 fw-sembold border-light text-white">4</span>
                                     </div>
                                     <div class="col fs-3 fw-sembold">
-                                        Plan de Comisiones del Funnels7
+                                        Plan de Comisiones del Infinity
                                     </div>
                                 </div>
 
@@ -75,7 +75,7 @@
             <div class="container">
                 <div class="row pb-5">
                     <div class="col-12 text-center">
-                        <h1 class="text-gradient text-warning">¡TODO SOBRE <span class="text-decoration-underline border-bottom border-5 border-danger">FUNNELS7</span>!</h1>
+                        <h1 class="text-gradient text-warning">¡TODO SOBRE <span class="text-decoration-underline border-bottom border-5 border-danger">Infinity</span>!</h1>
                     </div>
                 </div>
 
@@ -89,8 +89,8 @@
                             </div>
 
                             <div class="card-body">
-                                <h5>¡Qué es el Funnels7!</h5>
-                                <p>Funnels7 Es una Plataforma Educativa Tipo Franquicia Digital donde usted podrá obtner comisiones por recomendar nuestros productos digitales hasta un 90% en ganancias</p>
+                                <h5>¡Qué es el Infinity!</h5>
+                                <p>Infinity Es una Plataforma Educativa Tipo Franquicia Digital donde usted podrá obtner comisiones por recomendar nuestros productos digitales hasta un 90% en ganancias</p>
                             </div>
 
                             <span class="position-absolute shadow icon number top-0 text-white bg-gradient-primary fs-1 start-0 ms-2 mt-2"><i class="bi bi-lightbulb"></i></span>
@@ -302,7 +302,7 @@
             <div class="container">
                 <div class="row pb-5">
                     <div class="col-12 text-center">
-                        <h1 class="text-white">¡RECIBIRÁS ESTO CON FUNNELS7!</h1>
+                        <h1 class="text-white">¡RECIBIRÁS ESTO CON Infinity!</h1>
                     </div>
                 </div>
 

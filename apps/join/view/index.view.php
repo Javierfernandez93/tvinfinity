@@ -9,7 +9,7 @@
             <div class="col-11 col-xl-7">
                 <div class="card text-start shadow p-3">
                     <div class="card-header pb-0 text-left bg-transparent">
-                        <h3 class="font-weight-bolder text-info text-gradient">Bienvenido a Funnels7</h3>
+                        <h3 class="font-weight-bolder text-info text-gradient">Bienvenido a Infinity</h3>
                         <p class="mb-0">Ingresa tus datos para unirte</p>
                     </div>
                     <div class="card-body">

@@ -247,7 +247,7 @@ const Landing2Viewer = {
                 <div class="container text-center">
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="fw-semibold text-dark fs-2">¿Qué es Funnels7?</div>
+                            <div class="fw-semibold text-dark fs-2">¿Qué es Infinity?</div>
                         </div>
                     </div>
                     <div class="row py-5">
@@ -281,7 +281,7 @@ const Landing2Viewer = {
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-xl-12">
-                            <div class="fw-semibold text-white text-decoration-underline fs-1">¿Para quién es Funnels7?</div>
+                            <div class="fw-semibold text-white text-decoration-underline fs-1">¿Para quién es Infinity?</div>
                         </div>
                     </div>
                     <div class="row py-5">
@@ -402,7 +402,7 @@ const Landing2Viewer = {
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-xl-12">
-                            <div class="fw-semibold fs-1">¿Qué te ofrece Funnels7?</div>
+                            <div class="fw-semibold fs-1">¿Qué te ofrece Infinity?</div>
                         </div>
                     </div>
                     <div class="row py-5">
@@ -459,7 +459,7 @@ const Landing2Viewer = {
 
         <div v-if="user.referral.phone" class="position-fixed top-50 end-0 translate-middle-y pe-4" style="z-index:10">
             <div class="mb-3">
-                <a :href="user.referral.phone.getWhatsAppFromText('¡Hola! me gustaría tener más información de funnels7')" target="_blank" class="btn btn-success rounded-circle shadow-lg">
+                <a :href="user.referral.phone.getWhatsAppFromText('¡Hola! me gustaría tener más información de Infinity')" target="_blank" class="btn btn-success rounded-circle shadow-lg">
                     <i class="bi bi-whatsapp display-1"></i>
                 </a>
             </div>
