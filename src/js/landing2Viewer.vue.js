@@ -133,7 +133,7 @@ const Landing2Viewer = {
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">
-                    <img src="https://www.Infinity.site/src/img/logo-horizontal-dark-letters.svg" width="222px" alt="logo">
+                    <img src="https://www.Infinity.site/src/img/logo-horizontal-dark.svg" width="222px" alt="logo">
                 </span>
             </a>
 

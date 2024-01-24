@@ -71,7 +71,7 @@
                             document.write(new Date().getFullYear())
                         </script>,
                         made with <i class="fa fa-heart"></i> by
-                        <a href="https://Infinity.site/" class="font-weight-bold" target="_blank"><img src="../../src/img/logo-horizontal-dark-letters.svg" style="width:5rem;"></a>
+                        <a href="https://Infinity.site/" class="font-weight-bold" target="_blank"><img src="../../src/img/logo-horizontal-dark.svg" style="width:5rem;"></a>
                         for a better web.
                     </div>
                 </div>

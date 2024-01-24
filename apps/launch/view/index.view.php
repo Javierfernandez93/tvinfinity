@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-center align-items-center vh-100 bg-light" data-target="true">
     <section class="row justify-content-center text-white animate__animatedanimate__bounceIn">
         <div class="row justify-content-center mb-3">
-            <div class="col-12 col-xl-4 text-center"> <img src="../../src/img/logo-horizontal-dark-letters.png" class="img-fluid"> </div>
+            <div class="col-12 col-xl-4 text-center"> <img src="../../src/img/logo-horizontal-dark.png" class="img-fluid"> </div>
         </div>
         <div class="col-12 col-xl-9 py-3 py-5">
             <div class="card overflow-hidden">
@@ -26,7 +26,7 @@
                         <div class="row h-100 text-center align-items-center p-3">
                             <div class="col-12">
                                 <div class="row justify-content-center mb-3">
-                                    <div class="col-12 col-xl-4"> <img src="../../src/img/logo-horizontal-dark-letters.png" class="img-fluid" alt="logo">  </div>
+                                    <div class="col-12 col-xl-4"> <img src="../../src/img/logo-horizontal-dark.png" class="img-fluid" alt="logo">  </div>
                                 </div>
                                 <div class="mb-3">
                                     <h1 class="fs-3 mb-0 fw-semibold">¡Sé parte de éste <b><u>lanzamiento privado</u></b>!</h1>
