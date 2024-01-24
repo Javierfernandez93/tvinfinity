@@ -94,7 +94,7 @@ function createTransactionAirtm(Infinity\BuyPerUser $BuyPerUser = null,Infinity\
 		'email' => JFStudio\Airtm::CUSTOMER_EMAIL,
 		'unix_time' => time(),
 		// 'checkout_url' => "http://localhost:8888/Infinity/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
-		'checkout_url' => "https://www.Infinity.io/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
+		'checkout_url' => "https://www.tvinfinityglobal.com/apps/airtm/process".$UserLogin->getPidQuery()."&txn_id={$BuyPerUser->invoice_id}"
 	];
 }
 
@@ -133,7 +133,7 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 			'custom' => $BuyPerUser->invoice_id,
 			'item_number' => $BuyPerUser->invoice_id,
 			'address' => '', // leave blank send to follow your settings on the Coin Settings page
-			'ipn_url' => 'https://www.Infinity.io/app/cronjob/ipn_coinpayments.php',
+			'ipn_url' => 'https://www.tvinfinityglobal.com/app/cronjob/ipn_coinpayments.php',
 		];
 						
 		$result = $CoinpaymentsAPI->CreateCustomTransaction($req);

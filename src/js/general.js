@@ -813,7 +813,7 @@ String.prototype.isVideo = function()
 
 String.prototype.getFullLanding = function() 
 {
-    return `https://www.Infinity.io/${this}`
+    return `https://www.tvinfinityglobal.com/${this}`
 }
 
 function replaceFullRoute(string) 

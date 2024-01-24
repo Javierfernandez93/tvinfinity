@@ -22,12 +22,12 @@ const LandingViewer = {
                 }
             })
         },
-        copyToClipBoard : function(text) {
+        copyToClipBoard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 this.$refs.landing.innerText = 'Copiada'
             });
         },
-        sendByWhatsapp : function(landing) {
+        sendByWhatsapp(landing) {
             window.open(`*¡Hola!* quiero invitarte a un *proyecto increíble* que te permite *ganar dinero* por el *entretenimiento* ¡regístrate ya! ${landing}`.getWhatsappLink())
         },
     },
