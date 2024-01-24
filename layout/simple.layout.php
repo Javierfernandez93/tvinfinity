@@ -15,14 +15,14 @@
     <meta property="og:site_name" content="Infinity | Entretenimiento digital">
     <meta property="og:title" content="Infinity | Entretenimiento digital" />
     <meta property="og:description" content="Entretenimiento digital" />
-    <meta property="og:image" itemprop="image" content="https://www.Infinity.site/src/img/feed.png">
+    <meta property="og:image" itemprop="image" content="https://www.tvinfinityglobal.com/src/img/feed.png">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
 
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1664070388" />
-    <meta property="og:url" content="http://www.Infinity.site">
+    <meta property="og:url" content="http://www.tvinfinityglobal.com">
 
     <!-- Size of image. Any size up to 300. Anything above 300px will not work in WhatsApp -->
 

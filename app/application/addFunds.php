@@ -131,7 +131,7 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 			'custom' => $BuyPerUser->invoice_id,
 			'item_number' => $BuyPerUser->invoice_id,
 			'address' => '', // leave blank send to follow your settings on the Coin Settings page
-			'ipn_url' => 'https://www.Infinity.site/app/cronjob/ipn_coinpayments.php',
+			'ipn_url' => 'https://www.tvinfinityglobal.com/app/cronjob/ipn_coinpayments.php',
 		];
 						
 		$result = $CoinpaymentsAPI->CreateCustomTransaction($req);

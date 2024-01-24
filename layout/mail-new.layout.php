@@ -548,7 +548,7 @@
                                                     <tr>
                                                         <td style="text-align: left; padding-right: 10px;">
                                                             <h3 class="heading">Nosotros</h3>
-                                                            <p>Somos una agencia de marketing profesional dedicada a hacer que nuestros clientes tengan mejores resultados.</p>
+                                                            <p>Entretenimeinto a tu alcance.</p>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -576,10 +576,10 @@
                                                         <td style="text-align: left; padding-left: 10px;">
                                                             <h3 class="heading">Links</h3>
                                                             <ul>
-                                                                <li><a href="https://www.Infinity.site/">Inicio</a></li>
-                                                                <li><a href="https://www.Infinity.site/apps/login/">Ingresar a tu cuenta</a></li>
-                                                                <li><a href="https://www.Infinity.site/apps/signup/">Registro</a></li>
-                                                                <li><a href="https://www.Infinity.site/apps/login/forgotPassword">Recuperar contraseña</a></li>
+                                                                <li><a href="https://www.tvinfinityglobal.com/">Inicio</a></li>
+                                                                <li><a href="https://www.tvinfinityglobal.com/apps/login/">Ingresar a tu cuenta</a></li>
+                                                                <li><a href="https://www.tvinfinityglobal.com/apps/signup/">Registro</a></li>
+                                                                <li><a href="https://www.tvinfinityglobal.com/apps/login/forgotPassword">Recuperar contraseña</a></li>
                                                             </ul>
                                                         </td>
                                                     </tr>

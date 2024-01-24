@@ -260,8 +260,8 @@ function getPayPalForm($MainBuyPerUser = null,$main_buy_per_user = null,$company
 	$transaction->setAmount($amount);
 	
     $redirectUrls = new \PayPal\Api\RedirectUrls;
-	$redirectUrls->setReturnUrl("https://www.Infinity.site/apps/paypal/index.php")
-	    ->setCancelUrl("https://www.Infinity.site/apps/paypal/index.php");
+	$redirectUrls->setReturnUrl("https://www.tvinfinityglobal.com/apps/paypal/index.php")
+	    ->setCancelUrl("https://www.tvinfinityglobal.com/apps/paypal/index.php");
 
 	$payment = new \PayPal\Api\Payment;
 
