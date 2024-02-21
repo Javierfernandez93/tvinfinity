@@ -121,7 +121,6 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 	try {
 		require_once TO_ROOT .'/vendor2/autoload.php';
 
-		d([JFStudio\CoinPayments::PRIVATE_KEY, JFStudio\CoinPayments::PUBLIC_KEY, 'json']);
 		$CoinpaymentsAPI = new CoinpaymentsAPI(JFStudio\CoinPayments::PRIVATE_KEY, JFStudio\CoinPayments::PUBLIC_KEY, 'json');
 
 		$req = [
