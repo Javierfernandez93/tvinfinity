@@ -140,6 +140,7 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 		$result = $CoinpaymentsAPI->GetBasicInfo($req);
 		
 		d($result);
+		
 		$result = $CoinpaymentsAPI->CreateCustomTransaction($req);
 
 
