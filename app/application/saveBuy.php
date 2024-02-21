@@ -136,11 +136,6 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 			'ipn_url' => 'https://www.tvinfinityglobal.com/app/cronjob/ipn_coinpayments.php',
 		];
 
-		// d($req);
-		$result = $CoinpaymentsAPI->GetBasicInfo($req);
-		
-		d($result);
-		
 		$result = $CoinpaymentsAPI->CreateCustomTransaction($req);
 
 
