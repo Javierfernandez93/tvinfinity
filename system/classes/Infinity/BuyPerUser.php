@@ -40,6 +40,20 @@ class BuyPerUser extends Orm {
     parent::__construct();
   }
 
+  public static function uplaodValidationData(array $data = null)
+  {
+    if(!$data)
+    {
+      return false;
+    }
+
+    $BuyPerUser = new self;
+    $BuyPerUser->loadWhere("buy_per_user_id = ?",$data['buy_per_user_id']);
+    $BuyPerUser->validation_data = $data['validation_data'] ? json_encode($data['validation_data']) : json_encode([]);
+    
+    return $BuyPerUser->save();
+  }
+
   public function unformatData()
   {
     if($this->getId())
@@ -86,6 +100,7 @@ class BuyPerUser extends Orm {
     if(isset($data) === true)
     {
       $data['checkout_data'] = json_decode($data['checkout_data'],true);
+      $data['validation_data'] = $data['validation_data'] ? json_decode($data['validation_data'],true) : [];
       $data['catalog_payment_method'] = (new CatalogPaymentMethod)->findRow("catalog_payment_method_id = ?",$data['catalog_payment_method_id']);
 
       if(Util::isJson($data['catalog_payment_method']['additional_data']))
@@ -114,6 +129,7 @@ class BuyPerUser extends Orm {
                 {$this->tblName}.{$this->tblName}_id,
                 {$this->tblName}.amount,
                 {$this->tblName}.catalog_payment_method_id,
+                {$this->tblName}.validation_data,
                 {$this->tblName}.user_login_id,
                 {$this->tblName}.invoice_id,
                 {$this->tblName}.status,
@@ -143,6 +159,7 @@ class BuyPerUser extends Orm {
     {
       return array_map(function($buy){
         $buy['checkout_data'] = json_decode($buy['checkout_data'],true);
+        $buy['validation_data'] = $buy['validation_data'] ? json_decode($buy['validation_data'],true) : [];
         return $buy;
       },$buys);
     }
@@ -155,6 +172,7 @@ class BuyPerUser extends Orm {
               {$this->tblName}.amount,
               {$this->tblName}.catalog_payment_method_id,
               {$this->tblName}.invoice_id,
+              {$this->tblName}.validation_data,
               {$this->tblName}.user_login_id,
               {$this->tblName}.status,
               {$this->tblName}.item,

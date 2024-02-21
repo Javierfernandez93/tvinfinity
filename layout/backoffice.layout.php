@@ -68,6 +68,12 @@
                                 <span class="nav-link-text ms-1">Activación</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link <?php if (in_array($route, [JFStudio\Router::StoreMarketing])) { ?>active<?php } ?>" href="../../apps/store/invoices">
+                                <i class="bi bi-cart-fill"></i>
+                                <span class="nav-link-text ms-1">Mis compras</span>
+                            </a>
+                        </li>
                         <?php if($UserLogin->isActiveOnPackage(1)) { ?>
                             <li class="nav-item d-none">
                                 <a class="nav-link <?php if (in_array($route, [JFStudio\Router::Academy,JFStudio\Router::Academy, JFStudio\Router::AcademyLesson])) { ?>active<?php } ?>" href="../../apps/academy">
@@ -121,7 +127,7 @@
                                         <span class="sidenav-normal"> Paquetes de créditos</span>
                                     </a>
                                 </li>
-                                <li class="nav-item ">
+                                <li class="nav-item d-none">
                                     <a class="nav-link " href="../../apps/store/invoices">
                                         <span class="sidenav-mini-icon"> P </span>
                                         <span class="sidenav-normal"> Ver compras </span>
@@ -383,6 +389,7 @@
     
     <script src="../../src/js/constants.js?v=2.1.9" type="text/javascript"></script>
     <script src="../../src/js/alertCtrl.js?v=2.1.9" type="text/javascript"></script>
+    <script src="../../src/js/toastCtrl.js?v=2.1.9" type="text/javascript"></script>
     <script src="../../src/js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="../../src/js/general.js?v=2.1.9" type="text/javascript"></script>
     <!-- Github buttons -->

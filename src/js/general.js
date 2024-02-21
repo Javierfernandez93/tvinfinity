@@ -1162,3 +1162,18 @@ String.prototype.secureUser = function()
 {
   return this.length > 7
 }
+
+
+const toastInfo = async (
+  { message: message, bgClass: bgClass },
+  delay = 50
+) => {
+  setTimeout(() => {
+    let toast = toastCtrl.create({
+      message: message,
+      bgClass: bgClass != undefined ? bgClass : "bg-primary",
+    });
+
+    toastCtrl.present(toast);
+  }, delay);
+};

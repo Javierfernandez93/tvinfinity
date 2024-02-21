@@ -121,10 +121,11 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 	try {
 		require_once TO_ROOT .'/vendor2/autoload.php';
 
+		d([JFStudio\CoinPayments::PRIVATE_KEY, JFStudio\CoinPayments::PUBLIC_KEY, 'json']);
 		$CoinpaymentsAPI = new CoinpaymentsAPI(JFStudio\CoinPayments::PRIVATE_KEY, JFStudio\CoinPayments::PUBLIC_KEY, 'json');
 
 		$req = [
-			'amount' => $BuyPerUser->amount,
+			'amount' => $BuyPerUser->amount / 20,
 			'currency1' => 'USD',
 			'currency2' => $BuyPerUser->getCurrency(),
 			'buyer_name' => $UserLogin->getNames(),
@@ -135,8 +136,13 @@ function createTransactionFromCoinPayments(Infinity\BuyPerUser $BuyPerUser = nul
 			'address' => '', // leave blank send to follow your settings on the Coin Settings page
 			'ipn_url' => 'https://www.tvinfinityglobal.com/app/cronjob/ipn_coinpayments.php',
 		];
-						
+
+		// d($req);
+		$result = $CoinpaymentsAPI->GetBasicInfo($req);
+		
+		d($result);
 		$result = $CoinpaymentsAPI->CreateCustomTransaction($req);
+
 
 		if ($result['error'] == 'ok') {
 	

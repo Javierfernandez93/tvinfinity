@@ -6,5 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CoinpaymentsAPI' => $vendorDir . '/coinpaymentsnet/coinpayments-php/src/CoinpaymentsAPI.php',
+    'CoinpaymentsCurlRequest' => $vendorDir . '/coinpaymentsnet/coinpayments-php/src/CoinpaymentsCurlRequest.php',
+    'CoinpaymentsValidator' => $vendorDir . '/coinpaymentsnet/coinpayments-php/src/CoinpaymentsValidator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

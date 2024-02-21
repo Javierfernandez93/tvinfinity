@@ -67,14 +67,14 @@ const AdminbuysViewer = {
         }
     },
     methods: {
-        filterData: function () {
+        filterData() {
             this.buys = this.buysAux
 
             this.buys = this.buys.filter((buy) => {
                 return buy.invoice_id.toLowerCase().includes(this.query.toLowerCase()) || buy.amount.toString().includes(this.query.toLowerCase()) || buy.payment_method.toLowerCase().includes(this.query.toLowerCase()) || buy.names.toLowerCase().includes(this.query.toLowerCase()) || buy.user_login_id.toString().includes(this.query.toLowerCase()) || buy.buy_per_user_id.toString().includes(this.query.toLowerCase())
             })
         },
-        getBuys: function () {
+        getBuys() {
             return new Promise((resolve,reject) => {
                 this.UserSupport.getBuys({status:this.status.status,query:this.query}, (response) => {
                     if (response.s == 1) {
@@ -85,7 +85,10 @@ const AdminbuysViewer = {
                 })
             })
         },
-        validateBuyByAdmin: function (buy) {
+        viewTicket(buy) {
+            window.open(buy.validation_data.image)
+        },
+        validateBuyByAdmin(buy) {
             const alert = alertCtrl.create({
                 title: `¿Deseas procesar éste pago?`,
                 subTitle: `Procesar orden #${buy.invoice_id}`,
@@ -115,7 +118,7 @@ const AdminbuysViewer = {
           
             alertCtrl.present(alert.modal);
         },
-        deleteBuyByAdmin: function (buy) {
+        deleteBuyByAdmin(buy) {
             const alert = alertCtrl.create({
                 title: `¿Deseas eliminar éste pago?`,
                 subTitle: `Eliminar orden #${buy.invoice_id}`,
@@ -145,7 +148,7 @@ const AdminbuysViewer = {
           
             alertCtrl.present(alert.modal);
         },
-        setBuyAsPendingByAdmin: function (buy) {
+        setBuyAsPendingByAdmin(buy) {
             const alert = alertCtrl.create({
                 title: `¿Deseas cambiar a pendiente éste pago?`,
                 subTitle: `Orden #${buy.invoice_id}`,
@@ -175,13 +178,13 @@ const AdminbuysViewer = {
           
             alertCtrl.present(alert.modal);
         },
-        search: function () {
+        search() {
             this.getBuys().then((buys) => {
                 this.buys = buys
                 this.buysAux = buys
             }).catch(() => this.buys = false)
         },
-        viewCoinpaymentsTXNId: function (buy) {
+        viewCoinpaymentsTXNId(buy) {
             const { txn_id } = buy.checkout_data
 
             this.UserSupport.viewCoinpaymentsTXNId({txn_id:txn_id}, (response) => {
@@ -261,14 +264,21 @@ const AdminbuysViewer = {
                                     <td class="align-middle text-center text-sm">{{buy.create_date.formatFullDate()}}</td>
                                     <td class="align-middle text-center text-sm">
                                         <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn btn-dark mb-0 shadow-none btn-sm px-3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             
                                             </button>
 
                                             <ul class="dropdown-menu">
-                                                <li v-if="buy.status == STATUS.PENDING.status"><button  
-                                                    @click="validateBuyByAdmin(buy)"
-                                                    class="dropdown-item">Procesar pago</button>
+                                                <div v-if="buy.status == STATUS.PENDING.status">  
+                                                    <button  
+                                                        @click="validateBuyByAdmin(buy)"
+                                                        class="dropdown-item">Procesar pago
+                                                    </button>
+                                                    <button  
+                                                        v-if="buy.validation_data"
+                                                        @click="viewTicket(buy)"
+                                                        class="dropdown-item">Ver comprobante
+                                                    </button>
                                                 </li>
                                                 <li v-if="buy.status == STATUS.PENDING.status"><button  
                                                     @click="deleteBuyByAdmin(buy)"

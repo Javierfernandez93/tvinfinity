@@ -427,6 +427,9 @@ class User extends Http {
     getAccountActivation(data, callback) {
         return this.call('../../app/application/getAccountActivation.php', data, callback, null, null);
     }
+    uploadValidationData(data, callback) {
+        return this.call('../../app/application/uploadValidationData.php', data, callback, null, null);
+    }
 }
 
 export { User }

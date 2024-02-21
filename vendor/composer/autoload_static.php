@@ -29,6 +29,9 @@ class ComposerStaticInitedacdef1aab20a4660a295e080fdf993
     );
 
     public static $classMap = array (
+        'CoinpaymentsAPI' => __DIR__ . '/..' . '/coinpaymentsnet/coinpayments-php/src/CoinpaymentsAPI.php',
+        'CoinpaymentsCurlRequest' => __DIR__ . '/..' . '/coinpaymentsnet/coinpayments-php/src/CoinpaymentsCurlRequest.php',
+        'CoinpaymentsValidator' => __DIR__ . '/..' . '/coinpaymentsnet/coinpayments-php/src/CoinpaymentsValidator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

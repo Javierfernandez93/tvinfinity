@@ -5,6 +5,7 @@ const InvoicesViewer = {
     data() {
         return {
             User: new User,
+            busy: null,
             query: null,
             invoices: null,
             invoicesAux: null,
@@ -33,41 +34,90 @@ const InvoicesViewer = {
                 return invoice.amount.toString().includes(this.query) || invoice.invoice_id.toLowerCase(this.query.toLowerCase())
             })
         },
-        getInvoices() {
-            return new Promise((resolve, reject) => {
-                this.User.getInvoices({}, (response) => {
-                    if (response.s == 1) {
-                        resolve(response.invoices)
-                    }
+        openFileManager(buy_per_user_id) 
+        {
+            $("#"+buy_per_user_id).click()
+        },
+        uploadValidationData(invoice) 
+        {
+            this.User.uploadValidationData({invoice:invoice},(response)=>{
+                if(response.s == 1)
+                {
+                    toastInfo({
+                        message: 'Comprobante subido, validaremos tu compra a la brevedad',
+                    })   
+                }
+            })
+        },
+        uploadFile(target,buy_per_user_id) 
+        {
+            let files = $(target).prop('files');
+            var form_data = new FormData();
+          
+            form_data.append("file", files[0]);
+          
+            this.User.uploadPaymentImage(form_data,$(".progress").find(".progress-bar"),(response)=>{
+                if(response.s == 1)
+                {
+                    this.invoices = this.invoices.map((invoice)=>{
+                        if(invoice.buy_per_user_id == buy_per_user_id)
+                        {
+                            invoice.validation_data = {
+                                image: response.target_path
+                            }
 
-                    reject()
-                })
+                            this.uploadValidationData(invoice)
+                        }
+
+                        return invoice
+                    })
+
+                    console.log(this.invoices)
+                }
+            });
+        },
+        getInvoices() {
+            this.invoices = null
+            this.invoicesAux = null
+            this.busy = true    
+            this.User.getInvoices({}, (response) => {
+                this.busy = false
+                if (response.s == 1) {
+                    this.invoices = response.invoices
+                    this.invoicesAux = response.invoices
+                } else {
+                    this.invoices = false
+                    this.invoicesAux = false
+                }
             })
         },
     },
     mounted() {
-        this.getInvoices().then((invoices) => {
-            this.invoices = invoices
-            this.invoicesAux = invoices
-        }).catch((err) => { this.invoices = false })
+        this.getInvoices()
     },
     template : `
-        <div v-if="invoices">
+        
+        <div>
             <div class="card">
-                <div class="card-header bg-light">
+                <div class="card-header bg-transparent">
                     <div class="row align-items-center">
-                        <div class="col fw-semibold text-dark">Mis ordenes de compra</div>
-                        <div class="col-auto"><span class="badge text-dark">Total {{invoices.length}}</span></div>
-                    </div>
-                </div>
-                <div class="card-header">
-                    <div class="row">
+                        <div class="col">
+                            <span v-if="invoices" class="badge text-dark">Total {{invoices.length}}</span>
+                            <div class="h3 mb-0">Mis compras</div>
+                        </div>
+                     
                         <div class="col">
                             <input type="search" class="form-control" v-model="query" placeholder="buscar por monto o items"/>
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">
+                <div v-if="busy" class="d-flex justify-content-center py-5">
+                    <div class="spinner-grow" style="width: 1rem; height: 1rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            
+                <div v-if="invoices" class="table-responsive">
                     <table class="table">
                         <thead class="thead-light">
                             <tr class="text-xs text-center text-secondary">
@@ -141,31 +191,44 @@ const InvoicesViewer = {
                                     <span class="my-2 text-xs">$ {{invoice.amount.numberFormat(2)}}</span>
                                 </td>
                                 <td class="text-dark fw-semibold">
+                                    
                                     <div v-if="invoice.checkout_data.checkout_url">
-                                        <a v-if="invoice.status == STATUS.PENDING"
-                                            :href="invoice.checkout_data.checkout_url"
-                                            :disabled="invoice.status != STATUS.PENDING"
-                                            target="_blank"
-                                            class="btn btn-sm shadow-none m-0 btn-success"
-                                            >
-                                            Pagar
-                                        </a>
+                                        <div v-if="invoice.status == STATUS.PENDING">
+                                            <input class="opacity-0 d-none cursor-pointer bg-dark w-100 h-100 start-0 top-0 position-absolute" :id="invoice.buy_per_user_id" @change="uploadFile($event.target,invoice.buy_per_user_id)" capture="filesystem" type="file" accept=".jpg, .png, .jpeg" />
+
+                                            <button v-if="invoice.catalog_payment_method_id == 7" @click="openFileManager(invoice.buy_per_user_id)" class="btn btn-sm me-2 shadow-none m-0 btn-primary">
+                                                <span v-if="invoice.validation_data">
+                                                    Cambiar comprobante
+                                                </button>
+                                                <span v-else>
+                                                    Subir comprobante
+                                                </button>
+                                            </button>
+                                            <a
+                                                :href="invoice.checkout_data.checkout_url"
+                                                :disabled="invoice.status != STATUS.PENDING"
+                                                target="_blank"
+                                                class="btn btn-sm shadow-none m-0 btn-success"
+                                                >
+                                                Pagar
+                                            </a>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-        <div v-else="invoices == false" class="alert alert-light text-center">
-            <div><strong>Importante</strong></div>
-            Aquí te mostraremos las compras que realices tanto de licencias como de activación y mensualidad de tu franquicia.
+                <div v-else-if="invoices == false" class="alert alert-light text-center">
+                    <div><strong>Importante</strong></div>
+                    Aquí te mostraremos las compras que realices tanto de licencias como de activación y mensualidad de tu franquicia.
 
-            <div class="d-flex justify-content-center py-3">
-                <button class="btn btn-primary me-2 mb-0 shadow-none">Realizar activación</button>
-                <button class="btn btn-primary me-2 mb-0 shadow-none">Realizar compra mensual</button>
-                <button class="btn btn-primary mb-0 shadow-none">Comprar licencias extras</button>
+                    <div class="d-flex justify-content-center py-3">
+                        <button class="btn btn-primary me-2 mb-0 shadow-none">Realizar activación</button>
+                        <button class="btn btn-primary me-2 mb-0 shadow-none">Realizar compra mensual</button>
+                        <button class="btn btn-primary mb-0 shadow-none">Comprar licencias extras</button>
+                    </div>
+                </div>
             </div>
         </div>
     `,

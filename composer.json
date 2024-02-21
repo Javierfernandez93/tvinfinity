@@ -1,6 +1,7 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.6",
-        "gemorroj/m3u-parser": "^5.3"
+        "gemorroj/m3u-parser": "^5.3",
+        "coinpaymentsnet/coinpayments-php": "^1.4"
     }
 }

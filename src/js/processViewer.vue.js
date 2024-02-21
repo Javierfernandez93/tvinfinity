@@ -1,7 +1,6 @@
 import { User } from '../../src/js/user.module.js?v=2.1.9'   
 
 const ProcessViewer = {
-    name : 'process-viewer',
     data() {
         return {
             User: new User,

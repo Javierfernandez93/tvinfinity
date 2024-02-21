@@ -23,7 +23,7 @@ const DepositViewer = {
             })
         },
         goToInvoices(buy_per_user_id) {
-            window.location.href = `../../apps/backoffice/?tab=profile&bpid=${buy_per_user_id}`
+            window.location.href = `../../apps/store/invoices?bpid=${buy_per_user_id}`
         },
         getInvoiceById(invoice_id) {
             this.User.getInvoiceById({invoice_id:invoice_id}, (response) => {
