@@ -423,7 +423,9 @@ class BuyPerUser extends Orm {
         if(self::hasCommission($data['items']))
         {
           CommissionPerUser::saveCommissionsByItems($data['items'],$BuyPerUser->user_login_id,$BuyPerUser->getId());
-        } else if(self::hasCreditProductInPackage($data['items'])) {
+        } 
+        
+        if(self::hasCreditProductInPackage($data['items'])) {
           self::applyCreditsPackage($BuyPerUser->user_login_id,$data['items']);
         }
         

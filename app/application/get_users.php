@@ -28,9 +28,10 @@ function format(array $users = null) : array
 {
     $Country = new World\Country;
     $LicencePerUser = new Infinity\LicencePerUser;
+    $CreditPerUser = new Infinity\CreditPerUser;
     
-    return array_map(function($user) use($Country,$LicencePerUser){
-        $user['licences'] = $LicencePerUser->getLicencesSoldCount($user['company_id']);
+    return array_map(function($user) use($Country,$LicencePerUser,$CreditPerUser){
+        $user['credits'] = $CreditPerUser->findField("user_login_id = ?",$user['user_login_id'],"credit");
         $user['active'] = Infinity\UserLogin::_isActive($user['company_id']);
         $user['countryData'] = $Country->getCountryNameAndPhoneArea($user['country_id']);
 

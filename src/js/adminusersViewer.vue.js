@@ -17,8 +17,8 @@ const AdminusersViewer = {
                     name: 'signup_date',
                     desc: false,
                 },
-                licences: {
-                    name: 'licences',
+                credits: {
+                    name: 'credits',
                     desc: false,
                 },
                 active: {
@@ -238,11 +238,12 @@ const AdminusersViewer = {
                     <div class="col-auto text-end">
                         <div><a href="../../apps/admin-users/add" type="button" class="btn shadow-none mb-0 btn-success px-3 btn-sm">Añadir usuario</a></div>
                     </div>
+                    <div class="col-auto text-end">
+                        <input v-model="query" :autofocus="true" type="text" class="form-control" placeholder="Buscar..." />
+                    </div>
                 </div>
             </div>
-            <div class="card-header">
-                <input v-model="query" :autofocus="true" type="text" class="form-control" placeholder="Buscar..." />
-            </div>
+            
             <div
                 v-if="users" 
                 class="card-body px-0 pt-0 pb-2">
@@ -304,15 +305,15 @@ const AdminusersViewer = {
                                     <u class="text-sm ms-2">Teléfono</u>
                                 </th>
                                 <th 
-                                    @click="sortData(columns.licences)"
+                                    @click="sortData(columns.credits)"
                                     class="text-center c-pointer text-uppercase text-primary font-weight-bolder opacity-7">
-                                    <span v-if="columns.licences.desc">
+                                    <span v-if="columns.credits.desc">
                                         <i class="bi text-primary bi-arrow-up-square-fill"></i>
                                     </span>    
                                     <span v-else>    
                                         <i class="bi text-primary bi-arrow-down-square-fill"></i>
                                     </span>    
-                                    <u class="text-sm ms-2">Licencias Ven</u>
+                                    <u class="text-sm ms-2">Creditos</u>
                                 </th>
                                 <th 
                                     @click="sortData(columns.signup_date)"
@@ -387,7 +388,7 @@ const AdminusersViewer = {
                                     </span>
                                 </td>
                                 <td class="align-middle text-center text-xs">
-                                    {{user.licences}}
+                                    {{user.credits}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <p class="text-xs font-weight-bold mb-0">Fecha</p>
@@ -395,7 +396,7 @@ const AdminusersViewer = {
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <div class="dropdown">
-                                        <button type="button" class="btn btn-outline-primary px-3 btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button type="button" class="btn btn-dark mb-0 shadow-none px-3 btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 
                                         </button>
                                         <ul class="dropdown-menu shadow">
