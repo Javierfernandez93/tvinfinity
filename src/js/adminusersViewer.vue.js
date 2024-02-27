@@ -64,7 +64,7 @@ const AdminusersViewer = {
         getInBackoffice(company_id) {
             this.UserSupport.getInBackoffice({ company_id: company_id }, (response) => {
                 if (response.s == 1) {
-                    window.location.href = '../../apps/backoffice'
+                    window.open('../../apps/backoffice')
                 }
             })
         },
