@@ -31,7 +31,8 @@ function format(array $users = null) : array
     $CreditPerUser = new Infinity\CreditPerUser;
     
     return array_map(function($user) use($Country,$LicencePerUser,$CreditPerUser){
-        $user['credits'] = $CreditPerUser->findField("user_login_id = ?",$user['user_login_id'],"credit");
+        $credits = $CreditPerUser->findField("user_login_id = ?",$user['user_login_id'],"credit");
+        $user['credits'] = $credits ? $credits : 0;
         $user['active'] = Infinity\UserLogin::_isActive($user['company_id']);
         $user['countryData'] = $Country->getCountryNameAndPhoneArea($user['country_id']);
 
