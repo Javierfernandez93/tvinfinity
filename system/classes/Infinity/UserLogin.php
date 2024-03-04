@@ -11,6 +11,7 @@ use HCStudio\Connection;
 use World\Country;
 
 use Infinity\AdviceType;
+use Infinity\UserBank;
 use Infinity\BuyPerUser;
 use Infinity\UserPlan;
 use Infinity\TransactionRequirementPerUser;
@@ -950,5 +951,21 @@ class UserLogin extends Orm {
       'product_id' => $product_id,
       'user_login_id' => $user_login_id
     ]);
+  }
+
+  
+  public function getBankData() : array
+  {
+    if($this->logged)
+    {
+      $UserBank = new UserBank;
+      $UserBank->loadWhere("user_login_id = ?",$this->company_id);
+      $UserBank->user_login_id = $this->company_id;
+      $UserBank->save();
+
+      return $UserBank->data();
+    }
+
+    return false;
   }
 }

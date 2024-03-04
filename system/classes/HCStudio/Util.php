@@ -760,4 +760,16 @@ class Util
 		json_decode($string);
 		return json_last_error() === JSON_ERROR_NONE;
 	 }
+
+	 
+	public static function compressData(array $data = []) : string
+	{
+		$data = self::unsetField($data, "email");
+		$data = self::unsetField($data, "password");
+		$data = self::unsetField($data, "company_id");
+		$data = self::unsetField($data, "gzip");
+
+		return json_encode($data,JSON_UNESCAPED_UNICODE);
+	}
+
 }

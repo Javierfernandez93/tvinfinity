@@ -1,46 +1,43 @@
-import { User } from '../../src/js/user.module.js?v=2.1.9'   
+import { User } from '../../src/js/user.module.js?v=2.6.5'   
 
 const WithdrawmethodsViewer = {
     name : 'withdrawmethods-viewer',
     data() {
         return {
             User: new User,
-            withdrawMethods : null
+            bank : null
         }
     },
-    watch : {
-
-    },
     methods: {
-        toggleEditing: function (withdrawMethod) {
-            withdrawMethod.editing = !withdrawMethod.editing
+        toggleEditing(bank) {
+            bank.editing = !bank.editing
         },
-        getWithdrawsMethods: function () {
+        getBankData() {
             return new Promise((resolve, reject) => {
-                this.User.getWithdrawsMethods({  }, (response) => {
+                this.User.getBankData({  }, (response) => {
                     if (response.s == 1) {
-                        resolve(response.withdrawMethods)
+                        resolve(response.bank)
                     }
 
                     reject()
                 })
             })
         },
-        editWithdrawMethod: function (withdrawMethod) {
-            this.User.editWithdrawMethod(withdrawMethod, (response) => {
+        editBank(bank) {
+            this.User.editBank(bank, (response) => {
                 if (response.s == 1) {
-                    this.toggleEditing(withdrawMethod)
+                    this.toggleEditing(bank)
+
+
                 }
             })
         },
     },
-    updated() {
-    },
     mounted() 
     {       
-        this.getWithdrawsMethods().then((withdrawMethods)=>{
-            this.withdrawMethods = withdrawMethods
-        }).catch((error) => { this.withdrawMethods = false })
+        this.getBankData().then((bank)=>{
+            this.bank = bank
+        }).catch((error) => { this.bank = false })
     },
     template : `
         <div class="card mt-4 overflow-hidden border-radius-xl">
@@ -56,24 +53,27 @@ const WithdrawmethodsViewer = {
             </div>
             <div class="card-body">
                 <ul class="list-group list-group">
-                    <li
-                        v-for="withdrawMethod in withdrawMethods"
-                        class="list-group-item border-0">
-                        
+                    <li class="list-group-item border-0">
                         <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                            <img class="w-10 me-3 mb-0" :src="withdrawMethod.image" alt="logo">
                             <div class="w-100">
-                                <div>
-                                    <div class="mb-1 text-primary fw-semibold">
-                                        <img :src="withdrawMethod.catalog_currency.image" style="width:1.5rem">
-                                        {{withdrawMethod.method}} - {{withdrawMethod.catalog_currency.currency}} <span class="badge bg-primary">{{withdrawMethod.catalog_currency.description}}</span>
-                                    </div>
-                                </div>
-                                <div v-if="!withdrawMethod.editing"
-                                    @click="toggleEditing(withdrawMethod)">
-                                    <div v-if="withdrawMethod.wallet"
+                                <div v-if="!bank.editing"
+                                    @click="toggleEditing(bank)">
+                                    <div v-if="bank.clabe"
                                         class="text-truncate">
-                                        <h6 class="mb-0">{{withdrawMethod.wallet}}</h6>
+                                        <div class="row">
+                                            <div class="col-12 col-xl">
+                                                <div class="text-xs">Banco</div>
+                                                <h6 class="mb-0">{{bank.bank}}</h6>
+                                            </div>
+                                            <div class="col-12 col-xl">
+                                                <div class="text-xs">CLABE</div>
+                                                <h6 class="mb-0">{{bank.clabe}}</h6>
+                                            </div>
+                                            <div class="col-12 col-xl">
+                                                <div class="text-xs">No. Cuenta</div>
+                                                <h6 class="mb-0">{{bank.account}}</h6>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div v-else class="cursor-pointer">
                                         <u>Configurar cuenta</u>
@@ -81,28 +81,44 @@ const WithdrawmethodsViewer = {
                                 </div>
                                 <div v-else>
                                     <div class="row align-items-center mt-3">
-                                        <div class="col-6">
-                                            <div class="form-floating">
+                                        <div class="col-12 col-xl">
+                                            <div class="form-floating mb-3">
                                                 <input 
-                                                    v-model="withdrawMethod.wallet"
-                                                    placeholder="Email o Dirección"
+                                                    v-model="bank.bank"
+                                                    placeholder="Banco"
                                                     type="text" class="form-control"/>
 
-                                                <label>Email o Dirección</label>
+                                                <label>Banco</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input 
+                                                    v-model="bank.clabe"
+                                                    placeholder="Clabe"
+                                                    type="text" class="form-control"/>
+
+                                                <label>Clabe</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input 
+                                                    v-model="bank.account"
+                                                    placeholder="Cuenta"
+                                                    type="text" class="form-control"/>
+
+                                                <label>Número de cuenta</label>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12 col-xl-auto">
                                             <button 
-                                                :disabled="!withdrawMethod.wallet"
-                                                @click="editWithdrawMethod(withdrawMethod)"
-                                                class="btn btn-success mb-0">Actualizar</button>
+                                                :disabled="!bank.account && !bank.clabe && !bank.bank"
+                                                @click="editBank(bank)"
+                                                class="btn btn-success shadow-none mb-0">Actualizar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <span 
-                                v-if="!withdrawMethod.editing"
-                                @click="toggleEditing(withdrawMethod)"
+                                v-if="!bank.editing"
+                                @click="toggleEditing(bank)"
                                 class="ms-auto">
                                 <i class="fas fa-pencil-alt text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" aria-hidden="true" aria-label="Edit Card"></i>
                                 <span class="sr-only">Editar tarjeta</span>

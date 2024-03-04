@@ -418,6 +418,9 @@ class User extends Http {
     getChannels(data, callback) {
         return this.call('../../app/application/getChannels.php', data, callback, null, null);
     }
+    getBankData(data, callback) {
+        return this.call("../../app/application/getBankData.php", data, callback );
+    }
     getAllMyLandings(data, callback) {
         return this.call('../../app/application/getAllMyLandings.php', data, callback, null, null);
     }
@@ -429,6 +432,9 @@ class User extends Http {
     }
     uploadValidationData(data, callback) {
         return this.call('../../app/application/uploadValidationData.php', data, callback, null, null);
+    }
+    editBank(data, callback) {
+        return this.call("../../app/application/editBank.php", data, callback );
     }
 }
 
