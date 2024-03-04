@@ -8,7 +8,8 @@ $UserLogin = new Infinity\UserLogin;
 
 if($UserLogin->logged === true)
 {
-    if($data['withdraw_method_per_user_id'])
+    // if($data['withdraw_method_per_user_id'])
+    if(true)
     {
         if($data['amount'])
         {
@@ -16,9 +17,17 @@ if($UserLogin->logged === true)
             {
                 if($Wallet = BlockChain\Wallet::getWallet($UserLogin->company_id))
                 {
+                    $message = '';
+                    
                     if($transaction_per_wallet_id = $Wallet->createTransaction($ReceiverWallet->public_key,$data['amount'],BlockChain\Transaction::prepareData(['@optMessage'=>$message]),true,BlockChain\Transaction::WITHDRAW_FEE))
                     {
-                        if(Infinity\WithdrawPerUser::saveWithdraw($UserLogin->company_id,$data['withdraw_method_per_user_id'],$data['amount'],$transaction_per_wallet_id))
+                        if(Infinity\CommissionPendingFromEwallet::addWithdraw([
+                            'user_login_id' => $UserLogin->company_id,
+                            'wallet_per_user_id' => $ReceiverWallet->getId(),
+                            'ammount' => $data['amount'],
+                            'catalog_currency_id' => Infinity\CatalogCurrency::$MXN,
+                            'transaction_per_wallet_id' => $transaction_per_wallet_id
+                        ]))
                         {
                             $data["s"] = 1;
                             $data["r"] = "SAVE_OK";

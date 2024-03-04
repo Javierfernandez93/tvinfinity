@@ -1,4 +1,4 @@
-import { User } from '../../src/js/user.module.js?v=2.1.9'   
+import { User } from '../../src/js/user.module.js?v=2.6.4'   
 
 const EwalletwithdrawViewer = {
     name : 'ewalletwithdraw-viewer',
@@ -7,7 +7,7 @@ const EwalletwithdrawViewer = {
     data() {
         return {
             User: new User,
-            withdrawMethods : null,
+            bank : null,
             withdraw: {
                 fee: null,
                 amount: null,
@@ -15,7 +15,7 @@ const EwalletwithdrawViewer = {
             },
             FEE_WITHDRAW_TRANSACTION: 0,
             error: null,
-            MIN_AMOUNT_TO_WITHDRAW: 20,
+            MIN_AMOUNT_TO_WITHDRAW: 50,
             ERRORS: {
                 NOT_WITHDRAWS_METHODS : {
                     code: 1,
@@ -27,7 +27,7 @@ const EwalletwithdrawViewer = {
                 },
                 NOT_WITHDRAWS_METHOD_CHOICED : {
                     code: 3,
-                    text: 'Elige un método de retiro'
+                    text: `Configura tu método de retiro <a href="../../apps/ewallet/withdrawMethods">aquí</a>`
                 },
                 NOT_MINIMUM_AMOUNT : {
                     code: 4,
@@ -49,7 +49,7 @@ const EwalletwithdrawViewer = {
                 {
                     if(this.withdraw.amount >= this.MIN_AMOUNT_TO_WITHDRAW)
                     {
-                        if(this.withdraw.withdraw_method_per_user_id != null)
+                        if(this.bank.bankConfigurated == true)
                         {
                             if(this.withdrawMethods != false)
                             {
@@ -71,13 +71,13 @@ const EwalletwithdrawViewer = {
         }
     },
     methods: {
-        goToTransaction: function(hash) {            
+        goToTransaction(hash) {            
             window.location.href = `../../apps/blockchain/transaction?txn=${hash}`
         },
-        goToConfigureWithdrawMethods: function(hash) {            
+        goToConfigureWithdrawMethods(hash) {            
             window.location.href = `../../apps/ewallet/withdrawmethods`
         },
-        sendEwalletFunds: function() {            
+        sendEwalletFunds() {            
             this.User.sendEwalletFunds(this.withdraw,(response)=>{
                 if(response.s == 1)
                 {
@@ -87,13 +87,13 @@ const EwalletwithdrawViewer = {
                 }
             })
         },
-        openWithdraw: function() {     
+        openWithdraw() {     
             this.openOffCanvas()
         },
-        openOffCanvas: function() {     
+        openOffCanvas() {     
             $(this.$refs.offcanvasRight).offcanvas('show')
         },
-        filterWithdrawMethods: function (withdrawMethods) {
+        filterWithdrawMethods(withdrawMethods) {
             return new Promise((resolve, reject) => { 
                 withdrawMethods = withdrawMethods.filter((withdrawMethod)=>{
                     return withdrawMethod['wallet'] != false
@@ -107,7 +107,7 @@ const EwalletwithdrawViewer = {
                 }
             })
         },
-        getWithdrawsMethods: function () {
+        getWithdrawsMethods() {
             return new Promise((resolve, reject) => {
                 this.User.getWithdrawsMethods({  }, (response) => {
                     if (response.s == 1) {
@@ -118,7 +118,7 @@ const EwalletwithdrawViewer = {
                 })
             })
         },
-        getTransactionWithdrawFee: function() {            
+        getTransactionWithdrawFee() {            
             this.User.getTransactionWithdrawFee({},(response)=>{
                 
                 if(response.s == 1)
@@ -127,14 +127,15 @@ const EwalletwithdrawViewer = {
                 }
             })
         },
-        withdrawFunds: function () {
+        withdrawFunds() {
             this.User.withdrawFunds(this.withdraw, (response) => {
                 if (response.s == 1) {
                     this.$emit('getewallet')
 
                     $(this.$refs.offcanvasRight).offcanvas('hide')
+                } else if(response.r == "NOT_ACTIVE") {
+                    alertMessage('Debes de estar activo para poder retirar dinero')
                 }
-
             })
         },
     },
@@ -145,12 +146,7 @@ const EwalletwithdrawViewer = {
         this.getWithdrawsMethods().then((response)=>{
             this.withdraw.fee = response.fee
 
-            this.filterWithdrawMethods(response.withdrawMethods).then((withdrawMethodsFiltered)=>{
-                this.withdrawMethods = withdrawMethodsFiltered
-            }).catch(() => { 
-                this.withdrawMethods = false
-                this.error = this.ERRORS.NOT_WITHDRAWS_METHODS
-            })
+            this.bank = response.bank
         }).catch(() => { 
             
         })
@@ -161,7 +157,7 @@ const EwalletwithdrawViewer = {
                 <div class="offcanvas-header">
                     <h5 id="offcanvasRightLabel">
                         <div>
-                            <t>Retirar USD</t>
+                            <t>Retirar MXN</t>
                         </div>
                     </h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -180,7 +176,7 @@ const EwalletwithdrawViewer = {
                                         <span class="badge text-secondary p-0">Balance</span>
                                     </div>
                                     <div class="fs-5 fw-semibold text-dark">
-                                        $ {{ewallet.amount.numberFormat(2)}} USD
+                                        $ {{ewallet.amount.numberFormat(2)}} MXN
                                     </div>
                                 </div>
                             </div>
@@ -197,24 +193,30 @@ const EwalletwithdrawViewer = {
                                 <label for="address">Cantidad a retirar</label>
                             </div>
 
-                            <div v-if="withdrawMethods" class="form-floating mb-3">
-                                <select class="form-select" v-model="withdraw.withdraw_method_per_user_id" aria-label="Selecciona tu método de retiro">
-                                    <option v-for="withdrawMethod in withdrawMethods" v-bind:value="withdrawMethod.withdraw_method_per_user_id">
-                                        {{ withdrawMethod.method }} - {{ withdrawMethod.wallet }} ({{ withdrawMethod.catalog_currency.currency }})
-                                    </option>
-                                </select>
-                                <label for="floatingSelect">Selecciona tu método de retiro</label>
+                            <div v-if="bank.bankConfigurated" class="form-floating mb-3">
+                                <div class="mb-3">
+                                    <div class="text-xs text-secondary">CLABE</div>
+                                    {{bank.clabe}}
+                                </div>
+                                <div class="mb-3">
+                                    <div class="text-xs text-secondary">Cuenta</div>
+                                    {{bank.account}}
+                                </div>
+                                <div class="mb-3">
+                                    <div class="text-xs text-secondary">Banco</div>
+                                    {{bank.bank}}
+                                </div>
                             </div>
 
                             <div class="form-floating mb-3 text-center">
                                 <span class="badge text-secondary p-0">Cantidad + (fee $ {{FEE_WITHDRAW_TRANSACTION.numberFormat(2)}}%) </span>
                                 <div class="fw-semibold text-dark">
-                                    $ {{(parseFloat(withdraw.amount)+parseFloat(withdraw.fee)).numberFormat(2)}} USD
+                                    $ {{(parseFloat(withdraw.amount)+parseFloat(withdraw.fee)).numberFormat(2)}} MXN
                                 </div>
                             </div>
 
                             <div v-if="error" class="alert alert-danger text-white">
-                                <strong>Aviso</strong> - {{error.text}}
+                                <strong>Aviso</strong> - <span v-html="error.text"></span>
 
                                 <span v-if="error == ERRORS.NOT_MINIMUM_AMOUNT">$ {{MIN_AMOUNT_TO_WITHDRAW.numberFormat(2)}}</span>
 
@@ -224,7 +226,10 @@ const EwalletwithdrawViewer = {
                             </div>
                             <div v-else class="alert alert-success text-white">
                                 <div v-if="withdraw.fee > 0">
-                                    <strong>Aviso</strong> Fee de la transacción {{withdraw.fee.numberFormat(2)}}%
+                                    <strong>Aviso</strong> Fee de la transacción $ {{withdraw.fee.numberFormat(2)}} MXN
+                                </div>
+                                <div v-else>
+                                    <strong>Aviso</strong> Los retiros duran 72 horas hábiles en ser procesados
                                 </div>
                             </div>
 
