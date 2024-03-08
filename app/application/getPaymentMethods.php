@@ -1,4 +1,4 @@
-<?php define("TO_ROOT", "../../");
+David<?php define("TO_ROOT", "../../");
 
 require_once TO_ROOT . "/system/core.php";
 
