@@ -159,7 +159,8 @@ class BuyPerUser extends Orm {
     {
       return array_map(function($buy){
         $buy['checkout_data'] = json_decode($buy['checkout_data'],true);
-        $buy['validation_data'] = $buy['validation_data'] ? json_decode($buy['validation_data'],true) : [];
+        $buy['validation_data'] = $buy['validation_data'] ? json_decode($buy['validation_data'],true) : null;
+
         return $buy;
       },$buys);
     }
