@@ -9,6 +9,7 @@ class CatalogCurrency extends Orm {
 	protected $tblName = 'catalog_currency';
 
 	const USD = 8;
+	const MXN = 10;
 	public function __construct() {
 		parent::__construct();
 	}
