@@ -59,7 +59,7 @@ const AdmintransactionsViewer = {
         }
     },
     methods: {
-        sortData: function (column) {
+        sortDat (column) {
             this.administrators.sort((a,b) => {
                 const _a = column.desc ? a : b
                 const _b = column.desc ? b : a
@@ -74,15 +74,19 @@ const AdmintransactionsViewer = {
 
             column.desc = !column.desc
         },
-        applyWithdraw : function(transaction) {
-            this.UserSupport.applyWithdraw({withdraw_per_user_id: transaction.withdraw_per_user_id},(response)=>{
+        applyWithdraw(transaction) {
+            this.UserSupport.applyWithdraw({commission_per_user_id: transaction.commission_per_user_id},(response)=>{
                 if(response.s == 1)
                 {
                     transaction.status = response.status
+
+                    toastInfo({
+                        message: 'Deposito aplicado',
+                    })
                 }
             });
         },
-        deleteWithdraw : function(transaction) {
+        deleteWithdraw(transaction) {
             this.UserSupport.deleteWithdraw({withdraw_per_user_id:transaction.withdraw_per_user_id},(response)=>{
                 if(response.s == 1)
                 {
@@ -90,7 +94,7 @@ const AdmintransactionsViewer = {
                 }
             })
         },
-        getUsersTransactions : function() {
+        getUsersTransactions() {
             this.UserSupport.getUsersTransactions({status:this.status},(response)=>{
                 if(response.s == 1)
                 {
