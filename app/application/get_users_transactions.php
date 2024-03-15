@@ -8,11 +8,11 @@ $UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    $WithdrawPerUser = new Infinity\WithdrawPerUser;
+    $CommissionPendingFromEwallet = new Infinity\CommissionPendingFromEwallet;
     
     $filter = " WHERE withdraw_per_user.status = '1'";
     
-    if($transactions = $WithdrawPerUser->getAll($filter))
+    if($transactions = $CommissionPendingFromEwallet->getAll($filter))
     {
         $data["transactions"] = $transactions;
         $data["s"] = 1;

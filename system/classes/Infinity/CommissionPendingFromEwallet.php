@@ -52,22 +52,19 @@ class CommissionPendingFromEwallet extends Orm {
 		$sql = "SELECT 
 					{$this->tblName}.{$this->tblName}_id,
 					{$this->tblName}.transaction_per_user_id,
-					{$this->tblName}.wallet_per_user_id,
-					{$this->tblName}.catalog_currency_id,
 					{$this->tblName}.payment_date,
-					{$this->tblName}.payment_id,
-					{$this->tblName}.retention,
-					{$this->tblName}.create_date,
-					SUM({$this->tblName}.amount) as amount
+					{$this->tblName}.create_id,
+					{$this->tblName}.amount,
+					{$this->tblName}.create_date
 				FROM 
 					{$this->tblName}
 				WHERE 
 					{$this->tblName}.status = '{$status}'
-				GROUP BY 
-					{$this->tblName}.catalog_currency_id,
-					{$this->tblName}.payment_id,
-					{$this->tblName}.wallet_per_user_id
-					";
+				LEFT JOIN 
+					user_bank 
+				ON 
+					user_bank.user_login_id = {$this->tblName}.user_login_id
+				";
 
 		return $this->connection()->rows($sql);
 	}
