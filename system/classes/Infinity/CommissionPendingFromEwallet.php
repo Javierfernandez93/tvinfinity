@@ -54,6 +54,7 @@ class CommissionPendingFromEwallet extends Orm {
 					{$this->tblName}.payment_date,
 					{$this->tblName}.user_login_id,
 					{$this->tblName}.create_date,
+					{$this->tblName}.payment_date,
 					{$this->tblName}.amount,
 					user_data.names,
 					user_bank.account,

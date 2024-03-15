@@ -75,7 +75,7 @@ const AdmintransactionsViewer = {
             column.desc = !column.desc
         },
         applyWithdraw(transaction) {
-            this.UserSupport.applyWithdraw({commission_per_user_id: transaction.commission_per_user_id},(response)=>{
+            this.UserSupport.applyWithdraw({commission_pending_from_ewallet_id: transaction.commission_pending_from_ewallet_id},(response)=>{
                 if(response.s == 1)
                 {
                     transaction.status = response.status
@@ -87,7 +87,7 @@ const AdmintransactionsViewer = {
             });
         },
         deleteWithdraw(transaction) {
-            this.UserSupport.deleteWithdraw({commission_per_user_id: transaction.commission_per_user_id},(response)=>{
+            this.UserSupport.deleteWithdraw({commission_pending_from_ewallet_id: transaction.commission_pending_from_ewallet_id},(response)=>{
                 if(response.s == 1)
                 {
                     transaction.status = response.status

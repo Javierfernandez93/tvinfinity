@@ -8,16 +8,16 @@ $UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    if($data['commission_per_user_id'])
+    if($data['commission_pending_from_ewallet_id'])
     {
-        $CommissionPerUser = new Infinity\CommissionPerUser;
+        $CommissionPendingFromEwallet = new Infinity\CommissionPendingFromEwallet;
         
-        if($CommissionPerUser->loadWhere('commission_per_user_id = ?',$data['commission_per_user_id']))
+        if($CommissionPendingFromEwallet->loadWhere('commission_pending_from_ewallet_id = ?',$data['commission_pending_from_ewallet_id']))
         {
             $data['status'] = -1;
-            $CommissionPerUser->status = $data['status'];
+            $CommissionPendingFromEwallet->status = $data['status'];
         
-            if($CommissionPerUser->save())
+            if($CommissionPendingFromEwallet->save())
             {
                 $data["s"] = 1;
                 $data["r"] = "DATA_OK";
