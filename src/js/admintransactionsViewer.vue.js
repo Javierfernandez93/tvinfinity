@@ -11,6 +11,10 @@ const AdmintransactionsViewer = {
                     status: 2
                 },
                 {
+                    name: 'Eliminadas',
+                    status: -1
+                },
+                {
                     name: 'Pendientes',
                     status: 1
                 }

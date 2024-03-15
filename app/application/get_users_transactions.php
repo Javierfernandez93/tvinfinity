@@ -10,7 +10,7 @@ if($UserSupport->_loaded === true)
 {
     $CommissionPendingFromEwallet = new Infinity\CommissionPendingFromEwallet;
     
-    if($transactions = $CommissionPendingFromEwallet->getAll(1))
+    if($transactions = $CommissionPendingFromEwallet->getAll($data['status']))
     {
         $data["transactions"] = $transactions;
         $data["s"] = 1;
