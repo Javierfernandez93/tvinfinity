@@ -257,7 +257,7 @@ const AdmintransactionsViewer = {
                                     {{transaction.bank}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    {{transaction.account_number}}
+                                    {{transaction.account}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <p class="mb-0">{{transaction.create_date.formatDate()}}</p>
