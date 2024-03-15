@@ -201,6 +201,7 @@ class CommissionPerUser extends Orm {
 						{$this->tblName}.buy_per_user_id,
 						{$this->tblName}.package_id,
 						{$this->tblName}.catalog_currency_id,
+						{$this->tblName}.status,
 						{$this->tblName}.deposit_date,
 						{$this->tblName}.transaction_per_wallet_id,
 						{$this->tblName}.catalog_commission_type_id,

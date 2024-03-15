@@ -171,15 +171,6 @@ const AdmintransactionsViewer = {
                                     </span>
                                     <u class="text-sm ms-2">Monto retirado</u>
                                 </th>
-                                <th @click="sortData(columns.method)" class="text-center c-pointer text-uppercase text-secondary font-weight-bolder opacity-7">
-                                    <span v-if="columns.method.desc">
-                                        <i class="bi text-primary bi-arrow-up-square-fill"></i>
-                                    </span>
-                                    <span v-else>
-                                        <i class="bi text-primary bi-arrow-down-square-filssl"></i>
-                                    </span>
-                                    <u class="text-sm ms-2">Método</u>
-                                </th>
                                 <th @click="sortData(columns.account)" class="text-center c-pointer text-uppercase text-secondary font-weight-bolder opacity-7">
                                     <span v-if="columns.account.desc">
                                         <i class="bi text-primary bi-arrow-up-square-fill"></i>
@@ -240,27 +231,22 @@ const AdmintransactionsViewer = {
                                     {{transaction.user_login_id}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{transaction.names}}</h6>
-                                            <p class="text-xs text-secondary mb-0">{{transaction.email}}</p>
-                                        </div>
-                                    </div>
+                                    {{transaction.names}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     $ {{transaction.amount.numberFormat(2)}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    {{transaction.clabe}}
+                                    {{transaction.bank}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    {{transaction.bank}}
+                                    {{transaction.clabe}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     {{transaction.account}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    <p class="mb-0">{{transaction.create_date.formatDate()}}</p>
+                                    {{transaction.create_date.formatDate()}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <span v-if="transaction.status == 1" class="badge border border-warning text-warning">Pendiente</span>
