@@ -71,7 +71,7 @@ class CommissionPendingFromEwallet extends Orm {
 				WHERE 
 					{$this->tblName}.status = '{$status}'
 				";
-d($sql);
+
 		return $this->connection()->rows($sql);
 	}
 
