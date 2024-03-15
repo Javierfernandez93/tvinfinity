@@ -1,9 +1,6 @@
 import { UserSupport } from '../../src/js/userSupport.module.js?t=6'
 
 const AdmintransactionsViewer = {
-    name : 'admintransactions-viewer',
-    props : [],
-    emits : [],
     data() {
         return {
             UserSupport : new UserSupport,
@@ -219,7 +216,7 @@ const AdmintransactionsViewer = {
                         <tbody>
                             <tr v-for="transaction in transactions">
                                 <td class="align-middle text-center text-sm">
-                                    {{transaction.withdraw_per_user_id}}
+                                    {{transaction.commission_pending_from_ewallet_id}}
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     {{transaction.user_login_id}}
