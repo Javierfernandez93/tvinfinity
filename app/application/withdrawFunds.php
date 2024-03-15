@@ -25,7 +25,7 @@ if($UserLogin->logged === true)
                             'user_login_id' => $UserLogin->company_id,
                             'wallet_per_user_id' => $ReceiverWallet->getId(),
                             'ammount' => $data['amount'],
-                            'catalog_currency_id' => Infinity\CatalogCurrency::$MXN,
+                            'catalog_currency_id' => Infinity\CatalogCurrency::MXN,
                             'transaction_per_wallet_id' => $transaction_per_wallet_id
                         ]))
                         {
