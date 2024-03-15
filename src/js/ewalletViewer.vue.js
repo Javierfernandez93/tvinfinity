@@ -228,7 +228,7 @@ const EwalletViewer = {
                                             </span>
                                         </div>
                                         <span v-if="lastTransaction.transactionData.address" class="fw-semibold text-dark text-xs">
-                                            {{lastTransaction.transactionData.address.amount.numberFormat(6)}} USD
+                                            {{lastTransaction.transactionData.address.amount.numberFormat(6)}} MXN
                                         </span>
                                     </div>
                                 </div>
