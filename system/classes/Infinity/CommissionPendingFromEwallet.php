@@ -26,7 +26,6 @@ class CommissionPendingFromEwallet extends Orm {
 		return $CommissionPendingFromEwallet->save();
 	}
 
-
 	public function getAllDeposited($wallet_per_user_id = null)
 	{
 		if(isset($wallet_per_user_id))
@@ -58,12 +57,12 @@ class CommissionPendingFromEwallet extends Orm {
 					{$this->tblName}.create_date
 				FROM 
 					{$this->tblName}
-				WHERE 
-					{$this->tblName}.status = '{$status}'
 				LEFT JOIN 
 					user_bank 
 				ON 
 					user_bank.user_login_id = {$this->tblName}.user_login_id
+				WHERE 
+					{$this->tblName}.status = '{$status}'
 				";
 
 		return $this->connection()->rows($sql);
