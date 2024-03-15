@@ -116,7 +116,7 @@ const EwalletViewer = {
                                 <h5 class="text-white text-uppercase pb-2">Balance</h5>
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="text-white text-uppercase pb-2">$ {{ewallet.amount.numberFormat(2)}} USD </h5>
+                                        <h5 class="text-white text-uppercase pb-2">$ {{ewallet.amount.numberFormat(2)}} MXN </h5>
                                     </div>
                                     <div class="col-auto">
                                         <button 
