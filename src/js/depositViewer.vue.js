@@ -65,8 +65,8 @@ const DepositViewer = {
                             <div class="fs-4 text-dark fw-semibold">{{data.value}} <button @click="copy(data.value,$event.target)" class="btn btn-outline-primary px-3 btn-sm mb-0 shadow-none">Copiar</button></div>
                         </div>
 
-                        <div class="alert alert-light text-center fw-semibold">
-                            <strong>Importante</strong> una vez realices tu pago <a @click="goToInvoices(invoice.buy_per_user_id)" class="text-decoration-underline text-primary" target="_blank">sube tu ticket o referencia de pago aquí</a>
+                        <div class="alert alert-danger text-white text-center fw-semibold">
+                            <strong>Importante</strong> una vez realices tu pago <a @click="goToInvoices(invoice.buy_per_user_id)" class="text-decoration-underline text-white" target="_blank">sube tu ticket o referencia de pago aquí</a>
                         </div>
                     </div>
                 </div>
