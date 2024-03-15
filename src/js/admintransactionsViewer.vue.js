@@ -187,6 +187,24 @@ const AdmintransactionsViewer = {
                                     <span v-else>
                                         <i class="bi text-primary bi-arrow-down-square-fill"></i>
                                     </span>
+                                    <u class="text-sm ms-2">Banco</u>
+                                </th>
+                                <th @click="sortData(columns.account)" class="text-center c-pointer text-uppercase text-secondary font-weight-bolder opacity-7">
+                                    <span v-if="columns.account.desc">
+                                        <i class="bi text-primary bi-arrow-up-square-fill"></i>
+                                    </span>
+                                    <span v-else>
+                                        <i class="bi text-primary bi-arrow-down-square-fill"></i>
+                                    </span>
+                                    <u class="text-sm ms-2">CLABE</u>
+                                </th>
+                                <th @click="sortData(columns.account)" class="text-center c-pointer text-uppercase text-secondary font-weight-bolder opacity-7">
+                                    <span v-if="columns.account.desc">
+                                        <i class="bi text-primary bi-arrow-up-square-fill"></i>
+                                    </span>
+                                    <span v-else>
+                                        <i class="bi text-primary bi-arrow-down-square-fill"></i>
+                                    </span>
                                     <u class="text-sm ms-2">Cuenta</u>
                                 </th>
 
@@ -221,7 +239,7 @@ const AdmintransactionsViewer = {
                                 <td class="align-middle text-center text-sm">
                                     {{transaction.user_login_id}}
                                 </td>
-                                <td>
+                                <td class="align-middle text-center text-sm">
                                     <div class="d-flex px-2 py-1">
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="mb-0 text-sm">{{transaction.names}}</h6>
@@ -229,22 +247,22 @@ const AdmintransactionsViewer = {
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle text-center">
-                                    <p class="fw-semibold text-dark">$ {{transaction.amount.numberFormat(2)}}</p>
+                                <td class="align-middle text-center text-sm">
+                                    $ {{transaction.amount.numberFormat(2)}}
                                 </td>
-                                <td class="align-middle text-center">
-                                    <span class="badge border border-primary text-primary">
-                                        {{transaction.method}} - 
-                                        {{transaction.currency}}
-                                    </span>
+                                <td class="align-middle text-center text-sm">
+                                    {{transaction.clabe}}
                                 </td>
-                                <td class="align-middle text-center">
-                                    <p class="fw-semibold text-dark">{{transaction.wallet}}</p>
+                                <td class="align-middle text-center text-sm">
+                                    {{transaction.bank}}
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle text-center text-sm">
+                                    {{transaction.account_number}}
+                                </td>
+                                <td class="align-middle text-center text-sm">
                                     <p class="mb-0">{{transaction.create_date.formatDate()}}</p>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle text-center text-sm">
                                     <span v-if="transaction.status == 1" class="badge border border-warning text-warning">Pendiente</span>
                                     <span v-else-if="transaction.status == 2" class="badge border border-success text-success">Transferida</span>
                                     <span v-else-if="transaction.status == -1" class="badge border border-danger text-danger">Eliminada</span>
