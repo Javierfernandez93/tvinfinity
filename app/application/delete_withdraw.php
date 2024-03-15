@@ -8,16 +8,16 @@ $UserSupport = new Infinity\UserSupport;
 
 if($UserSupport->_loaded === true)
 {
-    if($data['withdraw_per_user_id'])
+    if($data['commission_per_user_id'])
     {
-        $WithdrawPerUser = new Infinity\WithdrawPerUser;
+        $CommissionPerUser = new Infinity\CommissionPerUser;
         
-        if($WithdrawPerUser->loadWhere('withdraw_per_user_id = ?',$data['withdraw_per_user_id']))
+        if($CommissionPerUser->loadWhere('commission_per_user_id = ?',$data['commission_per_user_id']))
         {
-            $data['status'] = Infinity\WithdrawPerUser::DELETED;
-            $WithdrawPerUser->status = $data['status'];
+            $data['status'] = -1;
+            $CommissionPerUser->status = $data['status'];
         
-            if($WithdrawPerUser->save())
+            if($CommissionPerUser->save())
             {
                 $data["s"] = 1;
                 $data["r"] = "DATA_OK";
