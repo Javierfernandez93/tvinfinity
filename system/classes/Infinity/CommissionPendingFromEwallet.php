@@ -57,8 +57,7 @@ class CommissionPendingFromEwallet extends Orm {
 					user_data.names,
 					user_bank.account,
 					user_bank.bank,
-					user_bank.clabe,
-					{$this->tblName}.create_date
+					user_bank.clabe
 				FROM 
 					{$this->tblName}
 				LEFT JOIN 
@@ -72,7 +71,7 @@ class CommissionPendingFromEwallet extends Orm {
 				WHERE 
 					{$this->tblName}.status = '{$status}'
 				";
-
+d($sql);
 		return $this->connection()->rows($sql);
 	}
 
