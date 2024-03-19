@@ -153,7 +153,7 @@ class Router {
             case self::AdmiActivation:
                 return 'Activar en plan';
             case self::AdminTransactions:
-                return 'Transacciones';
+                return 'Pago de comisiones';
             case self::AdminAddOldComissions:
                 return 'Añadir comisiones atrasadas';
             case self::AdminTransactionsList:
